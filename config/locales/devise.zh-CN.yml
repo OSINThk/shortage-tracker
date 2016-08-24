@@ -25,7 +25,7 @@ zh-CN:
       unlock_instructions:
         subject: "解锁信息"
       password_change:
-        subject: 'Password Changed'
+        subject: '密码已重置'
     omniauth_callbacks:
       failure: "因为%{reason}，所以您无法从%{kind}获得授权。"
       success: "成功地从%{kind}获得授权。"
