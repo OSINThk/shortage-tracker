@@ -2,8 +2,7 @@
 # 4.2.0: By HealthGrid at https://gist.github.com/HealthGrid/2d702b38aa6ffe0233f27d3d5be9250f
 # 4.2.1: By Artoria2e5 (this file)
 #  - Fixes pluralization problems (zh only takes "other")
-#  - Misc translation improvements, you know what these grammar things are
-#    - Actually a lot?
+#  - Misc translation improvements, you know what these grammar things are.
 #  - Should be minor enough to claim CC0 for my changes.
 # Additional translations at https://github.com/plataformatec/devise/wiki/I18n
 
@@ -67,4 +66,4 @@ zh-CN:
       not_found: "找不到。"
       not_locked: "未锁定。"
       not_saved:
-        other: "因为%{count}个错误导致%{resource}保存失败:"
+        other: "发生%{count}个错误，导致%{resource}保存失败："
