@@ -1,3 +1,10 @@
+# Chinese (Taiwan) translations for Devise 4.2.1
+# 4.1.1: By MitsunChieh at https://gist.github.com/MitsunChieh/8b4249859274acd15df5f4d757e55bc2
+# 4.2.1: By Artoria2e5 (this file)
+#  - Fixes pluralization problems (zh only takes "other")
+#  - Misc translation improvements, you know what these grammar things are
+#    - Actually a lot?
+#  - Should be minor enough to claim CC0 for my changes.
 # Additional translations at https://github.com/plataformatec/devise/wiki/I18n
 
 zh-TW:
@@ -23,10 +30,12 @@ zh-TW:
         subject: "密碼重設步驟"
       unlock_instructions:
         subject: "帳號解鎖步驟"
+      email_changed:
+        subject: "信箱已被修改"
       password_change:
-        subject: "密碼修改步驟"
+        subject: "密碼已被修改"
     omniauth_callbacks:
-      failure: "無法從 %{kind} 驗證，因為 \"%{reason}\"。"
+      failure: "無法從 %{kind} 驗證，因為「%{reason}」。"
       success: "成功從 %{kind} 驗證。"
     passwords:
       no_token: "這是密碼重設頁面，僅能透過密碼重設信件進入。如果您是透過重設信件進入的，請確認您的網址是完整的。"
@@ -58,5 +67,4 @@ zh-TW:
       not_found: "找不到。"
       not_locked: "並未被鎖定。"
       not_saved:
-        one: "有一個錯誤導致 %{resource} 不能被儲存："
         other: "有 %{count} 個錯誤導致 %{resource} 不能被儲存："
