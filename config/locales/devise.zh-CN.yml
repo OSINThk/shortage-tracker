@@ -50,6 +50,7 @@ zh-CN:
       signed_up_but_unconfirmed: "一封带有确认链接的邮件已经发送至您的邮箱，请检查邮箱（包括垃圾邮箱），并点击该链接激活您的帐号。"
       update_needs_confirmation: "信息更新成功，但我们需要验证您的新电子邮件地址，请检查邮箱（包括垃圾邮箱），并点击该链接激活您的帐号。"
       updated: "帐号资料更新成功。"
+      updated_but_not_signed_in: "帐号资料更新成功。由于密码已修改，请重新登录。"
     sessions:
       signed_in: "登录成功。"
       signed_out: "退出成功。"
