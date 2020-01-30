@@ -55,3 +55,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Added at 2020-01-30 21:27:14 +0800 by nathanhammond:
 gem "devise", "~> 4.7"
+
+# Added at 2020-01-30 21:36:46 +0800 by nathanhammond:
+gem "pundit", "~> 2.1"
