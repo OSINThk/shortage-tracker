@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :privileges
   resources :roles
   devise_for :users
   root to: "pages#index"
