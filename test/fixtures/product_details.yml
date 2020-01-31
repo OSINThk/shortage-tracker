@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  scarcity: 1
+  price: 1
+  notes: MyString
+  product: one
+  report: one
+
+two:
+  scarcity: 1
+  price: 1
+  notes: MyString
+  product: two
+  report: two
