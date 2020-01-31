@@ -1,24 +1,32 @@
-# README
+# shortage-tracker
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a project of OSINThk.
 
-Things you may want to cover:
+## Setup
 
-* Ruby version
+Works with [`rbenv`](https://github.com/rbenv/rbenv#homebrew-on-macos). May work with `rvm`.
 
-* System dependencies
+An approximate macOS setup from basics:
 
-* Configuration
+```sh
+brew install git rbenv postgres postgis
 
-* Database creation
+brew services start postgresql
 
-* Database initialization
+rbenv init
+rbenv install 2.5.1
+gem install bundler rails
 
-* How to run the test suite
+git clone git@github.com:OSINThk/shortage-tracker.git
+cd shortage-tracker
+bundle install
 
-* Services (job queues, cache servers, search engines, etc.)
+rake db:create && rake db:migrate
+rails s
+```
 
-* Deployment instructions
+Anything that you find incomplete in the setup, please help us document!
 
-* ...
+## Contributing
+
+Ping @nathanhammond to get started, he will pair with you to get your machine set up and figure out where to focus. Will use a GitHub PR workflow once there is more than one contributor.
