@@ -3,7 +3,7 @@ class CreateReports < ActiveRecord::Migration[6.0]
     create_table :reports do |t|
       t.inet :ip
       t.string :notes
-      t.st_point :coordinates
+      t.st_point :coordinates, geographic: true
       t.references :user, null: false, foreign_key: true
 
       t.timestamps
