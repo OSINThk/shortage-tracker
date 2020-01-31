@@ -24,7 +24,14 @@ class ReportsController < ApplicationController
   # POST /reports
   # POST /reports.json
   def create
-    @report = Report.new(report_params)
+    passed_params = report_params
+
+    # Augment the parameters with server-known information.
+    augmented_params = passed_params
+    augmented_params["ip"] = request.remote_ip
+    augmented_params["user_id"] = current_user.id
+
+    @report = Report.new(augmented_params)
 
     respond_to do |format|
       if @report.save
@@ -69,6 +76,6 @@ class ReportsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def report_params
-      params.require(:report).permit(:ip, :notes, :coordinates, :user_id)
+      params.require(:report).permit(:notes, :coordinates)
     end
 end
