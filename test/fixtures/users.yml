@@ -6,6 +6,8 @@
 #
 one:
   email: "one@example.com"
+  confirmed_at: <%= Time.now %>
 
 two:
   email: "two@example.com"
+  confirmed_at: <%= Time.now %>
