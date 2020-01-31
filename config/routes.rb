@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :reports
   resources :privileges
   resources :roles
   devise_for :users
