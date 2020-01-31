@@ -16,6 +16,15 @@
     <%= form.text_field :name %>
   </div>
 
+  <h3>Roles with Privilege</h3>
+  <div class="field">
+    <ul>
+    <%= form.collection_check_boxes(:role_ids, roles, :id, :name) do |role| %>
+      <li><%= role.check_box %><%= role.label %></li>
+    <% end %>
+    </ul>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

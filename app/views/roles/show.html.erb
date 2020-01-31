@@ -5,5 +5,15 @@
   <%= @role.name %>
 </p>
 
+<p>
+  <strong>Privileges:</strong>
+</p>
+
+<ul>
+  <% @role.privilege.each do |privilege| %>
+    <li><%= privilege.name %></li>
+  <% end %>
+</ul>
+
 <%= link_to 'Edit', edit_role_path(@role) %> |
 <%= link_to 'Back', roles_path %>

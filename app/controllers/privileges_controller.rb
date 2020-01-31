@@ -1,5 +1,6 @@
 class PrivilegesController < ApplicationController
   before_action :set_privilege, only: [:show, :edit, :update, :destroy]
+  before_action :set_roles, only: [:new, :edit]
 
   # GET /privileges
   # GET /privileges.json
@@ -67,8 +68,12 @@ class PrivilegesController < ApplicationController
       @privilege = Privilege.find(params[:id])
     end
 
+    def set_roles
+      @roles = Role.all
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def privilege_params
-      params.require(:privilege).permit(:name)
+      params.require(:privilege).permit(:name, :role_ids => [])
     end
 end
