@@ -80,7 +80,4 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: shortage_tracker_production
-  username: shortage_tracker
-  password: <%= ENV['SHORTAGE_TRACKER_DATABASE_PASSWORD'] %>
+  url: <%= ENV.fetch('DATABASE_URL', '').sub(/^postgres/, "postgis") %>
