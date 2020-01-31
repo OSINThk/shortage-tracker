@@ -1,6 +1,6 @@
 # shortage-tracker
 
-This is a project of OSINThk.
+This is a project of OSINThk. 
 
 ## Setup
 
@@ -29,4 +29,5 @@ Anything that you find incomplete in the setup, please help us document!
 
 ## Contributing
 
-Ping @nathanhammond to get started, he will pair with you to get your machine set up and figure out where to focus. Will use a GitHub PR workflow once there is more than one contributor.
+Ping @nathanhammond to get started, he will pair with you to get your machine set up and figure out where to focus. Will use a GitHub PR workflow once there is more than one contributor. Telegram group link.
+https://t.me/joinchat/Aig7CRa2KapdIcMJX21--A
