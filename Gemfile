@@ -58,3 +58,6 @@ gem "devise", "~> 4.7"
 
 # Added at 2020-01-30 21:36:46 +0800 by nathanhammond:
 gem "pundit", "~> 2.1"
+
+# Added at 2020-01-31 11:50:15 +0800 by nathanhammond:
+gem "activerecord-postgis-adapter", "~> 6.0"
