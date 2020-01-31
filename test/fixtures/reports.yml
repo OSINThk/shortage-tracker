@@ -1,13 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  ip: 
   notes: MyString
-  coordinates: 
+  coordinates: POINT(1 1)
   user: one
 
 two:
-  ip: 
   notes: MyString
-  coordinates: 
+  coordinates: POINT(2 2)
   user: two
