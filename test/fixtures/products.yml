@@ -6,15 +6,15 @@
     parent_id:  NULL
     title:      Beverages
 - child:
-    id:         2
+    id:         1
     parent_id:  1
     title:      coffee/tea
   - child:
-    id:         3
+    id:         2
     parent_id:  1
     title:      juice
   - child:
-    id:         4
+    id:         3
     parent_id:  1
     title:      soda
 - parent:
