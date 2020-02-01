@@ -1,6 +1,6 @@
-<h1>Editing User</h1>
+<h2>Editing User: <%= @user.email %></h2>
 
-<%= render 'form', user: @user %>
+<%= render 'form', user: @user, roles: @roles %>
 
 <%= link_to 'Show', @user %> |
 <%= link_to 'Back', users_path %>

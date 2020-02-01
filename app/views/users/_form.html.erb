@@ -11,9 +11,13 @@
     </div>
   <% end %>
 
+  <h3>Roles for User</h3>
   <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
+    <ul>
+    <%= form.collection_check_boxes(:role_ids, roles, :id, :name) do |role| %>
+      <li><%= role.check_box %><%= role.label %></li>
+    <% end %>
+    </ul>
   </div>
 
   <div class="actions">
