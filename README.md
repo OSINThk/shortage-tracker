@@ -38,7 +38,6 @@ Once we have more than one regular contributor we will use a GitHub PR workflow 
 This is a list of many of the remaining steps to get this application into a shippable state:
 
 ### MVP
-- [ ] Implement user to role association.
 - [ ] Implement authorization for each route.
 - [ ] Implement root/bootstrapping user.
 - [ ] Scope results on Report#index page to "just my reports."
