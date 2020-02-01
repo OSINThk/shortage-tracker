@@ -1,7 +1,211 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-
-two:
-  name: MyString
+--- !omap
+- parent:
+    id:         1
+    parent_id:  NULL
+    title:      Beverages
+- child:
+    id:         2
+    parent_id:  1
+    title:      coffee/tea
+  - child:
+    id:         3
+    parent_id:  1
+    title:      juice
+  - child:
+    id:         4
+    parent_id:  1
+    title:      soda
+- parent:
+    id:         2
+    parent_id:  NULL
+    title:      Bread/Bakery
+- child:
+    id:         1
+    parent_id:  2
+    title:      Bread
+- parent:
+    id:         3
+    parent_id:  NULL
+    title:      Canned/Jarred Goods
+- child:
+    id:         1
+    parent_id:  3
+    title:      vegetables
+- child:
+    id:         2
+    parent_id:  3
+    title:      sauces
+- child:
+    id:         3
+    parent_id:  3
+    title:      condiments
+- parent:
+    id:         4
+    parent_id:  NULL
+    title:      Dairy
+- child:
+    id:         1
+    parent_id:  4
+    title:      cheeses
+- child:
+    id:         2
+    parent_id:  4
+    title:      eggs
+- child:
+    id:         3
+    parent_id:  4
+    title:      milk
+- child:
+    id:         4
+    parent_id:  4
+    title:      butter  
+- parent:
+    id:         5
+    parent_id:  NULL
+    title:      Dry/Baking Goods
+- child:
+    id:         1
+    parent_id:  5
+    title:      rice
+- child:
+    id:         2
+    parent_id:  5
+    title:      flour
+- child:
+    id:         3
+    parent_id:  5
+    title:      sugar
+- child:
+    id:         4
+    parent_id:  5
+    title:      pasta
+- parent:
+    id:         6
+    parent_id:  NULL
+    title:      Frozen Foods
+- child:
+    id:         1
+    parent_id:  6
+    title:      meat
+- child:
+    id:         2
+    parent_id:  6
+    title:      vegetables
+- parent:
+    id:         7
+    parent_id:  NULL
+    title:      Meat
+- child:
+    id:         1
+    parent_id:  7
+    title:      Poultry
+- child:
+    id:         2
+    parent_id:  7
+    title:      Pork
+- child:
+    id:         3
+    parent_id:  7
+    title:      Beef
+- child:
+    id:         3
+    parent_id:  7
+    title:      Luncheon
+- parent:
+    id:         8
+    parent_id:  NULL
+    title:      Produce
+- child:
+    id:         1
+    parent_id:  8
+    title:      Fruits
+- child:
+    id:         2
+    parent_id:  8
+    title:      Vegetables
+- parent:
+    id:         9
+    parent_id:  NULL
+    title:      Cleaners
+- child:
+    id:         1
+    parent_id:  9
+    title:      all-purpose 
+- child:
+    id:         2
+    parent_id:  9
+    title:      bleach
+- child:
+    id:         3
+    parent_id:  9
+    title:      dishwashing liquid/detergent
+- child:
+    id:         4
+    parent_id:  9
+    title:      laundry detergent
+- parent:
+    id:         10
+    parent_id:  NULL
+    title:      Paper Goods
+- child:
+    id:         1
+    parent_id:  10
+    title:      paper towels
+- child:
+    id:         2
+    parent_id:  10
+    title:      toilet paper
+- child:
+    id:         3
+    parent_id:  10
+    title:      aluminum foil
+- parent:
+    id:         11
+    parent_id:  NULL
+    title:      Personal Care
+- child:
+    id:         1
+    parent_id:  11
+    title:      shampoo
+- child:
+    id:         2
+    parent_id:  11
+    title:      hand soap
+- child:
+    id:         3
+    parent_id:  11
+    title:      women's hygeine
+- child:
+    id:         4
+    parent_id:  11
+    title:      Hand sanitizer
+- child:
+    id:         5
+    parent_id:  11
+    title:      Alcohol wipes
+- child:
+    id:         6
+    parent_id:  11
+    title:      Isopropyl alcohol
+- parent:
+    id:         12
+    parent_id:  NULL
+    title:      Masks
+- child:
+    id:         1
+    parent_id:  12
+    title:      N94
+- child:
+    id:         2
+    parent_id:  12
+    title:      surgical mask
+- child:
+    id:         3
+    parent_id:  12
+    title:      child-sized
+- child:
+    id:         4
+    parent_id:  12
+    title:      anti-dust
