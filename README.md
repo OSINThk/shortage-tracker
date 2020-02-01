@@ -39,9 +39,9 @@ This is a list of many of the remaining steps to get this application into a shi
 
 ### MVP
 - [ ] Implement user to role association.
-- [ ] Implement authentication for each route.
+- [ ] Implement authorization for each route.
 - [ ] Implement root/bootstrapping user.
-- [ ] Scope results on Report#index page to "just things which I may edit."
+- [ ] Scope results on Report#index page to "just my reports."
 - [ ] Report#new/Report#edit: populate coordinates via location services or map selection.
 - [ ] Report Product Details
   - [ ] Ensure non-duplicate Product IDs per report.
