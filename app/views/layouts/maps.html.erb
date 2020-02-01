@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ShortageTracker</title>
+    <title>Shortage Tracker</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -20,8 +20,7 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <%= render :partial => 'partials/header' %>
     <%= yield %>
   </body>
 </html>
