@@ -15,6 +15,7 @@ class ReportsController < ApplicationController
   # GET /reports/new
   def new
     @report = Report.new
+    @report.product_detail.build
   end
 
   # GET /reports/1/edit
@@ -76,6 +77,17 @@ class ReportsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def report_params
-      params.require(:report).permit(:notes, :coordinates)
+      params.require(:report).permit(
+        :notes,
+        :coordinates,
+        product_detail_attributes: [
+          :id,
+          :scarcity,
+          :price,
+          :notes,
+          :product_id,
+          :_destroy
+        ]
+      )
     end
 end

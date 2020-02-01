@@ -1,0 +1,22 @@
+<%= form.hidden_field :_destroy, { value: "false", class: "destroy" } %>
+<button type="button" class="remove-relationship">Remove Product Details</button>
+
+<div class="field">
+  <%= form.label :product_id %>
+  <%= form.text_field :product_id %>
+</div>
+
+<div class="field">
+  <%= form.label :scarcity %>
+  <%= form.number_field :scarcity %>
+</div>
+
+<div class="field">
+  <%= form.label :price %>
+  <%= form.number_field :price %>
+</div>
+
+<div class="field">
+  <%= form.label :notes %>
+  <%= form.text_field :notes %>
+</div>

@@ -21,6 +21,29 @@
     <%= form.text_field :coordinates %>
   </div>
 
+  <section class="form-section">
+    <h3>Products</h3>
+    <ul class="form-section__card-stack">
+      <%= form.fields_for :product_detail do |product_detail_form| %>
+        <li class="form-section__card form-section__product-detail-card">
+          <%= render :partial => 'product_details_fields', locals: { form: product_detail_form } %>
+        </li>
+      <% end %>
+      <% formslug = get_unique_id() %>
+      <script id="before-<%= formslug %>"></script>
+      <li id="placeholder-<%= formslug %>" class="form-section__card-add-relationship form-section__product-detail-card">
+        <template id="template-<%= formslug %>">
+          <%= form.fields_for :product_detail, ProductDetail.new, { child_index: formslug } do |product_detail_form| %>
+            <li class="form-section__card form-section__product-detail-card">
+              <%= render :partial => 'product_details_fields', locals: { form: product_detail_form } %>
+            </li>
+          <% end %>
+        </template>
+        <button type="button" class="add-relationship" data-slug="<%= formslug %>">Add Product Detail</button>
+      </li>
+    </ul>
+  </section>
+
   <div class="actions">
     <%= form.submit %>
   </div>
