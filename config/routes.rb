@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :users
   root to: "maps#index"
   get 'about', to: "pages#about"
   get 'admin', to: "pages#admin"
@@ -12,6 +11,7 @@ Rails.application.routes.draw do
     resources :products
     resources :privileges
     resources :roles
+    resources :users
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
