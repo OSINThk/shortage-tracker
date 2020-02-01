@@ -38,11 +38,11 @@ Once we have more than one regular contributor we will use a GitHub PR workflow 
 This is a list of many of the remaining steps to get this application into a shippable state:
 
 ### MVP
-- [ ] Report new/edit: populate coordinates via location services or map selection.
+- [ ] Scope results on Report#index page to "just things which I may edit."
+- [ ] Report#new/Report#edit: populate coordinates via location services or map selection.
 - [ ] Report Product Details
   - [ ] Ensure non-duplicate Product IDs per report.
   - [ ] Selection of product instead of ID entry.
-- [ ] Make it possible to click through the application.
 - [ ] Implement user to role association.
 - [ ] Implement authentication for each route.
 - [ ] Implement root/bootstrapping user.
@@ -52,7 +52,6 @@ This is a list of many of the remaining steps to get this application into a shi
 - [ ] Design for each page (mobile device focused)
 
 ### Followup
-- [ ] Move admin features to /admin/___ URLs.
 - [ ] Clustering of data on the server.
 - [ ] Implement CI via GitHub Actions.
 - [ ] Photo upload.
