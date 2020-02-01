@@ -21,7 +21,24 @@ class ReportsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create report" do
     assert_difference('Report.count') do
-      post reports_url, params: { report: { coordinates: @report.coordinates, ip: @report.ip, notes: @report.notes, user_id: @report.user_id } }
+      product_details = product_details(:one)
+      post reports_url, params: {
+        report: {
+          coordinates: @report.coordinates,
+          ip: @report.ip,
+          notes: @report.notes,
+          user_id: @report.user_id,
+          product_detail_attributes: [
+            {
+              scarcity: product_details.scarcity,
+              price: product_details.price,
+              notes: product_details.notes,
+              product_id: product_details.product_id,
+              report_id: product_details.report_id
+            }
+          ]
+        }
+      }
     end
 
     assert_redirected_to report_url(Report.last)
@@ -38,7 +55,24 @@ class ReportsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update report" do
-    patch report_url(@report), params: { report: { coordinates: @report.coordinates, ip: @report.ip, notes: @report.notes, user_id: @report.user_id } }
+    product_details = product_details(:one)
+    patch report_url(@report), params: {
+      report: {
+        coordinates: @report.coordinates,
+        ip: @report.ip,
+        notes: @report.notes,
+        user_id: @report.user_id,
+        product_detail_attributes: [
+          {
+            scarcity: product_details.scarcity,
+            price: product_details.price,
+            notes: product_details.notes,
+            product_id: product_details.product_id,
+            report_id: product_details.report_id
+          }
+        ]
+      }
+    }
     assert_redirected_to report_url(@report)
   end
 

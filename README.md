@@ -38,7 +38,6 @@ Once we have more than one regular contributor we will use a GitHub PR workflow 
 This is a list of many of the remaining steps to get this application into a shippable state:
 
 ### MVP
-- [ ] Get Reports test passing.
 - [ ] Report new/edit: populate coordinates via location services or map selection.
 - [ ] Report Product Details
   - [ ] Ensure non-duplicate Product IDs per report.
