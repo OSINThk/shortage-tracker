@@ -38,14 +38,15 @@ Once we have more than one regular contributor we will use a GitHub PR workflow 
 This is a list of many of the remaining steps to get this application into a shippable state:
 
 ### MVP
+- [ ] User management controller.
+- [ ] Implement user to role association.
+- [ ] Implement authentication for each route.
+- [ ] Implement root/bootstrapping user.
 - [ ] Scope results on Report#index page to "just things which I may edit."
 - [ ] Report#new/Report#edit: populate coordinates via location services or map selection.
 - [ ] Report Product Details
   - [ ] Ensure non-duplicate Product IDs per report.
   - [ ] Selection of product instead of ID entry.
-- [ ] Implement user to role association.
-- [ ] Implement authentication for each route.
-- [ ] Implement root/bootstrapping user.
 - [ ] Implement validation for each model.
 - [ ] reports.json?lat=&long=
 - [ ] Populate the map homepage with values from reports.
