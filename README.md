@@ -38,19 +38,32 @@ Once we have more than one regular contributor we will use a GitHub PR workflow 
 This is a list of many of the remaining steps to get this application into a shippable state:
 
 ### MVP
+
+#### Backend
+
 - [ ] Implement authorization for each route.
 - [ ] Implement root/bootstrapping user.
 - [ ] Scope results on Report#index page to "just my reports."
-- [ ] Report#new/Report#edit: populate coordinates via location services or map selection.
 - [ ] Report Product Details
   - [ ] Ensure non-duplicate Product IDs per report.
   - [ ] Selection of product instead of ID entry.
 - [ ] Implement validation for each model.
 - [ ] reports.json?lat=&long=
+
+#### Frontend
+
+- [ ] Report#new/Report#edit: populate coordinates via location services or map selection.
 - [ ] Populate the map homepage with values from reports.
 - [ ] Design for each page (mobile device focused)
 
+#### Deploy
+
+- [ ] Set up mail services.
+- [ ] Set up postgis on Heroku.
+- [ ] Set up cname on cloudflare.
+
 ### Followup
+
 - [ ] Clustering of data on the server.
 - [ ] Implement CI via GitHub Actions.
 - [ ] Photo upload.
