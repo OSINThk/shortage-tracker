@@ -44,13 +44,18 @@ This is a list of many of the remaining steps to get this application into a shi
 - [ ] Implement authorization for each route.
 - [ ] Implement root/bootstrapping user.
 - [ ] Scope results on Report#index page to "just my reports."
-- [ ] reports.json?lat=&long=
+
+#### Data Provisioning
+
+Use the Maps controller as a home for this.
+
+- [ ] All reports within lat/long/time bounds.
+- [ ] All reports for a particular product within lat/long/time bounds.
 
 #### Frontend
 
 - [ ] Report#new/Report#edit: populate coordinates via location services or map selection.
 - [ ] Populate the map homepage with values from reports.
-- [ ] Design for each page (mobile device focused)
 
 #### Deploy
 
@@ -60,6 +65,7 @@ This is a list of many of the remaining steps to get this application into a shi
 
 ### Followup
 
+- [ ] Design for each page (mobile device focused)
 - [ ] Clustering of data on the server.
 - [ ] Implement CI via GitHub Actions.
 - [ ] Photo upload.
