@@ -6,6 +6,7 @@ class ReportsController < ApplicationController
   # GET /reports.json
   def index
     @reports = Report.all
+    @users = @reports.map { |report| report.user_id }.uniq
   end
 
   # GET /reports/1

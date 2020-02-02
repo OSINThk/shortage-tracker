@@ -1,6 +1,6 @@
 <p>
-  <strong>Ip:</strong>
-  <%= @report.ip %>
+  <strong>Location:</strong>
+  <%= @report.coordinates %>
 </p>
 
 <p>
@@ -8,15 +8,12 @@
   <%= @report.notes %>
 </p>
 
-<p>
-  <strong>Coordinates:</strong>
-  <%= @report.coordinates %>
-</p>
-
+<% if current_user.id != @report.user_id %>
 <p>
   <strong>User:</strong>
   <%= @report.user_id %>
 </p>
+<% end %>
 
 <p>
   <strong>Product Details:</strong>
@@ -28,12 +25,12 @@
       <dl>
         <dt>Product</dt>
           <dd><%= product_detail.product.name %></dd>
-        <dt>Product Notes</dt>
-          <dd><%= product_detail.notes %></dd>
         <dt>Product Scarcity</dt>
           <dd><%= product_detail.scarcity %></dd>
         <dt>Product Price</dt>
           <dd><%= product_detail.price %></dd>
+        <dt>Product Notes</dt>
+          <dd><%= product_detail.notes %></dd>
       </dl>
     </li>
   <% end %>
