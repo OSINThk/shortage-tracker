@@ -16,7 +16,7 @@ class Report < ApplicationRecord
       product_details_count = product_detail.length
       unique_count = product_detail.map { |detail| detail.product_id }.uniq
 
-      if product_details_count != unique_count
+      if product_details_count > 1 && product_details_count != unique_count
         errors.add(:product_detail, "You may not provide duplicate details for the same product.")
       end
     end
