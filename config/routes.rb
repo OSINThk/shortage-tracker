@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: "maps#index"
   get 'about', to: "pages#about"
   get 'admin', to: "pages#admin"
+  get 'maptest', to: "maps#results"
 
   devise_for :users
   resources :reports
