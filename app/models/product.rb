@@ -5,5 +5,5 @@ class Product < ApplicationRecord
 
   validates :name, presence: true
 
-  has_many :product_details
+  has_many :product_detail
 end
