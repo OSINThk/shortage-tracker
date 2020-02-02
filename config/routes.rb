@@ -5,7 +5,6 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :reports
-  resources :product_details
 
   scope '/admin' do
     resources :products
