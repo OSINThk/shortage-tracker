@@ -41,9 +41,10 @@ This is a list of many of the remaining steps to get this application into a shi
 
 #### Backend
 
-- [ ] Implement authorization for each route.
 - [ ] Implement root/bootstrapping user.
-- [ ] Scope results on Report#index page to "just my reports."
+- [ ] Implement authorization for reports.
+- [ ] Implement scoping for reports.
+- [ ] Prevent SQL injection.
 
 #### Data Provisioning
 
@@ -69,3 +70,4 @@ Use the Maps controller as a home for this.
 - [ ] Clustering of data on the server.
 - [ ] Implement CI via GitHub Actions.
 - [ ] Photo upload.
+- [ ] Product taxonomy.
