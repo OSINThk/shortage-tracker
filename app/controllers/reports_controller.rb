@@ -5,28 +5,35 @@ class ReportsController < ApplicationController
   # GET /reports
   # GET /reports.json
   def index
-    @reports = Report.all
+    authorize Report
+    @reports = policy_scope(Report)
     @users = @reports.map { |report| report.user_id }.uniq
   end
 
   # GET /reports/1
   # GET /reports/1.json
   def show
+    authorize @report
   end
 
   # GET /reports/new
   def new
+    authorize Report
+
     @report = Report.new
     @report.product_detail.build
   end
 
   # GET /reports/1/edit
   def edit
+    authorize @report
   end
 
   # POST /reports
   # POST /reports.json
   def create
+    authorize Report
+
     passed_params = report_params
 
     # Augment the parameters with server-known information.
@@ -50,6 +57,8 @@ class ReportsController < ApplicationController
   # PATCH/PUT /reports/1
   # PATCH/PUT /reports/1.json
   def update
+    authorize @report
+
     respond_to do |format|
       if @report.update(report_params)
         format.html { redirect_to @report, notice: 'Report was successfully updated.' }
@@ -64,6 +73,8 @@ class ReportsController < ApplicationController
   # DELETE /reports/1
   # DELETE /reports/1.json
   def destroy
+    authorize @report
+
     @report.destroy
     respond_to do |format|
       format.html { redirect_to reports_url, notice: 'Report was successfully destroyed.' }

@@ -42,8 +42,6 @@ This is a list of many of the remaining steps to get this application into a shi
 #### Backend
 
 - [ ] Implement root/bootstrapping user.
-- [ ] Implement authorization for reports.
-- [ ] Implement scoping for reports.
 - [ ] Prevent SQL injection.
 
 #### Data Provisioning

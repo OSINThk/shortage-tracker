@@ -1,31 +1,34 @@
 <h2>Reports</h2>
 
-<table>
-  <thead>
-    <tr>
-      <% if @users.length != 1 %><th>User</th><% end %>
-      <th>Location</th>
-      <th>Notes</th>
-      <th>Report Time</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @reports.each do |report| %>
+<% if @reports.length > 0 %>
+  <table>
+    <thead>
       <tr>
-        <% if current_user.id != report.user_id %><td><%= report.user_id %></td><% end %>
-        <td><%= report.coordinates %></td>
-        <td><%= report.notes %></td>
-        <td><%= report.created_at %></td>
-        <td><%= link_to 'Show', report %></td>
-        <td><%= link_to 'Edit', edit_report_path(report) %></td>
-        <td><%= link_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if @users.length != 1 %><th>User</th><% end %>
+        <th>Location</th>
+        <th>Notes</th>
+        <th>Report Time</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
+    <tbody>
+      <% @reports.each do |report| %>
+        <tr>
+          <% if current_user.id != report.user_id %><td><%= report.user_id %></td><% end %>
+          <td><%= report.coordinates %></td>
+          <td><%= report.notes %></td>
+          <td><%= report.created_at %></td>
+          <td><%= link_to 'Show', report %></td>
+          <td><%= link_to 'Edit', edit_report_path(report) %></td>
+          <td><%= link_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 <br>
 
 <%= link_to 'New Report', new_report_path %>
+<% else %>
+  <p>You have not yet created a report. <%= link_to 'Create your first report now.', new_report_path %></p>
+<% end %>
