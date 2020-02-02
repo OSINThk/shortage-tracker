@@ -10,7 +10,7 @@ class MapsController < ApplicationController
     FROM reports AS r
     INNER JOIN product_details AS d ON r.id=d.report_id
     LEFT JOIN products AS p ON p.id=d.product_id
-    WHERE ST_Distance(coordinates, ST_Point(#{params[:lat]},#{params[:lon]})) < #{[params[:dist].to_i, 1000].max}
+    WHERE ST_Distance(coordinates, ST_Point(#{params[:lon]},#{params[:lat]})) < #{[params[:dist].to_i, 1000].max}
     AND r.updated_at > '#{params[:since]}'
     GROUP BY p.id, p.name;"
     render json: ActiveRecord::Base.connection.execute(@sql)
