@@ -1,5 +1,6 @@
 class ReportsController < ApplicationController
   before_action :set_report, only: [:show, :edit, :update, :destroy]
+  before_action :set_products, only: [:new, :edit, :create, :update]
 
   # GET /reports
   # GET /reports.json
@@ -73,6 +74,10 @@ class ReportsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_report
       @report = Report.find(params[:id])
+    end
+
+    def set_products
+      @products = Product.all
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

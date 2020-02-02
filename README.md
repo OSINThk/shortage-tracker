@@ -44,9 +44,7 @@ This is a list of many of the remaining steps to get this application into a shi
 - [ ] Implement authorization for each route.
 - [ ] Implement root/bootstrapping user.
 - [ ] Scope results on Report#index page to "just my reports."
-- [ ] Report Product Details
-  - [ ] Ensure non-duplicate Product IDs per report.
-  - [ ] Selection of product instead of ID entry.
+- [ ] Ensure non-duplicate Product Details' Product per Report.
 - [ ] Implement validation for each model.
 - [ ] reports.json?lat=&long=
 

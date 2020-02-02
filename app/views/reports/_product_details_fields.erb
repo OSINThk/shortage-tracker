@@ -3,7 +3,7 @@
 
 <div class="field">
   <%= form.label :product_id %>
-  <%= form.text_field :product_id %>
+  <%= form.select :product_id, products.map { |product| [product, product.id] }, { include_blank: "Select product..." } %>
 </div>
 
 <div class="field">
