@@ -1,4 +1,7 @@
 class MapsController < ApplicationController
+  def index
+  end
+
   def results
     @sql = "SELECT
       p.id, p.name,
