@@ -1,0 +1,2 @@
+class ProductPolicy < AdminPolicy
+end

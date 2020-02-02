@@ -3,5 +3,6 @@ class PagesController < ApplicationController
   end
 
   def admin
+    authorize :pages, :admin?
   end
 end

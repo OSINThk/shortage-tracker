@@ -1,0 +1,2 @@
+class PrivilegePolicy < AdminPolicy
+end

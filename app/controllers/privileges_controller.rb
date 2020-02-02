@@ -1,6 +1,7 @@
 class PrivilegesController < ApplicationController
   before_action :set_privilege, only: [:show, :edit, :update, :destroy]
   before_action :set_roles, only: [:new, :edit, :create, :update]
+  before_action :is_admin
 
   # GET /privileges
   # GET /privileges.json
@@ -70,6 +71,10 @@ class PrivilegesController < ApplicationController
 
     def set_roles
       @roles = Role.all
+    end
+
+    def is_admin
+      authorize Privilege
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
