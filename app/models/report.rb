@@ -9,8 +9,18 @@ class Report < ApplicationRecord
 
   validates_presence_of :product_detail
   validates_associated :product_detail, forward_validation_context: true
+  validate :product_detail_valid
 
   private
+    def product_detail_valid
+      product_details_count = product_detail.length
+      unique_count = product_detail.map { |detail| detail.product_id }.uniq
+
+      if product_details_count != unique_count
+        errors.add(:product_detail, "You may not provide duplicate details for the same product.")
+      end
+    end
+
     def coordinates_valid
       # Coordinate will be `nil` already if invalid.
       # Error message is vague because it could be unentered, or invalid.
