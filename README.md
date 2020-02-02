@@ -42,7 +42,12 @@ This is a list of many of the remaining steps to get this application into a shi
 #### Backend
 
 - [ ] Implement root/bootstrapping user.
-- [ ] Prevent SQL injection.
+
+#### Deploy
+
+- [ ] Set up mail services.
+- [ ] Set up postgis on Heroku.
+- [ ] Set up cname on cloudflare.
 
 #### Data Provisioning
 
@@ -56,14 +61,10 @@ Use the Maps controller as a home for this.
 - [ ] Report#new/Report#edit: populate coordinates via location services or map selection.
 - [ ] Populate the map homepage with values from reports.
 
-#### Deploy
-
-- [ ] Set up mail services.
-- [ ] Set up postgis on Heroku.
-- [ ] Set up cname on cloudflare.
-
 ### Followup
 
+- [ ] Internationalization/Localization.
+- [ ] Fix tests now that pundit is in place.
 - [ ] Design for each page (mobile device focused)
 - [ ] Clustering of data on the server.
 - [ ] Implement CI via GitHub Actions.
