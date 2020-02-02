@@ -45,7 +45,6 @@ This is a list of many of the remaining steps to get this application into a shi
 - [ ] Implement root/bootstrapping user.
 - [ ] Scope results on Report#index page to "just my reports."
 - [ ] Ensure non-duplicate Product Details' Product per Report.
-- [ ] Implement validation for each model.
 - [ ] reports.json?lat=&long=
 
 #### Frontend

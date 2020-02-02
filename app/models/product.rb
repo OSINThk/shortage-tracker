@@ -3,5 +3,7 @@ class Product < ApplicationRecord
     return name
   end
 
+  validates :name, presence: true
+
   has_many :product_details
 end
