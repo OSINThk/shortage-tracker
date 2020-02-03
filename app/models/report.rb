@@ -4,7 +4,7 @@ class Report < ApplicationRecord
   end
 
   def lat
-    return coordinates&.lat.to_s
+    return coordinates&.lat.to_s || nil
   end
 
   validate :coordinates_valid
