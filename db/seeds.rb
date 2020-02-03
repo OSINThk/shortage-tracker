@@ -22,14 +22,14 @@ end
 user = User.create
 
 
-coordiantes = [
+coordinates = [
   '22.2276, 114.2178', # American club
   '22.392998428 114.203999184', # horse racing
   '22.274665568 114.155666044'
 
 ]
 count = 0
-ProductDetail.all.with_index do |pd|
+ProductDetail.all do |pd|
   user.report.create(
     prroduct_detail: pd,
     coordinates: coordinates[count]
