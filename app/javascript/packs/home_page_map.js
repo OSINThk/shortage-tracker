@@ -6,11 +6,6 @@ L.tileLayer("https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png", {
   setView: true
 }).addTo(map);
 
-const coordinates = [
-  { lat: "22.2276", lng: "114.2178" }, // American club
-  //{ lat: "22.392998428", lng: "114.203999184" }, // horse racing
-  "22.274665568 114.155666044"
-];
 let handleResize = () => {
   fetch("/results.json")
     .then(response => {
