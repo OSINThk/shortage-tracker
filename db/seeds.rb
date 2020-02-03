@@ -12,15 +12,8 @@ products = [
   'bottled water'
 ].map { |name| Product.create(name: name) }
 
-products.each do |product|
-  product.product_detail.create(
-    price: rand(1..6),
-    scarcity: rand(1..5)
-  )
-end
 
-user = User.create
-
+user = User.create!
 
 coordinates = [
   '22.2276, 114.2178', # American club
@@ -28,11 +21,9 @@ coordinates = [
   '22.274665568 114.155666044'
 
 ]
-count = 0
-ProductDetail.all do |pd|
+coordinates.each do |coords|
   user.report.create(
-    prroduct_detail: pd,
-    coordinates: coordinates[count]
+    product_detail: ProductDetail.new(price: rand(1..5), scarcity: rand(1..5)),
+    coordinates: coords
   )
-  count += 1
 end

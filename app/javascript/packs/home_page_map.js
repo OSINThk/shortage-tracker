@@ -6,18 +6,29 @@ L.tileLayer("https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png", {
   setView: true
 }).addTo(map);
 
+const coordinates = [
+  { lat: "22.2276", lng: "114.2178" }, // American club
+  //{ lat: "22.392998428", lng: "114.203999184" }, // horse racing
+  "22.274665568 114.155666044"
+];
 let handleResize = () => {
-  console.log("something happened");
-  console.log(map.getCenter());
+  fetch("/maptest?lat=114.029&lon=22.344&dist=15000&since=2020-01-01")
+    .then(response => {
+      return response.json();
+    })
+    .then(json => {
+      json.forEach(item => {
+        L.marker(coordinates[0])
+          .addTo(map)
+          .bindPopup(item["notes"]);
+      });
+    });
 };
+
+// initial pin loads
+handleResize();
 
 // Handle resize events!
 map.on("zoomend", handleResize);
 map.on("dragend", handleResize);
 map.on("resize", handleResize);
-
-// In loop
-// L.marker([51.5, -0.09]).addTo(map)
-// In loop 2, add information
-//   .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
-//   .openPopup();
