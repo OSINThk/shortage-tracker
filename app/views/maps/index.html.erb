@@ -12,10 +12,4 @@
 </style>
 <div id="map-container"></div>
 
-<script>
-  var mymap = L.map('map-container').setView([22.27583223, 114.154832714], 13);
-  L.tileLayer('https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery by Wikimedia Foundation ',
-    maxZoom: 18,
-}).addTo(mymap);
-</script>
+<%= javascript_pack_tag 'home_page_map' %>
