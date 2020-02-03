@@ -55,6 +55,7 @@ Use the Maps controller as a home for this.
 
 - [ ] Report#new/Report#edit: populate coordinates via location services or map selection.
 - [ ] Populate the map homepage with values from reports.
+  - [ ] update `handleResize()` to intelligently diff the map pins to minimize render time
 
 ### Followup
 
