@@ -41,6 +41,9 @@ class ReportsController < ApplicationController
     augmented_params["ip"] = request.remote_ip
     augmented_params["user_id"] = current_user.id
 
+    # Construct the actual WKT.
+    augmented_params["coordinates"] = "POINT(#{passed_params["long"]} #{passed_params["lat"]})"
+
     @report = Report.new(augmented_params)
 
     respond_to do |format|
@@ -59,8 +62,14 @@ class ReportsController < ApplicationController
   def update
     authorize @report
 
+    passed_params = report_params
+
+    # Construct the actual WKT.
+    augmented_params = passed_params
+    augmented_params["coordinates"] = "POINT(#{passed_params["long"]} #{passed_params["lat"]})"
+
     respond_to do |format|
-      if @report.update(report_params)
+      if @report.update(augmented_params)
         format.html { redirect_to @report, notice: 'Report was successfully updated.' }
         format.json { render :show, status: :ok, location: @report }
       else
@@ -96,7 +105,8 @@ class ReportsController < ApplicationController
     def report_params
       params.require(:report).permit(
         :notes,
-        :coordinates,
+        :lat,
+        :long,
         product_detail_attributes: [
           :id,
           :scarcity,

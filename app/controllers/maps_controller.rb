@@ -1,15 +1,13 @@
 class MapsController < ApplicationController
-
-
   def index
   end
 
   def results
     @results = Report.all
-    @results.each do |result|
-      result.long = "#{result.coordinates.lon}"
-      result.lat = "#{result.coordinates.lat}"
-    end
+    # @results.each do |result|
+    #   result.long = "#{result.coordinates.lon}"
+    #   result.lat = "#{result.coordinates.lat}"
+    # end
 
     # @sql = ActiveRecord::Base.send(:sanitize_sql_array, [
     #   "SELECT
