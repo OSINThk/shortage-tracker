@@ -12,18 +12,25 @@ products = [
   'bottled water'
 ].map { |name| Product.create(name: name) }
 
+role = Role.create(name: 'admin')
+user = User.create(email: "admin@example.com", password: "password", role: [role], confirmed_at: Time.now)
 
-user = User.create!
+(1..100).each do |report_id|
+  product_details = []
+  products.each do |product|
+    product_details << ProductDetail.create(
+      product: product,
+      price: rand(1..5),
+      scarcity: rand(1..5),
+      notes: "Product detail notes."
+    )
+  end
 
-coordinates = [
-  '22.2276, 114.2178', # American club
-  '22.392998428 114.203999184', # horse racing
-  '22.274665568 114.155666044'
-
-]
-coordinates.each do |coords|
-  user.report.create(
-    product_detail: ProductDetail.new(price: rand(1..5), scarcity: rand(1..5)),
-    coordinates: coords
+  Report.create(
+    ip: "127.0.0.1",
+    user: user,
+    coordinates: "POINT(#{rand(114.0..114.5)} #{rand(22.0..23.0)} )",
+    notes: "First report!",
+    product_detail: product_details
   )
 end
