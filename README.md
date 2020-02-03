@@ -40,28 +40,22 @@ Once we have more than one regular contributor we will use a GitHub PR workflow 
 
 This is a list of many of the remaining steps to get this application into a shippable state:
 
-### MVP
-
-#### Backend
-
-- [ ] Implement root/bootstrapping user.
-- [ ] :omniauthable
-
-#### Data Provisioning
+### Data Provisioning
 
 Use the Maps controller as a home for this.
 
 - [ ] All reports within lat/long/time bounds.
 - [ ] All reports for a particular product within lat/long/time bounds.
 
-#### Frontend
+### Frontend
 
 - [ ] Report#new/Report#edit: populate coordinates via location services or map selection.
 - [ ] Populate the map homepage with values from reports.
   - [ ] update `handleResize()` to intelligently diff the map pins to minimize render time
 
-### Followup
+### v1 Followup
 
+- [ ] :omniauthable
 - [ ] Internationalization/Localization.
 - [ ] Fix tests now that pundit is in place.
 - [ ] Design for each page (mobile device focused)
