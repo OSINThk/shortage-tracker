@@ -1,10 +1,18 @@
 class Report < ApplicationRecord
   def long
-    return "#{coordinates.lon}"
+    if !coordinates.nil?
+      return "#{coordinates.lon}"
+    else
+      return nil
+    end
   end
 
   def lat
-    return "#{coordinates.lat}"
+    if !coordinates.nil?
+      return "#{coordinates.lat}"
+    else
+      return nil
+    end
   end
 
   validate :coordinates_valid
