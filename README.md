@@ -22,8 +22,11 @@ cd shortage-tracker
 bundle install
 
 rake db:create && rake db:migrate
+
 rails s
 ```
+
+Sample request: `http://localhost:3000/maptest?lat=114.029&lon=22.344&dist=1500&since=2020-01-01`
 
 Anything that you find incomplete in the setup, please help us document!
 
