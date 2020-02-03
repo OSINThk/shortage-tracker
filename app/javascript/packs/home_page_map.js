@@ -12,13 +12,13 @@ const coordinates = [
   "22.274665568 114.155666044"
 ];
 let handleResize = () => {
-  fetch("/maptest?lat=114.029&lon=22.344&dist=15000&since=2020-01-01")
+  fetch("/results")
     .then(response => {
       return response.json();
     })
     .then(json => {
       json.forEach(item => {
-        L.marker(coordinates[0])
+        L.marker(item["lat"], item["long"])
           .addTo(map)
           .bindPopup(item["notes"]);
       });
