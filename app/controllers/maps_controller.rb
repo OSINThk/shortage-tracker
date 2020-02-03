@@ -3,11 +3,7 @@ class MapsController < ApplicationController
   end
 
   def results
-    @results = Report.all
-    # @results.each do |result|
-    #   result.long = "#{result.coordinates.lon}"
-    #   result.lat = "#{result.coordinates.lat}"
-    # end
+    @results = Report.includes(product_detail: :product).all
 
     # @sql = ActiveRecord::Base.send(:sanitize_sql_array, [
     #   "SELECT
