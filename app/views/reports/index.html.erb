@@ -15,7 +15,7 @@
     <tbody>
       <% @reports.each do |report| %>
         <tr>
-          <% if current_user.id != report.user_id %><td><%= report.user_id %></td><% end %>
+          <% if @users.length != 1 %><td><%= report.user_id %></td><% end %>
           <td><%= report.coordinates %></td>
           <td><%= report.notes %></td>
           <td><%= report.created_at %></td>
