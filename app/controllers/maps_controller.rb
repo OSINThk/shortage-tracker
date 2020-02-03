@@ -3,7 +3,11 @@ class MapsController < ApplicationController
   end
 
   def results
-    @results = Report.includes(product_detail: :product).all
+    # exclusions = get_cursor(cursor)
+    # next_cursor = generate_cursor(cursor, x0, y0, x1, y1)
+
+    @results = Report.includes(product_detail: :product)
+      .where("ST_Within(coordinates::geometry, ST_MakeEnvelope(?, ?, ?, ?, 4326))", params[:x0], params[:y0], params[:x1], params[:y1])
 
     # @sql = ActiveRecord::Base.send(:sanitize_sql_array, [
     #   "SELECT
@@ -26,4 +30,11 @@ class MapsController < ApplicationController
     # ])
     # @results = ActiveRecord::Base.connection.execute(@sql)
   end
+
+  private
+    def get_cursor(cursor)
+    end
+
+    def generate_cursor(previous_cursor, x0, y0, x1, y1)
+    end
 end
