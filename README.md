@@ -42,12 +42,7 @@ This is a list of many of the remaining steps to get this application into a shi
 #### Backend
 
 - [ ] Implement root/bootstrapping user.
-
-#### Deploy
-
-- [ ] Set up mail services.
-- [ ] Set up postgis on Heroku.
-- [ ] Set up cname on cloudflare.
+- [ ] :omniauthable
 
 #### Data Provisioning
 
