@@ -12,13 +12,13 @@ const coordinates = [
   "22.274665568 114.155666044"
 ];
 let handleResize = () => {
-  fetch("/results")
+  fetch("/results.json")
     .then(response => {
       return response.json();
     })
     .then(json => {
       json.forEach(item => {
-        L.marker(item["lat"], item["long"])
+        L.marker([item["lat"], item["long"]])
           .addTo(map)
           .bindPopup(item["notes"]);
       });

@@ -44,6 +44,7 @@ class ReportsController < ApplicationController
     # Construct the actual WKT.
     augmented_params["coordinates"] = "POINT(#{passed_params["long"]} #{passed_params["lat"]})"
 
+    augmented_params = augmented_params.except(:lat, :long)
     @report = Report.new(augmented_params)
 
     respond_to do |format|

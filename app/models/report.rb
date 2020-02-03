@@ -1,10 +1,10 @@
 class Report < ApplicationRecord
   def long
-    return "#{coordinates.lon}"
+    return coordinates&.lon.to_s
   end
 
   def lat
-    return "#{coordinates.lat}"
+    return coordinates&.lat.to_s
   end
 
   validate :coordinates_valid
