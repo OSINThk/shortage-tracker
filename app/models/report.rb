@@ -1,4 +1,6 @@
 class Report < ApplicationRecord
+  attr_accessor :long, :lat
+
   validate :coordinates_valid
   validates :user, presence: true
 
