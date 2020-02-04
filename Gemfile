@@ -61,3 +61,6 @@ gem "pundit", "~> 2.1"
 
 # Added at 2020-01-31 11:50:15 +0800 by nathanhammond:
 gem "activerecord-postgis-adapter", "~> 6.0"
+
+# Added at 2020-02-04 10:27:10 +0800 by nathanhammond:
+gem "redis", "~> 4.1"
