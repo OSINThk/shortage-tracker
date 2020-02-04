@@ -47,8 +47,6 @@ This is a list of many of the remaining steps to get this application into a shi
 ### Frontend
 
 - [ ] Report#new/Report#edit: populate coordinates via location services or map selection.
-- [ ] Populate the map homepage with values from reports.
-  - [ ] update `handleResize()` to intelligently diff the map pins to minimize render time
 
 ### v1 Followup
 
