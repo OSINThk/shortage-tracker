@@ -1,13 +1,23 @@
+require 'map_cursor'
+
 class MapsController < ApplicationController
   def index
   end
 
   def results
-    # exclusions = get_cursor(cursor)
-    # next_cursor = generate_cursor(cursor, x0, y0, x1, y1)
+    root = params["root"]
+    parent_cursors = params["cursors"];
+    time = DateTime.now
+    x0 = params["x0"];
+    y0 = params["y0"];
+    x1 = params["x1"];
+    y1 = params["y1"];
 
-    @results = Report.includes(product_detail: :product)
-      .where("ST_Within(coordinates::geometry, ST_MakeEnvelope(?, ?, ?, ?, 4326))", params[:x0], params[:y0], params[:x1], params[:y1])
+    cursor = MapCursor.new(parent_cursors, time, x0, y0, x1, y1)
+    @results = cursor.query(Report.includes(product_detail: :product), root)
+
+    @meta = cursor.meta
+    cursor.save
 
     # @sql = ActiveRecord::Base.send(:sanitize_sql_array, [
     #   "SELECT
@@ -30,11 +40,4 @@ class MapsController < ApplicationController
     # ])
     # @results = ActiveRecord::Base.connection.execute(@sql)
   end
-
-  private
-    def get_cursor(cursor)
-    end
-
-    def generate_cursor(previous_cursor, x0, y0, x1, y1)
-    end
 end
