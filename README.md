@@ -4,7 +4,7 @@ This is a project of OSINThk.
 
 ## Setup
 
-Good Guide to [`How to install Ruby on Rails with rbenv on macOS `](https://www.digitalocean.com/community/tutorials/how-to-install-ruby-on-rails-with-rbenv-on-macos)
+If new to Ruby, this is a Good Guide to [`How to install Ruby on Rails with rbenv on macOS `](https://www.digitalocean.com/community/tutorials/how-to-install-ruby-on-rails-with-rbenv-on-macos)
  
 Works with [`rbenv`](https://github.com/rbenv/rbenv#homebrew-on-macos). May work with `rvm`.
 
@@ -15,15 +15,45 @@ brew install git rbenv postgres postgis
 
 brew services start postgresql
 
+# do in this order
 rbenv init
 rbenv install 2.5.1
 gem install bundler rails
 
 git clone git@github.com:OSINThk/shortage-tracker.git
 cd shortage-tracker
+
+# check to make sure that the versions are correct before doing bundle install
+$ ruby -v
+$ rails -v
+
+# if rails -v fails, with error message: Gem::GemNotFoundException, update gems
+$ gem update --system
+
 bundle install
 
+# check to make sure your yarn packages are up to date
+# $ yarn install --check-files
+
 rake db:create && rake db:migrate
+
+# if error: 
+could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/tmp/.s.PGSQL.5432"?
+Couldn't create 'shortage_tracker_development' database. Please check your configuration.
+rake aborted!
+PG::ConnectionBad: could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/tmp/.s.PGSQL.5432"?
+
+Tasks: TOP => db:create
+(See full trace by running task with --trace)
+
+# do the following to fix: 
+
+
+
 
 rails s
 ```
