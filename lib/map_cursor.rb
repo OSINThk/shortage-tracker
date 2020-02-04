@@ -6,7 +6,7 @@ class MapCursor
   @@value_separator = ","
   @@expiration_seconds = 60*60*24
 
-  def initialize(parent_cursors, since, x0, y0, x1, y1)
+  def initialize(parent_cursors, since, x0, y0, x1, y1, products)
     @parent_cursors = parent_cursors || []
 
     if since.class == String
@@ -22,14 +22,16 @@ class MapCursor
     @y0 = y0
     @x1 = x1
     @y1 = y1
+    @products = products
   end
 
   def self.parse(cursor_value)
-    parent_cursors, since, coordinates = cursor_value.split(@@field_separator)
+    parent_cursors, since, coordinates, products = cursor_value.split(@@field_separator)
     parent_cursors = parent_cursors.length == 0 ? [] : parent_cursors.split(@@value_separator)
     x0, y0, x1, y1 = coordinates.split(@@value_separator)
+    products = parent_cursors.length == 0 ? nil : parent_cursors.split(@@value_separator)
 
-    return MapCursor.new(parent_cursors, DateTime.parse(since), x0, y0, x1, y1)
+    return MapCursor.new(parent_cursors, DateTime.parse(since), x0, y0, x1, y1, products)
   end
 
   def key
@@ -40,15 +42,16 @@ class MapCursor
     [
       @parent_cursors.join(@@value_separator),
       @since.strftime('%FT%T'),
-      [@x0,@y0,@x1,@y1].join(@@value_separator)
+      [@x0, @y0, @x1, @y1].join(@@value_separator),
+      @products&.join(@@value_separator)
     ].join(@@field_separator)
   end
 
   def meta
     return {
-      key: key(),
+      cursor: key(),
       value: value(),
-      parent_cursors: @parent_cursors
+      parents: @parent_cursors
     }
   end
 
@@ -70,7 +73,14 @@ class MapCursor
     return parents
   end
 
-  def query(active_record_query, root = nil)
+  def query(root = nil)
+    active_record_query = Report
+
+    if !@products.nil?
+      active_record_query = filter_products(active_record_query)
+    end
+
+    active_record_query = active_record_query.includes(product_detail: :product)
     active_record_query = where(active_record_query)
     active_record_query = get_exclusions(active_record_query, root)
     return active_record_query
@@ -81,6 +91,12 @@ class MapCursor
   end
 
   protected
+    def filter_products(active_record_query)
+      return active_record_query
+        .joins(:product_detail)
+        .where(product_details: { product_id: @products })
+    end
+
     def get_exclusions(active_record_query, root)
       parent_cursors = get_parents(root)
       parent_cursors.each do |parent_cursor|
@@ -94,12 +110,12 @@ class MapCursor
     def where(active_record_query)
       return active_record_query
         .where("ST_Within(coordinates::geometry, ST_MakeEnvelope(?, ?, ?, ?, 4326))", @x0, @y0, @x1, @y1)
-        .where("created_at > ?", (@since - 1).to_s)
+        .where("reports.updated_at > ?", (@since - 1).to_s)
     end
 
     def where_not(active_record_query)
       return active_record_query
         .where.not("ST_Within(coordinates::geometry, ST_MakeEnvelope(?, ?, ?, ?, 4326))", @x0, @y0, @x1, @y1)
-        .or(active_record_query.where("created_at > ?", @since.to_s))
+        .or(active_record_query.where("reports.updated_at > ?", @since.to_s))
     end
 end

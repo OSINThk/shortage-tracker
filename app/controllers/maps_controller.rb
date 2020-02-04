@@ -12,9 +12,10 @@ class MapsController < ApplicationController
     y0 = params["y0"];
     x1 = params["x1"];
     y1 = params["y1"];
+    products = params["products"]
 
-    cursor = MapCursor.new(parent_cursors, time, x0, y0, x1, y1)
-    @results = cursor.query(Report.includes(product_detail: :product), root)
+    cursor = MapCursor.new(parent_cursors, time, x0, y0, x1, y1, products)
+    @results = cursor.query(root)
 
     @meta = cursor.meta
     cursor.save
