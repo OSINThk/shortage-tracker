@@ -42,10 +42,7 @@ This is a list of many of the remaining steps to get this application into a shi
 
 ### Data Provisioning
 
-Use the Maps controller as a home for this.
-
-- [ ] All reports within lat/long/time bounds.
-- [ ] All reports for a particular product within lat/long/time bounds.
+- [ ] Data validation.
 
 ### Frontend
 
