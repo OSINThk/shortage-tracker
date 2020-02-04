@@ -4,6 +4,8 @@ This is a project of OSINThk.
 
 ## Setup
 
+Good Guide to [`How to install Ruby on Rails with rbenv on macOS `](https://www.digitalocean.com/community/tutorials/how-to-install-ruby-on-rails-with-rbenv-on-macos)
+ 
 Works with [`rbenv`](https://github.com/rbenv/rbenv#homebrew-on-macos). May work with `rvm`.
 
 An approximate macOS setup from basics:
