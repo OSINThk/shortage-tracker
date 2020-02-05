@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'admin', to: "pages#admin"
   get 'results', to: "maps#results"
 
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   resources :reports
 
   scope '/admin' do

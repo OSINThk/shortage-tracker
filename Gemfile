@@ -64,3 +64,6 @@ gem "activerecord-postgis-adapter", "~> 6.0"
 
 # Added at 2020-02-04 10:27:10 +0800 by nathanhammond:
 gem "redis", "~> 4.1"
+
+# For specific authentication per provider (@velvia)
+gem 'omniauth-facebook'
