@@ -11,14 +11,16 @@
     </div>
   <% end %>
 
+  <button type="button" class="find-me">Populate Location</button>
+
   <div class="field">
     <%= form.label :lat, "Latitude" %>
-    <%= form.text_field :lat %>
+    <%= form.text_field :lat, disabled: true %>
   </div>
 
   <div class="field">
     <%= form.label :long, "Longitude" %>
-    <%= form.text_field :long %>
+    <%= form.text_field :long, disabled: true %>
   </div>
 
   <div class="field">
