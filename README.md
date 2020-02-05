@@ -39,7 +39,20 @@ Once we have more than one regular contributor we will use a GitHub PR workflow 
 
 ## TODO
 
-This is a list of many of the remaining steps to get this application into a shippable state:
+This is a list of things that can be done to improve the application:
+
+- [ ] Review SendGrid configuration.
+- [ ] Click to report on home page.
+- [ ] Report#new/Report#edit: populate coordinates via map selection.
+- [ ] Missing Map Tiles at high zoom levels. (New tile provider?)
+- [ ] :omniauthable
+- [ ] Internationalization/Localization.
+- [ ] Fix tests now that pundit is in place.
+- [ ] Design for each page (mobile device focused)
+- [ ] Clustering of data on the server.
+- [ ] Implement CI via GitHub Actions.
+- [ ] Photo upload.
+- [ ] Product taxonomy.
 
 ### Filtered Data Bugfix
 
@@ -54,18 +67,3 @@ In other words, they need to be run with the more-permissive filter to explicitl
 2. Region didn't change, should get only new reports and reports matching query 1 that *did not* contain product 7.
 
 Currently Step 2 will only get new reports; it will not expand the scope of previous queries.
-
-### Frontend
-
-- [ ] Report#new/Report#edit: populate coordinates via location services or map selection.
-
-### v1 Followup
-
-- [ ] :omniauthable
-- [ ] Internationalization/Localization.
-- [ ] Fix tests now that pundit is in place.
-- [ ] Design for each page (mobile device focused)
-- [ ] Clustering of data on the server.
-- [ ] Implement CI via GitHub Actions.
-- [ ] Photo upload.
-- [ ] Product taxonomy.
