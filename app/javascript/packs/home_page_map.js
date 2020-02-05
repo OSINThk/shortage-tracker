@@ -33,16 +33,45 @@ let handleLoad = () => {
       cursors.add(json.meta.cursor);
       json.meta.parents.forEach(cursor => cursors.delete(cursor));
 
-      json.results.forEach(item => {
-        if (displayed.has(item.id)) {
+      json.results.forEach(report => {
+        if (displayed.has(report.id)) {
           return;
         }
 
-        displayed.add(item.id);
+        displayed.add(report.id);
 
-        L.marker([item["lat"], item["long"]])
+        popup = document.createElement('div');
+        popup.style.maxHeight = "300px";
+        popup.style.overflowX = "auto";
+        reportTime = document.createElement('h6');
+        reportTime.appendChild(document.createTextNode(report.created_at))
+        popup.appendChild(reportTime);
+
+        reportNotes = document.createElement('p');
+        reportNotes.appendChild(document.createTextNode(report.notes));
+        popup.appendChild(reportNotes);
+
+        report.product_detail.forEach((product) => {
+          productName = document.createElement('h5');
+          productName.appendChild(document.createTextNode(product.product.name))
+          popup.appendChild(productName);
+
+          productScarcity = document.createElement('p');
+          productScarcity.appendChild(document.createTextNode(`Scarcity: ${product.scarcity}`));
+          popup.appendChild(productScarcity);
+
+          productPrice = document.createElement('p');
+          productPrice.appendChild(document.createTextNode(`Price: ${product.price}`));
+          popup.appendChild(productPrice);
+
+          productNotes = document.createElement('p');
+          productNotes.appendChild(document.createTextNode(product.notes));
+          popup.appendChild(productNotes);
+        });
+
+        L.marker([report.lat, report.long])
           .addTo(map)
-          .bindPopup(item["notes"]);
+          .bindPopup(popup);
       });
     });
 };
