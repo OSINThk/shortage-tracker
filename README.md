@@ -9,9 +9,10 @@ Works with [`rbenv`](https://github.com/rbenv/rbenv#homebrew-on-macos). May work
 An approximate macOS setup from basics:
 
 ```sh
-brew install git rbenv postgres postgis
+brew install git rbenv postgres postgis redis
 
 brew services start postgresql
+brew services start redis
 
 rbenv init
 rbenv install 2.5.1
