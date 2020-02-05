@@ -21,7 +21,7 @@ class ReportsController < ApplicationController
     authorize Report
 
     @report = Report.new
-    @report.product_detail.build
+    @report.product_detail.build(scarcity: 1, price: 1)
   end
 
   # GET /reports/1/edit
