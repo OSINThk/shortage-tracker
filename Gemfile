@@ -67,3 +67,4 @@ gem "redis", "~> 4.1"
 
 # For specific authentication per provider (@velvia)
 gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
