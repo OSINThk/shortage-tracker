@@ -1,1 +1,2 @@
-json.array! @results, partial: "maps/result", as: :report
+json.results @results, partial: "maps/result", as: :report
+json.meta @meta

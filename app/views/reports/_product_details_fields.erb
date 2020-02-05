@@ -8,12 +8,16 @@
 
 <div class="field">
   <%= form.label :scarcity %>
-  <%= form.number_field :scarcity %>
+  Normal
+  <%= form.range_field :scarcity, :in => 1..5, :step => '1' %>
+  None
 </div>
 
 <div class="field">
   <%= form.label :price %>
-  <%= form.number_field :price %>
+  Normal
+  <%= form.range_field :price, :in => 1..5, :step => '1' %>
+  Expensive
 </div>
 
 <div class="field">

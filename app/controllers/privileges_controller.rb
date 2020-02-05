@@ -6,7 +6,7 @@ class PrivilegesController < ApplicationController
   # GET /privileges
   # GET /privileges.json
   def index
-    @privileges = Privilege.all
+    @privileges = Privilege.includes(:role).all
   end
 
   # GET /privileges/1

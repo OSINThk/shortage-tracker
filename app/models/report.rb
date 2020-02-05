@@ -4,7 +4,7 @@ class Report < ApplicationRecord
   end
 
   def lat
-    return coordinates&.lat.to_s || nil
+    return coordinates&.lat.to_s
   end
 
   validate :coordinates_valid
@@ -22,7 +22,7 @@ class Report < ApplicationRecord
   private
     def product_detail_valid
       product_details_count = product_detail.length
-      unique_count = product_detail.map { |detail| detail.product_id }.uniq
+      unique_count = product_detail.map { |detail| detail.product_id }.uniq.length
 
       if product_details_count > 1 && product_details_count != unique_count
         errors.add(:product_detail, "You may not provide duplicate details for the same product.")

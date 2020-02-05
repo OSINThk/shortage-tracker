@@ -11,6 +11,8 @@
     </div>
   <% end %>
 
+  <button type="button" class="find-me">Populate Location</button>
+
   <div class="field">
     <%= form.label :lat, "Latitude" %>
     <%= form.text_field :lat %>
@@ -38,7 +40,7 @@
       <script id="before-<%= formslug %>"></script>
       <li id="placeholder-<%= formslug %>" class="form-section__card-add-relationship form-section__product-detail-card">
         <template id="template-<%= formslug %>">
-          <%= form.fields_for :product_detail, ProductDetail.new, { child_index: formslug } do |product_detail_form| %>
+          <%= form.fields_for :product_detail, ProductDetail.new(scarcity: 1, price: 1), { child_index: formslug } do |product_detail_form| %>
             <li class="form-section__card form-section__product-detail-card">
               <%= render :partial => 'product_details_fields', locals: { form: product_detail_form, products: products } %>
             </li>

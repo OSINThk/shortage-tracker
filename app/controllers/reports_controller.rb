@@ -21,7 +21,7 @@ class ReportsController < ApplicationController
     authorize Report
 
     @report = Report.new
-    @report.product_detail.build
+    @report.product_detail.build(scarcity: 1, price: 1)
   end
 
   # GET /reports/1/edit
@@ -36,15 +36,16 @@ class ReportsController < ApplicationController
 
     passed_params = report_params
 
+    # Create a mutable version of the params.
+    augmented_params = passed_params.except(:lat, :long)
+
     # Augment the parameters with server-known information.
-    augmented_params = passed_params
     augmented_params["ip"] = request.remote_ip
     augmented_params["user_id"] = current_user.id
 
     # Construct the actual WKT.
     augmented_params["coordinates"] = "POINT(#{passed_params["long"]} #{passed_params["lat"]})"
 
-    augmented_params = augmented_params.except(:lat, :long)
     @report = Report.new(augmented_params)
 
     respond_to do |format|
@@ -65,8 +66,10 @@ class ReportsController < ApplicationController
 
     passed_params = report_params
 
+    # Create a mutable version of the params.
+    augmented_params = passed_params.except(:lat, :long)
+
     # Construct the actual WKT.
-    augmented_params = passed_params
     augmented_params["coordinates"] = "POINT(#{passed_params["long"]} #{passed_params["lat"]})"
 
     respond_to do |format|

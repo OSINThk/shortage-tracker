@@ -11,9 +11,10 @@ Works with [`rbenv`](https://github.com/rbenv/rbenv#homebrew-on-macos). May work
 An approximate macOS setup from basics:
 
 ```sh
-brew install git rbenv postgres postgis
+brew install git rbenv postgres postgis redis
 
 brew services start postgresql
+brew services start redis
 
 # do in this order
 rbenv init
@@ -68,30 +69,13 @@ Once we have more than one regular contributor we will use a GitHub PR workflow 
 
 ## TODO
 
-This is a list of many of the remaining steps to get this application into a shippable state:
+This is a list of things that can be done to improve the application:
 
-### MVP
-
-#### Backend
-
-- [ ] Implement root/bootstrapping user.
+- [ ] Review SendGrid configuration.
+- [ ] Click to report on home page.
+- [ ] Report#new/Report#edit: populate coordinates via map selection.
+- [ ] Missing Map Tiles at high zoom levels. (New tile provider?)
 - [ ] :omniauthable
-
-#### Data Provisioning
-
-Use the Maps controller as a home for this.
-
-- [ ] All reports within lat/long/time bounds.
-- [ ] All reports for a particular product within lat/long/time bounds.
-
-#### Frontend
-
-- [ ] Report#new/Report#edit: populate coordinates via location services or map selection.
-- [ ] Populate the map homepage with values from reports.
-  - [ ] update `handleResize()` to intelligently diff the map pins to minimize render time
-
-### Followup
-
 - [ ] Internationalization/Localization.
 - [ ] Fix tests now that pundit is in place.
 - [ ] Design for each page (mobile device focused)
@@ -99,3 +83,17 @@ Use the Maps controller as a home for this.
 - [ ] Implement CI via GitHub Actions.
 - [ ] Photo upload.
 - [ ] Product taxonomy.
+
+### Filtered Data Bugfix
+
+If the filtered set increases in scope (for example, becomes unfiltered after being filtered for all previous requests) all previous cursor data loads need to be adjusted for that condition change.
+
+In other words, they need to be run with the more-permissive filter to explicitly re-add filtered out values. For example:
+
+1. `~2020-02-04T16:22:27~114.1,22.5,114.2,22.6~7 => 719a480`
+2. `719a480~2020-02-04T16:23:52~114.1,22.5,114.2,22.6~" => 79dda18`
+
+1. Loaded reports if and only if they contained product 7.
+2. Region didn't change, should get only new reports and reports matching query 1 that *did not* contain product 7.
+
+Currently Step 2 will only get new reports; it will not expand the scope of previous queries.
