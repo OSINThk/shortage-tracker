@@ -32,7 +32,7 @@ Sample request: `http://localhost:3000/maptest?lat=114.029&lon=22.344&dist=1500&
 Hints for setup (MacOS):
 1. Visit https://gorails.com/setup/osx/10.14-mojave
 2. MacOS: You might need to `mv /usr/local/include /usr/local/include_old` to install Ruby 2.5.1.  Also you might need to do `sudo xcode-select --switch /Library/Developer/CommandLineTools`.
-3. If you can't find `bundle` try `rbenv exec gem update --system` followed by `rbenv exec bundle update --bundler`.  
+3. If you can't find `bundle` try `rbenv exec gem update --system` followed by `rbenv exec bundle update --bundler`.
 4. Use `rbenv exec` in front of gem/bundle commands if in doubt.
 5. You might need to manually create `/usr/local/var/postgres` and give it the right permissions, then restart PG using `brew services restart postgres`
 
@@ -48,7 +48,6 @@ Once we have more than one regular contributor we will use a GitHub PR workflow 
 
 This is a list of things that can be done to improve the application:
 
-- [ ] Review SendGrid configuration.
 - [ ] Click to report on home page.
 - [ ] Report#new/Report#edit: populate coordinates via map selection.
 - [ ] Missing Map Tiles at high zoom levels. (New tile provider?)
