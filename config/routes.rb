@@ -7,6 +7,11 @@ Rails.application.routes.draw do
   devise_for :users
   resources :reports
 
+  scope "(:locale)", locale: /en|ja|zh-HK|zh-CN|zh-TW/ do
+    resources :users, only: [:new, :show]
+#    root  'maps#index'
+  end
+    
   scope '/admin' do
     resources :products
     resources :privileges

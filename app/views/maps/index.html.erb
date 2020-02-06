@@ -1,3 +1,12 @@
+<p>
+<% if current_user %>
+    <%= t('login_status', username: current_user.email) %>
+<% end %>
+</p>
+
+<p> locale: <%= t('lang') %></p>
+<p><%= l Time.now, format: :short %></p>
+
 <h2>Instructions</h2>
 <% if current_user.nil? %>
   <p>Please <%= link_to 'sign in', new_user_session_path %> to add a report to the map.</p>
