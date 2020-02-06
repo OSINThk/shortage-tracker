@@ -23,9 +23,12 @@ cd shortage-tracker
 bundle install
 
 rake db:create && rake db:migrate
+rake maxmind
 
 rails s
 ```
+
+Sign up for a [maxmind account](https://www.maxmind.com) in order to get a license key.
 
 Sample request: `http://localhost:3000/maptest?lat=114.029&lon=22.344&dist=1500&since=2020-01-01`
 
