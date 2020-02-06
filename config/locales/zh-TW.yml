@@ -5,15 +5,6 @@ zh-CN:
   login: "登录"
   logout: "登出"
   login_status: "以 %{username} 身份登录"
-  about: "关于"
-  new_report: "新报告"
-  my_reports: "我的报告"
-  shortage_tracker: "短缺追踪器"
-  instruct_body: "在地图上的任意位置按以添加报告。 或者，"
-  instruct_body_2: "使用您的设备位置添加报告"
-  instruct_title: "指示"
-  signin_msg: "请 "
-  signin_msg_2: "将报告添加到地图。"
   activerecord:
     errors:
       messages:

@@ -65,3 +65,6 @@ gem "activerecord-postgis-adapter", "~> 6.0"
 
 # Added at 2020-02-04 10:27:10 +0800 by nathanhammond:
 gem "redis", "~> 4.1"
+
+# Added at 2020-02-06 01:16:24.876275 by thehapax:
+gem 'devise-i18n'

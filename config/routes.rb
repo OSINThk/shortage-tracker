@@ -9,7 +9,6 @@ Rails.application.routes.draw do
 
   scope "(:locale)", locale: /en|ja|zh-HK|zh-CN|zh-TW/ do
     resources :users, only: [:new, :show]
-#    root  'maps#index'
   end
     
   scope '/admin' do
