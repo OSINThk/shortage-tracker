@@ -61,7 +61,7 @@ class MapCursor
     # Don't try to load parents beyond the root.
     if root != key()
       @parent_cursors.each do |parent_cursor_key|
-        parent_cursor_value = $redis.get(parent_cursor_key)
+        parent_cursor_value = Redis.current.get(parent_cursor_key)
 
         # If it doesn't come back who cares.
         if (!parent_cursor_value.nil?)
@@ -87,7 +87,7 @@ class MapCursor
   end
 
   def save
-    $redis.set(key(), value(), ex: @@expiration_seconds)
+    Redis.current.set(key(), value(), ex: @@expiration_seconds)
   end
 
   protected
