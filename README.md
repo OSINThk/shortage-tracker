@@ -65,6 +65,14 @@ This is a list of things that can be done to improve the application:
 - [ ] Photo upload.
 - [ ] Product taxonomy.
 
+### The World is not Enough Bugfix
+
+A longitude of greater than 180º or less than -180º will break the loading behavior. At extremely zoomed out levels these numbers will appear. This will be related to the Great Circle Bugfix.
+
+### Great Circle Bugfix
+
+All `ST_MakeEnvelope` requests that span >= 180º will take the shorter side around the globe. Split all `ST_MakeEnvelope` calls into polygons that ensure they cover the correct areas. This will be related to the The World is not Enough Bugfix.
+
 ### Filtered Data Bugfix
 
 If the filtered set increases in scope (for example, becomes unfiltered after being filtered for all previous requests) all previous cursor data loads need to be adjusted for that condition change.
@@ -78,3 +86,5 @@ In other words, they need to be run with the more-permissive filter to explicitl
 2. Region didn't change, should get only new reports and reports matching query 1 that *did not* contain product 7.
 
 Currently Step 2 will only get new reports; it will not expand the scope of previous queries.
+
+This should be implemented by creating a new merged chain using the multiple parents feature of cursors.
