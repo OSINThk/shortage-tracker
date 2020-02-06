@@ -1,6 +1,7 @@
 class RolesController < ApplicationController
   before_action :set_role, only: [:show, :edit, :update, :destroy]
   before_action :set_privileges, only: [:new, :edit, :create, :update]
+  before_action :authenticate_user!
   before_action :is_admin
 
   # GET /roles

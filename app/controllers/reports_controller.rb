@@ -2,6 +2,7 @@ class ReportsController < ApplicationController
   before_action :set_report, only: [:show, :edit, :update, :destroy]
   before_action :set_products, only: [:new, :edit, :create, :update]
   before_action :set_lat_long, only: [:new, :edit]
+  before_action :authenticate_user!
 
   # GET /reports
   # GET /reports.json
