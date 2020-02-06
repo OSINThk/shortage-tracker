@@ -84,6 +84,10 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    dotenv (2.7.5)
+    dotenv-rails (2.7.5)
+      dotenv (= 2.7.5)
+      railties (>= 3.2, < 6.1)
     erubi (1.9.0)
     ffi (1.12.1)
     globalid (0.4.2)
@@ -226,6 +230,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   devise (~> 4.7)
+  dotenv-rails
   jbuilder (~> 2.7)
   listen (>= 3.0.5, < 3.2)
   maxmind-db (~> 1.1)

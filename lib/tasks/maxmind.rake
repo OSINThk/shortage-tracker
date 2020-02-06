@@ -12,7 +12,7 @@ def download_database(type)
   output_file_path = File.join(working_dir, "tmp.tar.gz")
 
   download(
-    "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-#{type}&date=20200204&license_key=9OgUYhCrzudkBJn2&suffix=tar.gz",
+    "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-#{type}&date=20200204&license_key=#{ENV.fetch('MAXMIND_LICENSE_KEY', '')}&suffix=tar.gz",
     output_file_path
   )
 

@@ -32,3 +32,6 @@ yarn-debug.log*
 
 # Ignore maxmind database files.
 *.mmdb
+
+# Ignore .env
+.env

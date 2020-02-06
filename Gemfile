@@ -67,3 +67,5 @@ gem "redis", "~> 4.1"
 
 # Added at 2020-02-06 16:56:15 +0800 by nathanhammond:
 gem "maxmind-db", "~> 1.1"
+
+gem 'dotenv-rails', groups: [:development, :test]
