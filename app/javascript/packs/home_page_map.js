@@ -83,3 +83,10 @@ handleLoad();
 map.on("zoomend", handleLoad);
 map.on("dragend", handleLoad);
 map.on("resize", handleLoad);
+
+function redirectToReport(event) {
+  window.location = `/reports/new?lat=${event.latlng.lat}&long=${event.latlng.lng}`
+}
+
+// Handle clicking.
+map.on("click", redirectToReport);

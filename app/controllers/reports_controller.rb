@@ -1,6 +1,7 @@
 class ReportsController < ApplicationController
   before_action :set_report, only: [:show, :edit, :update, :destroy]
   before_action :set_products, only: [:new, :edit, :create, :update]
+  before_action :set_lat_long, only: [:new, :edit]
 
   # GET /reports
   # GET /reports.json
@@ -20,7 +21,7 @@ class ReportsController < ApplicationController
   def new
     authorize Report
 
-    @report = Report.new
+    @report = Report.new(coordinates: "POINT(#{@long} #{@lat})")
     @report.product_detail.build(scarcity: 1, price: 1)
   end
 
@@ -103,6 +104,11 @@ class ReportsController < ApplicationController
 
     def set_products
       @products = Product.all
+    end
+
+    def set_lat_long
+      @lat = params["lat"]
+      @long = params["long"]
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

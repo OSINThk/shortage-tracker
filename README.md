@@ -48,11 +48,11 @@ Once we have more than one regular contributor we will use a GitHub PR workflow 
 
 This is a list of things that can be done to improve the application:
 
-- [ ] Click to report on home page.
 - [ ] Report#new/Report#edit: populate coordinates via map selection.
 - [ ] Missing Map Tiles at high zoom levels. (New tile provider?)
 - [ ] :omniauthable
 - [ ] Internationalization/Localization.
+- [ ] Inline reporting interface.
 - [ ] Fix tests now that pundit is in place.
 - [ ] Design for each page (mobile device focused)
 - [ ] Clustering of data on the server.
