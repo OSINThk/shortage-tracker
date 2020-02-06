@@ -42,6 +42,7 @@ class ReportsController < ApplicationController
 
     # Augment the parameters with server-known information.
     augmented_params["ip"] = request.remote_ip
+    augmented_params["geo_ip"] = get_geo_ip('42.3.200.48')
     augmented_params["user_id"] = current_user.id
 
     # Construct the actual WKT.
@@ -109,6 +110,38 @@ class ReportsController < ApplicationController
     def set_lat_long
       @lat = params["lat"]
       @long = params["long"]
+    end
+
+    def get_geo_ip(ip)
+      results = {}
+      city = $geoip_city.get(ip)
+      asn = $geoip_asn.get(ip)
+
+      if !city.nil?
+        results = results.merge(city)
+      end
+
+      if !asn.nil?
+        results["asn"] = asn
+      end
+
+      return walk(results)
+    end
+
+    def walk(thing)
+      if (!thing.is_a?(Hash) && !thing.is_a?(Array))
+        return thing
+      end
+
+      if thing.is_a?(Hash) && thing.has_key?("names")
+        if (thing["names"].has_key?("en"))
+          thing["names"] = { "en": thing["names"]["en"] }
+        end
+      end
+
+      thing.each {|key, value| walk(value || key)}
+
+      return thing
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

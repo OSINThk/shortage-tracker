@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_31_174920) do
+ActiveRecord::Schema.define(version: 2020_02_06_153659) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,7 +54,9 @@ ActiveRecord::Schema.define(version: 2020_01_31_174920) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.jsonb "geo_ip"
     t.index ["coordinates"], name: "index_reports_on_coordinates", using: :gist
+    t.index ["geo_ip"], name: "index_reports_on_geo_ip", using: :gin
     t.index ["user_id"], name: "index_reports_on_user_id"
   end
 
