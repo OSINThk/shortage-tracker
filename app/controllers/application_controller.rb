@@ -1,10 +1,19 @@
 class ApplicationController < ActionController::Base
+  before_action :set_locale
   include Pundit
   before_action :store_user_location!, if: :storable_location?
   # The callback which stores the current location must be added before you authenticate the user
   # as `authenticate_user!` (or whatever your resource is) will halt the filter chain and redirect
   # before the location can be stored.
 
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
+  end
+
+  def default_url_options
+    { locale: I18n.locale }
+  end
+  
   private
     # Its important that the location is NOT stored if:
     # - The request method is not GET (non idempotent)

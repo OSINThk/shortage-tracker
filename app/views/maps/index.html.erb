@@ -1,3 +1,12 @@
+<p>
+<% if current_user %>
+    <%= t('login_status', username: current_user.email) %>
+<% end %>
+</p>
+
+<p> locale: <%= t('lang') %></p>
+<p><%= l Time.now, format: :short %></p>
+
 <style>
 #info {
   position: absolute;
