@@ -70,3 +70,6 @@ gem "redis", "~> 4.1"
 gem "maxmind-db", "~> 1.1"
 
 gem 'dotenv-rails', groups: [:development, :test]
+
+# Added at 2020-02-06 01:16:24.876275 by thehapax:
+gem 'devise-i18n'

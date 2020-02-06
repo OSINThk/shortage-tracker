@@ -1,18 +1,18 @@
-<h1><%= link_to 'Shortage Tracker BETA', root_path %></h1>
+<h1><%= link_to t('shortage_tracker'), root_path %></h1>
 <nav>
   <ul>
     <% if policy(:pages).admin? %>
       <li><%= link_to 'Admin', admin_path %></li>
     <% end %>
     <% if current_user.nil? %>
-      <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-      <li><%= link_to 'Sign In', new_user_session_path %></li>
+      <li><%= link_to t('signup'), new_user_registration_path %></li>
+      <li><%= link_to t('login'), new_user_session_path %></li>
     <% else %>
-      <li><%= link_to 'New Report', new_report_path %></li>
-      <li><%= link_to 'My Reports', reports_path %></li>
-      <li><%= link_to 'Sign Out', destroy_user_session_path %></li>
+      <li><%= link_to t('new_report'), new_report_path %></li>
+      <li><%= link_to t('my_reports'), reports_path %></li>
+      <li><%= link_to t('logout'), destroy_user_session_path %></li>
     <% end %>
-    <li><%= link_to 'About', about_path %></li>
+    <li><%= link_to t('about'), about_path %></li>
   </ul>
 </nav>
 <p id="notice"><%= notice %></p>
