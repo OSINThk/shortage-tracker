@@ -31,6 +31,8 @@
 
 en:
   shortage_tracker: "Shortage Tracker"
+  locale_label: "your locale: "
+  time_label: "Current time: "
   login: "Login"
   logout: "Logout"
   reports:
