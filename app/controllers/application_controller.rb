@@ -13,7 +13,14 @@ class ApplicationController < ActionController::Base
   def default_url_options
     { locale: I18n.locale }
   end
-  
+
+  def browser_locale(request)
+   locales = request.env['HTTP_ACCEPT_LANGUAGE'] || ""
+   locales.scan(/[a-z]{2}(?=;)/).find do |locale|
+     I18n.available_locales.include?(locale.to_sym)
+   end
+  end
+    
   private
     # Its important that the location is NOT stored if:
     # - The request method is not GET (non idempotent)

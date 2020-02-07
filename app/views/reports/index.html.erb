@@ -1,4 +1,4 @@
-<h2>Reports</h2>
+<h2><%= t('.report_title') %></h2>
 
 <% if @reports.length > 0 %>
   <table>
@@ -30,5 +30,6 @@
 
 <%= link_to 'New Report', new_report_path %>
 <% else %>
-  <p>You have not yet created a report. <%= link_to 'Create your first report now.', new_report_path %></p>
+<p><%= t('.report_msg1') %>
+  <%= link_to t('.create_msg'), new_report_path %></p>
 <% end %>
