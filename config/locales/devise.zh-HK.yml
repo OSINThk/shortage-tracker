@@ -1,70 +1,72 @@
-# Chinese (China) translations for Devise 4.2.1
+# Chinese (Hong Kong) translations for Devise 4.2.1
 # 4.2.0: By HealthGrid at https://gist.github.com/HealthGrid/2d702b38aa6ffe0233f27d3d5be9250f
-# 4.2.1: By Artoria2e5 (this file)
+# 4.2.1: By Artoria2e5
 #  - Fixes pluralization problems (zh only takes "other")
 #  - Misc translation improvements, you know what these grammar things are.
 #  - Should be minor enough to claim CC0 for my changes.
+# 4.3.0 By arguablewaffles (this file)
+#  - Major rewrite of most phrases
 # Additional translations at https://github.com/plataformatec/devise/wiki/I18n
 
-zh-CN:
+zh-HK:
   devise:
     confirmations:
-      confirmed: "成功验证您的帐号。您现已登录。"
-      send_instructions: "您的电子邮箱将在几分钟后收到一封帐号确认邮件。"
-      send_paranoid_instructions: "如果您的邮箱存在于我们的数据库中，您将收到一封确认帐号的邮件。"
+      confirmed: "帳號已成功確認。您現已登入。"
+      send_instructions: "您幾分鐘內將會收到賬號確認電郵。"
+      send_paranoid_instructions: "如果您的電郵存在於我們的數據庫中，您將收到一封確認帳號的郵件。"
     failure:
-      already_authenticated: "您已经登录。"
-      inactive: "您还没有激活帐户。"
-      invalid: "邮箱或密码错误。"
-      locked: "您的帐号已被锁定。"
-      last_attempt: "您还有最后一次尝试机会，再次失败您的帐号将被锁定。"
-      not_found_in_database: "邮箱或密码错误。"
-      timeout: "您已登录超时，请重新登录。"
-      unauthenticated: "继续操作前请注册或者登录。"
-      unconfirmed: "继续操作前请先确认您的帐号。"
+      already_authenticated: "您已經登入。"
+      inactive: "賬號尚未啟用。"
+      invalid: "電郵或密碼錯誤。"
+      locked: "您的帳號已被封鎖。"
+      last_attempt: "您還有一次登入機會。若再次失敗，您的帳號將被封鎖。"
+      not_found_in_database: "電郵或密碼錯誤。"
+      timeout: "登入逾時，請重新登入。"
+      unauthenticated: "請先註冊或登入。"
+      unconfirmed: "請先確認您的帳號。"
     mailer:
       confirmation_instructions:
-        subject: "帐户确认信息"
+        subject: "帳戶確認信息"
       reset_password_instructions:
-        subject: "重置密码信息"
+        subject: "重置密碼信息"
       unlock_instructions:
-        subject: "帐户解锁信息"
+        subject: "帳戶解鎖信息"
       email_changed:
-        subject: "电邮已被修改"
+        subject: "電郵已被修改"
       password_change:
-        subject: '密码已被重置'
+        subject: '密碼已被重設'
     omniauth_callbacks:
-      failure: "由于%{reason}，无法从%{kind}获得授权。"
-      success: "成功地从%{kind}获得授权。"
+      failure: "由於%{reason}，無法從%{kind}獲得授權。"
+      success: "成功從%{kind}獲得授權。"
     passwords:
-      no_token: "无重置邮件不可访问密码重置页面。如果您是从重置邮件来到了这个页面，请确保您输入的URL完整的。"
-      send_instructions: "几分钟后，您将收到重置密码的电子邮件。"
-      send_paranoid_instructions: "如果您的邮箱存在于我们的数据库中，您将收到一封找回密码的邮件。"
-      updated: "您的密码已修改成功，您现在已登录。"
-      updated_not_active: "您的密码已修改成功。"
+      no_token: "此網頁無法從密碼重設電郵外瀏覽。如果您是從密碼重設電郵的連接到這個網頁，請確保您輸入的連接是完整的。"
+      send_instructions: "您幾分鐘內將會收到密碼重設電郵。"
+      send_paranoid_instructions: "如果您的電郵存在於我們的數據庫中，您將收到一封找回密碼的郵件。"
+      updated: "密碼已成功更改，您現在已登入。"
+      updated_not_active: "密碼已成功更改。"
     registrations:
-      destroyed: "再见！您的帐户已成功注销。我们希望很快可以再见到您。"
-      signed_up: "欢迎！您已注册成功。"
-      signed_up_but_inactive: "您已注册，但尚未激活帐号。"
-      signed_up_but_locked: "您已注册，但帐号被锁定了。"
-      signed_up_but_unconfirmed: "一封带有确认链接的邮件已经发送至您的邮箱，请检查邮箱（包括垃圾邮箱），并点击该链接激活您的帐号。"
-      update_needs_confirmation: "信息更新成功，但我们需要验证您的新电子邮件地址，请检查邮箱（包括垃圾邮箱），并点击该链接激活您的帐号。"
-      updated: "帐号资料更新成功。"
-      updated_but_not_signed_in: "帐号资料更新成功。由于密码已修改，请重新登录。"
+      destroyed: "帳戶已成功取消，希望在不久的將來再見。"
+      signed_up: "歡迎！註冊已成功。"
+      signed_up_but_inactive: "您已註冊，但帳號尚未啟用。"
+      signed_up_but_locked: "您已註冊，但帳號被封鎖。"
+      signed_up_but_unconfirmed: "賬號確認電郵已寄出，請檢查您的電郵（包括垃圾郵箱），並點擊電郵內的鏈接啟用帳號。"
+      update_needs_confirmation: "賬號更新成功，但我們需要確認您的新電郵。請檢查電郵（包括垃圾郵箱），並點擊電郵內的鏈接。"
+      updated: "帳號資料更新成功。"
+      updated_but_not_signed_in: "帳號更新成功，但由於密碼已更改，您必須重新登入。"
     sessions:
-      signed_in: "登录成功。"
-      signed_out: "退出成功。"
-      already_signed_out: "已经退出成功。"
+      signed_in: "登入成功。"
+      signed_out: "登出成功。"
+      already_signed_out: "登出成功。"
     unlocks:
-      send_instructions: "几分钟后，您将收到一封解锁帐号的邮件。"
-      send_paranoid_instructions: "如果您的邮箱存在于我们的数据库中，您将收到一封解锁帐号的邮件。"
-      unlocked: "您的帐号已成功解锁，您现在已登录。"
+      send_instructions: "幾分鐘後，您將收到一封解鎖帳號的郵件。"
+      send_paranoid_instructions: "如果您的電郵存在於我們的數據庫中，您將收到一封解鎖帳號的郵件。"
+      unlocked: "您的帳號已成功解鎖，您現在已登入。"
   errors:
     messages:
-      already_confirmed: "已经确认，请重新登录。"
-      confirmation_period_expired: "注册帐号后须在%{period}以内确认。请重新注册。"
-      expired: "邮件确认已过期，请重新注册。"
+      already_confirmed: "已確認，請重新登入。"
+      confirmation_period_expired: "註冊帳號後須在%{period}以內確認。請重新註冊。"
+      expired: "確認郵件已失效，請重新註冊。"
       not_found: "找不到。"
-      not_locked: "未锁定。"
+      not_locked: "未鎖定。"
       not_saved:
-        other: "发生%{count}个错误，导致%{resource}保存失败："
+        other: "發生%{count}個錯誤，導致%{resource}未能保存："
