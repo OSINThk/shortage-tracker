@@ -1,16 +1,16 @@
+LOCALE_SEGMENT = Regexp.new(Rails.application.config.i18n.available_locales.join('|'))
+
 Rails.application.routes.draw do
-  root to: "maps#index"
-  get 'about', to: "pages#about"
-  get 'admin', to: "pages#admin"
-  get 'results', to: "maps#results"
+  scope "(:locale)", locale: LOCALE_SEGMENT do
+    root to: "maps#index"
+    get 'about', to: "pages#about"
+    get 'admin', to: "pages#admin"
+    get 'results', to: "maps#results"
 
-  devise_for :users
-  resources :reports
-
-  scope "(:locale)", locale: /en|ja|zh-HK|zh-CN|zh-TW/ do
-    resources :users, only: [:new, :show]
+    devise_for :users
+    resources :reports
   end
-    
+
   scope '/admin' do
     resources :products
     resources :privileges

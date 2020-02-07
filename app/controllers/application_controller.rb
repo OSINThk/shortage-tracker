@@ -1,26 +1,18 @@
+require 'accept_language'
+
 class ApplicationController < ActionController::Base
-  before_action :set_locale
   include Pundit
   before_action :store_user_location!, if: :storable_location?
   # The callback which stores the current location must be added before you authenticate the user
   # as `authenticate_user!` (or whatever your resource is) will halt the filter chain and redirect
   # before the location can be stored.
 
-  def set_locale
-    I18n.locale = params[:locale] || I18n.default_locale
-  end
+  around_action :switch_locale
 
   def default_url_options
     { locale: I18n.locale }
   end
 
-  def browser_locale(request)
-   locales = request.env['HTTP_ACCEPT_LANGUAGE'] || ""
-   locales.scan(/[a-z]{2}(?=;)/).find do |locale|
-     I18n.available_locales.include?(locale.to_sym)
-   end
-  end
-    
   private
     # Its important that the location is NOT stored if:
     # - The request method is not GET (non idempotent)
@@ -34,6 +26,17 @@ class ApplicationController < ActionController::Base
     def store_user_location!
       # :user is the scope we are authenticating
       store_location_for(:user, request.fullpath)
+    end
+
+    def switch_locale(&action)
+      locale = params[:locale] || get_best_language || I18n.default_locale
+      I18n.with_locale(locale, &action)
+    end
+
+    def get_best_language
+      header = AcceptLanguage::Header.parse(request.env['HTTP_ACCEPT_LANGUAGE'])
+      # TODO
+      return I18n.default_locale
     end
 
     def initialize
