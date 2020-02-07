@@ -43,7 +43,7 @@ class ReportsController < ApplicationController
 
     # Augment the parameters with server-known information.
     augmented_params["ip"] = request.remote_ip
-    augmented_params["geo_ip"] = get_geo_ip('42.3.200.48')
+    augmented_params["geo_ip"] = get_geo_ip(request.remote_ip)
     augmented_params["user_id"] = current_user.id
 
     # Construct the actual WKT.
