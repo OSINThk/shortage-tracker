@@ -39,11 +39,11 @@ class ReportsController < ApplicationController
     passed_params = report_params
 
     # Create a mutable version of the params.
-    augmented_params = passed_params.except(:lat, :long)
+    augmented_params = passed_params.except(:lat, :long).to_hash
 
     # Augment the parameters with server-known information.
     augmented_params["ip"] = request.remote_ip
-    augmented_params["geo_ip"] = get_geo_ip(request.remote_ip)
+    # augmented_params["geo_ip"] = get_geo_ip(request.remote_ip)
     augmented_params["user_id"] = current_user.id
 
     # Construct the actual WKT.
@@ -70,7 +70,7 @@ class ReportsController < ApplicationController
     passed_params = report_params
 
     # Create a mutable version of the params.
-    augmented_params = passed_params.except(:lat, :long)
+    augmented_params = passed_params.except(:lat, :long).to_hash
 
     # Construct the actual WKT.
     augmented_params["coordinates"] = "POINT(#{passed_params["long"]} #{passed_params["lat"]})"

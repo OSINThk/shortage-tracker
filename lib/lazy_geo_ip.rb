@@ -1,4 +1,4 @@
-class GeoIp
+class LazyGeoIp
   def initialize(type)
     @current = nil
     @type = type
