@@ -1,5 +1,5 @@
-<h2>New Report</h2>
+<h2><%= t('.new_report') %> </h2>
 
 <%= render 'form', report: @report, products: @products %>
 
-<%= link_to 'Back', reports_path %>
+<%= link_to t('.back_link_label'), reports_path %>
