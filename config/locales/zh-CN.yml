@@ -1,6 +1,8 @@
 ---
 zh-CN:
   shortage_tracker: "短缺追踪器"
+  locale_label: "您的语言环境:"
+  time_label: "当前时间："
   login: "登录"
   logout: "登出"
   signup: "注册"
