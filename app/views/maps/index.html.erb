@@ -6,13 +6,20 @@
 <% end %>
 
 <style>
-#map-container {
-  height: 500px;
+body {
+    padding: 0;
+    margin: 0;
+}
+html, body, #map, #map-container {
+    height: 100%;
+    width: 100vw;
 }
 </style>
-<div id="map-container"></div>
+<div id="map-container">
+  <div id="map"></div>
+</div>
 
 <script type="text/javascript">
-  var map = L.map("map-container").setView([<%= @latitude %>, <%= @longitude %>], 13);
+  var map = L.map("map").setView([<%= @latitude %>, <%= @longitude %>], 13);
 </script>
 <%= javascript_pack_tag 'home_page_map' %>
