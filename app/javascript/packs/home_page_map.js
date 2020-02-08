@@ -8,6 +8,13 @@ L.tileLayer(
   }
 ).addTo(map);
 
+// Position the zoomcontrol where we want it
+L.control
+  .zoom({
+    position: "topright"
+  })
+  .addTo(map);
+
 var displayed = new Set();
 var cursors = new Set();
 
