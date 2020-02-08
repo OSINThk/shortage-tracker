@@ -1,22 +1,26 @@
-# Chinese (Hong Kong) translations for Devise 4.2.1
+# Chinese (Hong Kong) translations for Devise 4.3.1
 # 4.2.0: By HealthGrid at https://gist.github.com/HealthGrid/2d702b38aa6ffe0233f27d3d5be9250f
 # 4.2.1: By Artoria2e5
 #  - Fixes pluralization problems (zh only takes "other")
 #  - Misc translation improvements, you know what these grammar things are.
 #  - Should be minor enough to claim CC0 for my changes.
-# 4.3.0 By arguablewaffles (this file)
+# 4.3.0 By arguablewaffles
 #  - Major rewrite of most phrases
+# 4.3.1 By arguablewaffles (this file)
+#  - Translate send_paranoid_instructions (x3)
+#  - Standardize terms
+#  - Additional minor tweaks for less verboseness
 # Additional translations at https://github.com/plataformatec/devise/wiki/I18n
 
 zh-HK:
   devise:
     confirmations:
       confirmed: "帳號已成功確認。您現已登入。"
-      send_instructions: "您幾分鐘內將會收到賬號確認電郵。"
-      send_paranoid_instructions: "如果您的電郵存在於我們的數據庫中，您將收到一封確認帳號的郵件。"
+      send_instructions: "您幾分鐘內將會收到帳號確認電郵。"
+      send_paranoid_instructions: "如您的電郵已登記，您將會收帳號確認電郵。"
     failure:
       already_authenticated: "您已經登入。"
-      inactive: "賬號尚未啟用。"
+      inactive: "帳號尚未啟用。"
       invalid: "電郵或密碼錯誤。"
       locked: "您的帳號已被封鎖。"
       last_attempt: "您還有一次登入機會。若再次失敗，您的帳號將被封鎖。"
@@ -26,11 +30,11 @@ zh-HK:
       unconfirmed: "請先確認您的帳號。"
     mailer:
       confirmation_instructions:
-        subject: "帳戶確認信息"
+        subject: "帳號確認信息"
       reset_password_instructions:
         subject: "重置密碼信息"
       unlock_instructions:
-        subject: "帳戶解鎖信息"
+        subject: "帳號解鎖信息"
       email_changed:
         subject: "電郵已被修改"
       password_change:
@@ -39,33 +43,33 @@ zh-HK:
       failure: "由於%{reason}，無法從%{kind}獲得授權。"
       success: "成功從%{kind}獲得授權。"
     passwords:
-      no_token: "此網頁無法從密碼重設電郵外瀏覽。如果您是從密碼重設電郵的連接到這個網頁，請確保您輸入的連接是完整的。"
+      no_token: "此網頁無法從密碼重設電郵外瀏覽。如您是從密碼重設電郵的連結到這個網頁，請確保您輸入的連結是完整的。"
       send_instructions: "您幾分鐘內將會收到密碼重設電郵。"
-      send_paranoid_instructions: "如果您的電郵存在於我們的數據庫中，您將收到一封找回密碼的郵件。"
-      updated: "密碼已成功更改，您現在已登入。"
+      send_paranoid_instructions: "如您的電郵已登記，您將會收到密碼重設電郵。"
+      updated: "密碼已成功更改，您現已登入。"
       updated_not_active: "密碼已成功更改。"
     registrations:
-      destroyed: "帳戶已成功取消，希望在不久的將來再見。"
-      signed_up: "歡迎！註冊已成功。"
+      destroyed: "帳號已成功取消，希望在不久的將來再見。"
+      signed_up: "歡迎！您已成功註冊。"
       signed_up_but_inactive: "您已註冊，但帳號尚未啟用。"
       signed_up_but_locked: "您已註冊，但帳號被封鎖。"
-      signed_up_but_unconfirmed: "賬號確認電郵已寄出，請檢查您的電郵（包括垃圾郵箱），並點擊電郵內的鏈接啟用帳號。"
-      update_needs_confirmation: "賬號更新成功，但我們需要確認您的新電郵。請檢查電郵（包括垃圾郵箱），並點擊電郵內的鏈接。"
-      updated: "帳號資料更新成功。"
+      signed_up_but_unconfirmed: "帳號確認電郵已寄出，請檢查您的電郵（包括垃圾郵箱），並點擊電郵內的連結啟用帳號。"
+      update_needs_confirmation: "帳號更新成功，但我們需要確認您的新電郵。請檢查電郵（包括垃圾郵箱），並點擊電郵內的連結。"
+      updated: "帳號更新成功。"
       updated_but_not_signed_in: "帳號更新成功，但由於密碼已更改，您必須重新登入。"
     sessions:
       signed_in: "登入成功。"
       signed_out: "登出成功。"
       already_signed_out: "登出成功。"
     unlocks:
-      send_instructions: "幾分鐘後，您將收到一封解鎖帳號的郵件。"
-      send_paranoid_instructions: "如果您的電郵存在於我們的數據庫中，您將收到一封解鎖帳號的郵件。"
-      unlocked: "您的帳號已成功解鎖，您現在已登入。"
+      send_instructions: "您幾分鐘內將會收到帳號解封帳號電郵。"
+      send_paranoid_instructions: "如您的電郵已登記，您將會收到解封帳號電郵。"
+      unlocked: "您的帳號已成功解封，請先登入。"
   errors:
     messages:
-      already_confirmed: "已確認，請重新登入。"
-      confirmation_period_expired: "註冊帳號後須在%{period}以內確認。請重新註冊。"
-      expired: "確認郵件已失效，請重新註冊。"
+      already_confirmed: "已確認，請再次嘗試登入。"
+      confirmation_period_expired: "註冊帳號後須在%{period}內確認。請重新註冊。"
+      expired: "確認電郵已失效，請重新註冊。"
       not_found: "找不到。"
       not_locked: "未鎖定。"
       not_saved:
