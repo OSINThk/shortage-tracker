@@ -1,8 +1,12 @@
-L.tileLayer("https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png", {
-  attribution: 'Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery by Wikimedia Foundation',
-  maxZoom: 18,
-  setView: true
-}).addTo(map);
+L.tileLayer(
+  "https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=sk.eyJ1Ijoib3NpbnRoayIsImEiOiJjazZkYWRueHEwNTRkM2VtdmNnZWwwbmV4In0.B42ECPkQldyVNtvTplkY3A",
+  {
+    attribution:
+      '© <a href="https://www.mapbox.com/feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    maxZoom: 18,
+    setView: true
+  }
+).addTo(map);
 
 var displayed = new Set();
 var cursors = new Set();
@@ -16,12 +20,18 @@ let handleLoad = () => {
     x0: coord0.lng,
     y0: coord0.lat,
     x1: coord1.lng,
-    y1: coord1.lat,
+    y1: coord1.lat
   };
 
-  var url = "/results.json?" + Object.entries(querystring).map(kvpair => kvpair.join('=')).join('&');
+  var url =
+    "/results.json?" +
+    Object.entries(querystring)
+      .map(kvpair => kvpair.join("="))
+      .join("&");
   if (cursors.size) {
-    url += "&" + [...cursors.values()].map(cursor => `cursors[]=${cursor}`).join('&')
+    url +=
+      "&" +
+      [...cursors.values()].map(cursor => `cursors[]=${cursor}`).join("&");
   }
 
   fetch(url)
@@ -39,31 +49,37 @@ let handleLoad = () => {
 
         displayed.add(report.id);
 
-        popup = document.createElement('div');
+        popup = document.createElement("div");
         popup.style.maxHeight = "300px";
         popup.style.overflowX = "auto";
-        reportTime = document.createElement('h6');
-        reportTime.appendChild(document.createTextNode(report.created_at))
+        reportTime = document.createElement("h6");
+        reportTime.appendChild(document.createTextNode(report.created_at));
         popup.appendChild(reportTime);
 
-        reportNotes = document.createElement('p');
+        reportNotes = document.createElement("p");
         reportNotes.appendChild(document.createTextNode(report.notes));
         popup.appendChild(reportNotes);
 
-        report.product_detail.forEach((product) => {
-          productName = document.createElement('h5');
-          productName.appendChild(document.createTextNode(product.product.name))
+        report.product_detail.forEach(product => {
+          productName = document.createElement("h5");
+          productName.appendChild(
+            document.createTextNode(product.product.name)
+          );
           popup.appendChild(productName);
 
-          productScarcity = document.createElement('p');
-          productScarcity.appendChild(document.createTextNode(`Scarcity: ${product.scarcity}`));
+          productScarcity = document.createElement("p");
+          productScarcity.appendChild(
+            document.createTextNode(`Scarcity: ${product.scarcity}`)
+          );
           popup.appendChild(productScarcity);
 
-          productPrice = document.createElement('p');
-          productPrice.appendChild(document.createTextNode(`Price: ${product.price}`));
+          productPrice = document.createElement("p");
+          productPrice.appendChild(
+            document.createTextNode(`Price: ${product.price}`)
+          );
           popup.appendChild(productPrice);
 
-          productNotes = document.createElement('p');
+          productNotes = document.createElement("p");
           productNotes.appendChild(document.createTextNode(product.notes));
           popup.appendChild(productNotes);
         });
@@ -84,7 +100,7 @@ map.on("dragend", handleLoad);
 map.on("resize", handleLoad);
 
 function redirectToReport(event) {
-  window.location = `/reports/new?lat=${event.latlng.lat}&long=${event.latlng.lng}`
+  window.location = `/reports/new?lat=${event.latlng.lat}&long=${event.latlng.lng}`;
 }
 
 // Handle clicking.
