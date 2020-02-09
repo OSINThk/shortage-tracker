@@ -1,6 +1,5 @@
 ---
 zh-HK:
-  lang: "zh-HK(繁體中文)"
   sessions:
     signed_in: "登录成功。"
     signed_out: "登出成功。"
@@ -8,4 +7,3 @@ zh-HK:
   signup: "注册"
   login: "登录"
   logout: "登出"
-  login_status: "以 %{username} 身份登录"
