@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   around_action :set_i18n_debug
 
   def default_url_options
-    options = { locale: I18n.locale }
+    options = { locale: I18n.locale.to_s.downcase }
 
     # Persist i18n debugging.
     if params.has_key?(:i18n)
