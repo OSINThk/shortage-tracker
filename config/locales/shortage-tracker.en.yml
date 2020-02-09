@@ -6,33 +6,33 @@ en:
   login: "Login"
   logout: "Logout"
   reports:
-   new:
-     new_report: "New Report"
-     back_link_label: "Back"
-   form:
-     latitude: "Latitude"
-     longitude: "Longitude"
-     latlon_notes: "Notes"
-     products_title: "Products"
-     add_product_detail: "Add Product Detail"
-     populate_location_label: "Populate Location"
-   product_details_fields:
-     product_label: "Product"
-     scarcity_label: "Scarcity"
-     price_label: "Price"
-     note_label: "Notes"
-     normal_label: "Normal"
-     none_label: "None"
-     expensive_label: " Expensive"
-     select_product_label: "Select Product..."
-     del_product_detail: "Remove Product Detail"
-   index:
-     report_title: "Reports"
-     report_msg1: "You have not yet created a report."
-     create_msg: "Create your first report now."
-     location: "Location"
-     notes: "Notes"
-     report_time: "Report Time"
+    new:
+      new_report: "New Report"
+      back_link_label: "Back"
+    form:
+      latitude: "Latitude"
+      longitude: "Longitude"
+      latlon_notes: "Notes"
+      products_title: "Products"
+      add_product_detail: "Add Product Detail"
+      populate_location_label: "Populate Location"
+    product_details_fields:
+      product_label: "Product"
+      scarcity_label: "Scarcity"
+      price_label: "Price"
+      note_label: "Notes"
+      normal_label: "Normal"
+      none_label: "None"
+      expensive_label: " Expensive"
+      select_product_label: "Select Product..."
+      del_product_detail: "Remove Product Detail"
+    index:
+      report_title: "Reports"
+      report_msg1: "You have not yet created a report."
+      create_msg: "Create your first report now."
+      location: "Location"
+      notes: "Notes"
+      report_time: "Report Time"
   maps:
     index:
       lang: "en"
@@ -42,4 +42,3 @@ en:
       instruct_body_2: "Or, add a report using your device location."
       signin_msg: "Please"
       signin_msg_2: "to add a report to the map."
-
