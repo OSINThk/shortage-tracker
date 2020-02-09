@@ -9,6 +9,14 @@ require("channels");
 require("../location-services");
 require("../manage-relationships");
 
+import "bootstrap"
+import "../stylesheets/application"
+
+document.addEventListener("turbotlinks:load", () => {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+
+
 //= require lodash
 
 // Uncomment to copy all static images under ../images to the output folder and reference
