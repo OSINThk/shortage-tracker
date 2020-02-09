@@ -1,19 +1,36 @@
-<h1><%= link_to 'Shortage Tracker', root_path %></h1>
-<nav>
-  <ul>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<a class="navbar-brand" href="/">Shortage Tracker</a>
+ <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto">
+    <li class="nav-item active">
+    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+  </li>
     <% if policy(:pages).admin? %>
-      <li><%= link_to 'Admin', admin_path %></li>
-    <% end %>
-    <% if current_user.nil? %>
-      <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-      <li><%= link_to 'Sign In', new_user_session_path %></li>
-    <% else %>
-      <li><%= link_to 'New Report', new_report_path %></li>
-      <li><%= link_to 'My Reports', reports_path %></li>
-      <li><%= link_to 'Sign Out', destroy_user_session_path %></li>
-    <% end %>
-    <li><%= link_to 'About', about_path %></li>
-  </ul>
+    <li class="nav-item"><%= link_to 'Admin', admin_path, :class => "nav-link"  %></li>
+  <% end %>
+  <% if current_user.nil? %>
+    <li class="nav-item"><%= link_to 'Sign Up', new_user_registration_path, :class => "nav-link"  %></li>
+    <li class="nav-item"><%= link_to 'Sign In', new_user_session_path, :class => "nav-link"  %></li>
+  <% else %>
+    <li class="nav-item"><%= link_to 'New Report', new_report_path, :class => "nav-link"  %></li>
+    <li class="nav-item"><%= link_to 'My Reports', reports_path, :class => "nav-link" %></li>
+    <li class="nav-item"><%= link_to 'Sign Out', destroy_user_session_path, :class => "nav-link"  %></li>
+  <% end %>
+      <li class="nav-item">
+        <li><%= link_to 'About', about_path, :class => "nav-link" %></li>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search">
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
 </nav>
+
+<div> <p><h1> <%= link_to 'Shortage Tracker', root_path %></h1></p> </div>
 <p id="notice"><%= notice %></p>
 <p id="alert"><%= alert %></p>
