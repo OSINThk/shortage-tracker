@@ -1,5 +1,6 @@
 require 'accept_language'
 require 'locale'
+require 'i18n_debug'
 
 class ApplicationController < ActionController::Base
   include Pundit
@@ -9,6 +10,7 @@ class ApplicationController < ActionController::Base
   # before the location can be stored.
 
   around_action :set_locale
+  around_action :set_i18n_debug
 
   def default_url_options
     { locale: I18n.locale }
@@ -31,6 +33,14 @@ class ApplicationController < ActionController::Base
 
     def set_locale(&action)
       I18n.with_locale(get_best_language, &action)
+    end
+
+    def set_i18n_debug(&action)
+      if params.has_key?(:i18n)
+        I18nDebug.with_backend(I18nDebugBackend.new, &action)
+      else
+        I18nDebug.with_backend(I18n.backend, &action)
+      end
     end
 
     def get_best_language
