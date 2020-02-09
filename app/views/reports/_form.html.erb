@@ -11,47 +11,46 @@
     </div>
   <% end %>
 
-  <button type="button" class="find-me">Populate Location</button>
 
+  <div class="card border-primary mb-3" style="max-width: 20rem;" > 
+  <div class="card-body">
+
+  <h3>Location</h3>
+
+  <p> <button type="button" class="find-me">Populate Location</button></p>
+  
   <div class="field">
     <%= form.label :lat, "Latitude" %>
     <%= form.text_field :lat %>
-  </div>
-
-  <div class="field">
     <%= form.label :long, "Longitude" %>
     <%= form.text_field :long %>
-  </div>
-
-  <div class="field">
     <%= form.label :notes %>
     <%= form.text_field :notes %>
   </div>
 
-  <section class="form-section">
-    <h3>Products</h3>
-    <ul class="form-section__card-stack">
-      <%= form.fields_for :product_detail do |product_detail_form| %>
-        <li class="form-section__card form-section__product-detail-card">
-          <%= render :partial => 'product_details_fields', locals: { form: product_detail_form, products: products } %>
-        </li>
+  </div>
+  </div>
+  
+  
+    <h3>Add Products</h3>
+
+      <%= form.fields_for :product_detail do |product_detail_form| %>  
+        <%= render :partial => 'product_details_fields', locals: { form: product_detail_form, products: products } %>
       <% end %>
       <% formslug = get_unique_id() %>
       <script id="before-<%= formslug %>"></script>
-      <li id="placeholder-<%= formslug %>" class="form-section__card-add-relationship form-section__product-detail-card">
         <template id="template-<%= formslug %>">
           <%= form.fields_for :product_detail, ProductDetail.new(scarcity: 1, price: 1), { child_index: formslug } do |product_detail_form| %>
-            <li class="form-section__card form-section__product-detail-card">
               <%= render :partial => 'product_details_fields', locals: { form: product_detail_form, products: products } %>
-            </li>
           <% end %>
         </template>
+
+        <div><p>    
         <button type="button" class="add-relationship" data-slug="<%= formslug %>">Add Product Detail</button>
-      </li>
-    </ul>
-  </section>
+            </p> </div>
 
   <div class="actions">
-    <%= form.submit %>
+     <%= form.submit 'Create Report', :class => 'btn btn-success' %>
   </div>
 <% end %>
+

@@ -1,26 +1,56 @@
-<%= form.hidden_field :_destroy, { value: "false", class: "destroy" } %>
-<button type="button" class="remove-relationship">Remove Product Details</button>
+<div class="card bg-light mb-3" style="max-width: 20rem;">
+  <div class="card-body">
 
 <div class="field">
-  <%= form.label :product_id %>
+<dl>
+<dt>
+  <%= form.label :product_id, 'Select a Product' %>
+  </dt>
+  <dd>
   <%= form.select :product_id, products.map { |product| [product, product.id] }, { include_blank: "Select product..." } %>
-</div>
+  </dd>
+  </dl>
+  </div>
 
 <div class="field">
-  <%= form.label :scarcity %>
+<dl>
+<dt>
+   <%= form.label :scarcity %> 
+</dt>
+<dd>
   Normal
-  <%= form.range_field :scarcity, :in => 1..5, :step => '1' %>
+  <%= form.range_field :scarcity, :in => 1..5, :step => '1'%>
   None
-</div>
+  </dd>
+</dl>
+  </div>
 
 <div class="field">
-  <%= form.label :price %>
-  Normal
+<dl>
+<dt>
+<%= form.label :price %>
+</dt>
+<dd>
+Normal
   <%= form.range_field :price, :in => 1..5, :step => '1' %>
   Expensive
+  </dd>
+  </dl>
 </div>
 
 <div class="field">
-  <%= form.label :notes %>
+<dl>
+<dt>
+  <%= form.label 'product notes' %>
+</dt>
+<dd>
   <%= form.text_field :notes %>
+  </dd>
+  </dl>
+</div>
+
+<%= form.hidden_field :_destroy, { value: "false", class: "destroy" } %>
+<button type="button" class="remove-relationship">  Remove This Product </button>
+
+</div>
 </div>

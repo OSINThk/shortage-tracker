@@ -1,20 +1,20 @@
-<h2>Reports</h2>
+<h2>My Reports</h2>
 
 <% if @reports.length > 0 %>
-  <table>
+  <table class="table table-hover">
     <thead>
       <tr>
-        <% if @users.length != 1 %><th>User</th><% end %>
-        <th>Location</th>
-        <th>Notes</th>
-        <th>Report Time</th>
-        <th colspan="3"></th>
+        <% if @users.length != 1 %><th scope="col">User</th><% end %>
+        <th scope="col">Location</th>
+        <th scope="col">Notes</th>
+        <th scope="col">Time</th>
+        <th scope="col" colspan="3">Actions</th>
       </tr>
     </thead>
 
     <tbody>
       <% @reports.each do |report| %>
-        <tr>
+        <tr class="table-light">
           <% if @users.length != 1 %><td><%= report.user_id %></td><% end %>
           <td><%= report.coordinates %></td>
           <td><%= report.notes %></td>
@@ -28,7 +28,8 @@
   </table>
 <br>
 
-<%= link_to 'New Report', new_report_path %>
+<%= link_to 'New Report', new_report_path, :class => "btn btn-success" %>
+
 <% else %>
   <p>You have not yet created a report. <%= link_to 'Create your first report now.', new_report_path %></p>
 <% end %>

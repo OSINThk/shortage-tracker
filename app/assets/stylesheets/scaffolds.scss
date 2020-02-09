@@ -1,6 +1,6 @@
 body {
   background-color: #fff;
-  color: #333;
+  //color: #333;
   margin: 23px; } // make smaller margin
 
 
@@ -26,20 +26,20 @@ a:visited {
 a:hover {
  color: #fff;
  background-color: #000; }
-*/
 
 th {
   padding-bottom: 5px; }
 
 td {
   padding: 0 5px 7px; }
+*/
 
 div.field,
 div.actions {
   margin-bottom: 10px; }
 
 #notice {
-  color: green; }
+  color: orange; }
 
 .field_with_errors {
   padding: 2px;
@@ -66,5 +66,5 @@ div.actions {
   font-size: 12px;
   list-style: square; }
 
-label {
-  display: block; }
+//label {
+ // display: block; }
