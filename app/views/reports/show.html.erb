@@ -14,14 +14,11 @@
   <%= @report.user_id %>
 </p>
 <% end %>
-
-<p>
-  <strong><%= t('.product_detail') %></strong>
-</p>
-
 <ul>
+<div class="card border-primary mb-3" style="max-width: 20rem;">
+  <div class="card-header"><h4> <%= t('.product_detail') %> </h4></div>
+  <div class="card-body">
   <% @report.product_detail.each do |product_detail| %>
-    <li>
       <dl>
         <dt><%= t('.product.name') %></dt>
           <dd><%= find_localization(product_detail.product, @active_locale) %></dd>
@@ -32,9 +29,10 @@
         <dt><%= t('.product.notes') %></dt>
           <dd><%= product_detail.notes %></dd>
       </dl>
-    </li>
+      <hr>
   <% end %>
-</ul>
+  </div>
+</div>
 
 <%= link_to t('.edit_report'), edit_report_path(@report) %> |
 <%= link_to t('.reports'), reports_path %>

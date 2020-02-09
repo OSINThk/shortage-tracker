@@ -1,26 +1,54 @@
-<%= form.hidden_field :_destroy, { value: "false", class: "destroy" } %>
-<button type="button" class="remove-relationship"><%= t('.remove_product_detail') %></button>
+<div class="card bg-light mb-3" style="max-width: 20rem;">
+  <div class="card-body">
+    <div class="field">
+      <dl>
+      <dt>
+        <%= form.label :product_id %>
+      </dt>
+      <dd>
+        <%= form.select :product_id, products.map { |product| [find_localization(product, active_locale), product.id] }, { include_blank: t('.select_product_id_blank')  } %>
+      </dd>
+      </dl>
+    </div>
 
-<div class="field">
-  <%= form.label :product_id %>
-  <%= form.select :product_id, products.map { |product| [find_localization(product, active_locale), product.id] }, { include_blank: t('.select_product_id_blank')  } %>
-</div>
+    <div class="field">
+      <dl>
+      <dt>
+        <%= form.label :scarcity %>
+      </dt>
+      <dd>
+        <%= t('.scarcity.plentiful') %>
+        <%= form.range_field :scarcity, :in => 1..5, :step => '1' %>
+        <%= t('.scarcity.scarce') %>
+      </dd>
+      </dl>
+    </div>
 
-<div class="field">
-  <%= form.label :scarcity %>
-  <%= t('.scarcity.plentiful') %>
-  <%= form.range_field :scarcity, :in => 1..5, :step => '1' %>
-  <%= t('.scarcity.scarce') %>
-</div>
+    <div class="field">
+      <dl>
+      <dt>
+        <%= form.label :price %>
+      </dt>
+      <dd>
+        <%= t('.price.normal') %>
+        <%= form.range_field :price, :in => 1..5, :step => '1' %>
+        <%= t('.price.expensive') %>
+      </dd>
+      </dl>
+    </div>
 
-<div class="field">
-  <%= form.label :price %>
-  <%= t('.price.normal') %>
-  <%= form.range_field :price, :in => 1..5, :step => '1' %>
-  <%= t('.price.expensive') %>
-</div>
+    <div class="field">
+    <dl>
+      <dt>
+        <%= form.label 'product notes' %>
+      </dt>
+      <dd>
+        <%= form.text_field :notes %>
+      </dd>
+      </dl>
+    </div>
 
-<div class="field">
-  <%= form.label :notes %>
-  <%= form.text_field :notes %>
+    <%= form.hidden_field :_destroy, { value: "false", class: "destroy" } %>
+    <button type="button" class="remove-relationship"><%= t('.remove_product_detail') %></button>
+  </div>
 </div>
