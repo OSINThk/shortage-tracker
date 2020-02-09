@@ -1,4 +1,5 @@
 require 'accept_language'
+require 'locale'
 
 class ApplicationController < ActionController::Base
   include Pundit
@@ -29,14 +30,14 @@ class ApplicationController < ActionController::Base
     end
 
     def switch_locale(&action)
-      locale = params[:locale] || get_best_language || I18n.default_locale
-      I18n.with_locale(locale, &action)
+      locale = Locale.from_rfc5646(params[:locale]) || get_best_language || Locale.from_rfc5646(I18n.default_locale)
+      I18n.with_locale(locale.rfc5646, &action)
     end
 
     def get_best_language
       header = AcceptLanguage::Header.parse(request.env['HTTP_ACCEPT_LANGUAGE'])
       # TODO
-      return I18n.default_locale
+      return Locale.from_rfc5646(I18n.default_locale)
     end
 
     def initialize
