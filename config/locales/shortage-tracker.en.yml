@@ -39,6 +39,6 @@ en:
       login_status: "Logged in as  %{username}"
       instruct_title: "Instructions"
       instruct_body: "Press anywhere on the map to add a report. Alternatively,"
-      instruct_body_2: "Or, add a report using your device location."
+      instruct_body_2: "add a report using your device location"
       signin_msg: "Please"
       signin_msg_2: "to add a report to the map."
