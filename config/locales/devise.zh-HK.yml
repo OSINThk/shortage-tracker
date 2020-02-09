@@ -38,7 +38,7 @@ zh-HK:
       email_changed:
         subject: "電郵已被修改"
       password_change:
-        subject: '密碼已被重設'
+        subject: "密碼已被重設"
     omniauth_callbacks:
       failure: "由於%{reason}，無法從%{kind}獲得授權。"
       success: "成功從%{kind}獲得授權。"

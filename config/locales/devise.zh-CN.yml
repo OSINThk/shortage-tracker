@@ -32,7 +32,7 @@ zh-CN:
       email_changed:
         subject: "电邮已被修改"
       password_change:
-        subject: '密码已被重置'
+        subject: "密码已被重置"
     omniauth_callbacks:
       failure: "由于%{reason}，无法从%{kind}获得授权。"
       success: "成功地从%{kind}获得授权。"
