@@ -1,4 +1,3 @@
-
 <h1><%= link_to t('shortage_tracker'), root_path %></h1>
 <nav>
   <ul>
@@ -16,5 +15,12 @@
     <li><%= link_to t('about'), about_path %></li>
   </ul>
 </nav>
+<% if Rails.application.config.i18n.available_locales.length > 1 %>
+  <ul>
+    <% Rails.application.config.i18n.available_locales.each do |locale| %>
+      <li><%= link_to Locale.from_rfc5646(locale.to_s).name, { :locale => locale.to_s.downcase } %></li>
+    <% end %>
+  </ul>
+<% end %>
 <p id="notice"><%= notice %></p>
 <p id="alert"><%= alert %></p>

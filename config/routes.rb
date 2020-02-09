@@ -1,4 +1,4 @@
-LOCALE_SEGMENT = Regexp.new(Rails.application.config.i18n.available_locales.join('|'), 'i')
+LOCALE_SEGMENT = Regexp.new(Rails.application.config.i18n.available_locales.join('|').downcase)
 
 Rails.application.routes.draw do
   scope "(:locale)", locale: LOCALE_SEGMENT do

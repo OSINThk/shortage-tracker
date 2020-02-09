@@ -4,10 +4,6 @@
 <% end %>
 </p>
 
-<p><%= link_to "English", { :locale=>'en' } %> |
-  <%= link_to "中文", { :locale=>'zh-CN' } %>
-</p>
-
 <p>  <%= t('locale_label') %> <%= t('.lang') %> </p>
 <p>  <%= t('time_label') %> <%= l Time.now, format: :short %></p>
 

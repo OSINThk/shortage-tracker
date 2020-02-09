@@ -12,8 +12,13 @@ module ShortageTracker
     config.load_defaults 6.0
     config.redis = config_for(:redis)
 
-    config.i18n.default_locale = :en
-    config.i18n.available_locales = [:en]
+    config.i18n.default_locale = "en"
+    config.i18n.available_locales = [
+      "en",
+      "zh-CN",
+      "zh-HK",
+      "zh-TW"
+    ]
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers

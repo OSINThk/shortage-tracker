@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   # as `authenticate_user!` (or whatever your resource is) will halt the filter chain and redirect
   # before the location can be stored.
 
-  around_action :switch_locale
+  around_action :set_locale
 
   def default_url_options
     { locale: I18n.locale }
@@ -29,15 +29,19 @@ class ApplicationController < ActionController::Base
       store_location_for(:user, request.fullpath)
     end
 
-    def switch_locale(&action)
-      locale = Locale.from_rfc5646(params[:locale]) || get_best_language || Locale.from_rfc5646(I18n.default_locale)
-      I18n.with_locale(locale.rfc5646, &action)
+    def set_locale(&action)
+      I18n.with_locale(get_best_language, &action)
     end
 
     def get_best_language
-      header = AcceptLanguage::Header.parse(request.env['HTTP_ACCEPT_LANGUAGE'])
-      # TODO
-      return Locale.from_rfc5646(I18n.default_locale)
+      if !params[:locale].nil?
+        return Locale.from_rfc5646(params[:locale]).rfc5646
+      end
+
+      # TODO: See if there are matches in the Accept-Language header.
+      header_locales = AcceptLanguage::Header.parse(request.env['HTTP_ACCEPT_LANGUAGE'])
+
+      return Locale.from_rfc5646(I18n.default_locale.to_s).rfc5646
     end
 
     def initialize
