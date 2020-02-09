@@ -14,10 +14,7 @@ module ShortageTracker
 
     config.i18n.default_locale = "en"
     config.i18n.available_locales = [
-      "en",
-      "zh-CN",
-      "zh-HK",
-      "zh-TW"
+      "en"
     ]
 
     # Settings in config/environments/* take precedence over those specified here.
