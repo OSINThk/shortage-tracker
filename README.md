@@ -68,6 +68,7 @@ Once we have more than one regular contributor we will use a GitHub PR workflow 
 
 This is a list of things that can be done to improve the application:
 
+- [ ] BUG: Click-to-report doesn't persist querystring.
 - [ ] Improve error pages.
 - [ ] Button to center the homepage map using device location.
 - [ ] Report#new/Report#edit: populate coordinates via map selection.
