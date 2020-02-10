@@ -38,22 +38,6 @@ bundle install
 
 rake db:create && rake db:migrate
 
-# if error from rake db create
-could not connect to server: No such file or directory
-	Is the server running locally and accepting
-	connections on Unix domain socket "/tmp/.s.PGSQL.5432"?
-Couldn't create 'shortage_tracker_development' database. Please check your configuration.
-rake aborted!
-PG::ConnectionBad: could not connect to server: No such file or directory
-	Is the server running locally and accepting
-	connections on Unix domain socket "/tmp/.s.PGSQL.5432"?
-
-Tasks: TOP => db:create
-(See full trace by running task with --trace)
-
-# do the following to fix: 
-https://stackoverflow.com/questions/13573204/psql-could-not-connect-to-server-no-such-file-or-directory-mac-os-x#13573207
-
 rails s
 ```
 
