@@ -70,8 +70,6 @@ GEM
     bootstrap-sass (3.4.1)
       autoprefixer-rails (>= 5.2.1)
       sassc (>= 2.0.0)
-    bootswatch-rails (3.3.5)
-      railties (>= 3.1)
     builder (3.2.4)
     byebug (11.1.1)
     capybara (3.31.0)
@@ -231,7 +229,6 @@ DEPENDENCIES
   activerecord-postgis-adapter (~> 6.0)
   bootsnap (>= 1.4.2)
   bootstrap-sass
-  bootswatch-rails
   byebug
   capybara (>= 2.15)
   devise (~> 4.7)

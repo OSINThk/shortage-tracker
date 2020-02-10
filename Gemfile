@@ -13,8 +13,6 @@ gem 'puma', '~> 4.1'
 gem 'sass-rails', '>= 6'
 # bootstrap
 gem 'bootstrap-sass'
-# bootswatch themes
-gem 'bootswatch-rails'
 
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 4.0'
