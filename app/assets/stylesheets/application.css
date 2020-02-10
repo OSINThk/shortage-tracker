@@ -14,13 +14,19 @@
  *= require_self
  */
 
-/* 
+/*
 colors below pulled from bootswatch Flatly Theme
 */
 
  mark.red {
-    color: #E74C3C; 
+    color: #E74C3C;
     background: none;
+}
+
+.cbox {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
 }
 
 button, [type="button"], [type="submit"] {
@@ -57,11 +63,11 @@ button:hover {
     -webkit-box-shadow: 0 0 0 0.2rem rgba(44, 62, 80, 0.25);
             box-shadow: 0 0 0 0.2rem rgba(44, 62, 80, 0.25);
 }
-  
+
 .button.disabled, .btn:disabled {
     opacity: 0.65;
 }
-  
+
 a.button.disabled,
   fieldset:disabled a.btn {
     pointer-events: none;
@@ -75,7 +81,7 @@ a.button.disabled,
     background-color: #18BC9C;
     border-color: #18BC9C;
   }
-  
+
   .btn-block:hover {
     color: #fff;
     background-color: #1e2b37;

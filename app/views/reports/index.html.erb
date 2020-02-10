@@ -1,36 +1,37 @@
-<h2><%= t('.page_title') %></h2>
-
-<% if @reports.length > 0 %>
-  <%= link_to t('.new_report'), new_report_path %>
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <% if @users.length != 1 %><th scope="col"><%= t('.user_id') %></th><% end %>
-        <th scope="col"><%= t('.coordinates') %></th>
-        <th scope="col"><%= t('.notes') %></th>
-        <th scope="col"><%= t('.created_at') %></th>
-        <th scope="col" colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @reports.each do |report| %>
-        <tr class="table-light">
-          <% if @users.length != 1 %><td><%= report.user_id %></td><% end %>
-          <td><%= report.coordinates %></td>
-          <td><%= report.notes %></td>
-          <td><%= report.created_at %></td>
-          <td><%= link_to t('.show'), report %></td>
-          <td><%= link_to t('.edit'), edit_report_path(report) %></td>
-          <td><%= link_to t('.destroy'), report, method: :delete, data: { confirm: t('.confirmation') } %></td>
+<div class="cbox">
+  <h2><%= t('.page_title') %></h2>
+  <% if @reports.length > 0 %>
+    <p><%= link_to t('.new_report'), new_report_path, :class => "btn btn-success"  %></p>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <% if @users.length != 1 %>
+            <th scope="col"><%= t('.user_id') %></th>
+          <% end %>
+          <th scope="col"><%= t('.coordinates') %></th>
+          <th scope="col"><%= t('.notes') %></th>
+          <th scope="col"><%= t('.created_at') %></th>
+          <th scope="col" colspan="3"></th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-
-<%= link_to t('.new_report'), new_report_path, :class => "btn btn-success"  %>
-<% else %>
-  <p><%=
+      </thead>
+      <tbody>
+        <% @reports.each do |report| %>
+          <tr class="table-light">
+            <% if @users.length != 1 %>
+              <td><%= report.user_id %></td>
+            <% end %>
+            <td><%= report.coordinates %></td>
+            <td><%= report.notes %></td>
+            <td><%= report.created_at %></td>
+            <td><%= link_to t('.show'), report %></td>
+            <td><%= link_to t('.edit'), edit_report_path(report) %></td>
+            <td><%= link_to t('.destroy'), report, method: :delete, data: { confirm: t('.confirmation') } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p><%=
     t(
       '.zero_cta.sentence_html',
       {
@@ -41,4 +42,5 @@
       }
     )
   %></p>
-<% end %>
+  <% end %>
+</div>

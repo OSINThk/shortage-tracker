@@ -9,52 +9,44 @@
       </ul>
     </div>
   <% end %>
-<hr>
-<div class="d-flex">
-  <div class="card border-primary mb-3" style="max-width: 20rem;">
-    <div class="card-header" >
-     <h3>Location</h3>
-    </div>
-    <div class="card-body" align="left">
-      <div class="field">
-        <%= form.label :lat %>
-        <%= form.text_field :lat %>
-      </div>
-      <div class="field">
-       <%= form.label :long %>
-       <%= form.text_field :long %>
-       <%= form.label :notes %>
-       <%= form.text_field :notes %>
-      </div>
-      <button type="button" class="find-me"><%= t('.populate_location') %></button>
-     </div>
-  </div>
-</div>
-
   <hr>
-    <h3><%= t('.products') %></h3>
-    <div align="left">
-      <%= form.fields_for :product_detail do |product_detail_form| %>
-        <li class="form-section__card form-section__product-detail-card">
-          <%= render :partial => 'product_details_fields', locals: { form: product_detail_form, products: products, active_locale: active_locale } %>
-        </li>
-      <% end %>
-      <% formslug = get_unique_id() %>
-      <script id="before-<%= formslug %>"></script>
-        <template id="template-<%= formslug %>">
-          <%= form.fields_for :product_detail, ProductDetail.new(scarcity: 1, price: 1), { child_index: formslug } do |product_detail_form| %>
-            <li class="form-section__card form-section__product-detail-card">
-              <%= render :partial => 'product_details_fields', locals: { form: product_detail_form, products: products, active_locale: active_locale } %>
-            </li>
-          <% end %>
-        </template>
-        <button type="button" class="add-relationship" data-slug="<%= formslug %>"><%= t('.add_product_detail') %></button>
+  <div align="left">
+    <div class="card border-primary mb-3" style="max-width: 20rem;">
+      <div class="card-header" >
+        <h3>Location</h3>
+      </div>
+      <div class="card-body" align="left">
+        <div class="field">
+          <%= form.label :lat %>
+          <%= form.text_field :lat %>
+        </div>
+        <div class="field">
+          <%= form.label :long %>
+          <%= form.text_field :long %>
+          <%= form.label :notes %>
+          <%= form.text_field :notes %>
+        </div>
+        <button type="button" class="find-me"><%= t('.populate_location') %></button>
+      </div>
     </div>
-    <hr>
+  </div>
+  <hr>
+  <h3><%= t('.products') %></h3>
+  <div align="left">
+    <%= form.fields_for :product_detail do |product_detail_form| %>
+      <%= render :partial => 'product_details_fields', locals: { form: product_detail_form, products: products, active_locale: active_locale } %>
+    <% end %>
+    <% formslug = get_unique_id() %>
+    <script id="before-<%= formslug %>"></script>
+    <template id="template-<%= formslug %>">
+      <%= form.fields_for :product_detail, ProductDetail.new(scarcity: 1, price: 1), { child_index: formslug } do |product_detail_form| %>
+          <%= render :partial => 'product_details_fields', locals: { form: product_detail_form, products: products, active_locale: active_locale } %>
+      <% end %>
+    </template>
+    <button type="button" class="add-relationship" data-slug="<%= formslug %>"><%= t('.add_product_detail') %></button>
+  </div>
+  <hr>
   <div class="actions">
     <%= form.submit "Send Data", :class => 'btn-block' %>
   </div>
-
-
 <% end %>
-

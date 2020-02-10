@@ -5,12 +5,10 @@
     <%= render :partial => 'partials/canonical_locale' %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_pack_tag 'application' %>
     <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   </head>
-
   <body class="admin <%= "#{controller_name} #{action_name}" %>">
     <%= render :partial => 'partials/header' %>
     <%= yield %>
