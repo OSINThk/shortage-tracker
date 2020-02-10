@@ -1,7 +1,7 @@
 <%= form_with(model: report, local: true) do |form| %>
   <% if report.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(report.errors.count, "error") %> prohibited this report from being saved:</h2>
+      <h2><%= t('.error_explanation_header', { count: report.errors.count }) %></h2>
 
       <ul>
         <% report.errors.full_messages.each do |message| %>
@@ -11,25 +11,25 @@
     </div>
   <% end %>
 
-  <button type="button" class="find-me"><%= t('.populate_location_label') %></button>
+  <button type="button" class="find-me"><%= t('.populate_location') %></button>
 
   <div class="field">
-    <%= form.label :lat, t('.latitude') %>
+    <%= form.label :lat %>
     <%= form.text_field :lat %>
   </div>
 
   <div class="field">
-    <%= form.label :long, t('.longitude') %>
+    <%= form.label :long %>
     <%= form.text_field :long %>
   </div>
 
   <div class="field">
-    <%= form.label  t('.latlon_notes') %>
+    <%= form.label :notes %>
     <%= form.text_field :notes %>
   </div>
 
   <section class="form-section">
-    <h3><%= t('.products_title') %></h3>
+    <h3><%= t('.products') %></h3>
     <ul class="form-section__card-stack">
       <%= form.fields_for :product_detail do |product_detail_form| %>
         <li class="form-section__card form-section__product-detail-card">

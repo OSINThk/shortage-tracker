@@ -1,0 +1,48 @@
+---
+en:
+  activerecord:
+    attributes:
+      privilege:
+        name: Name
+        created_at: Created at
+        updated_at: Updated at
+      product_detail:
+        scarcity: Scarcity
+        price: Price
+        notes: Notes
+        created_at: Created at
+        updated_at: Updated at
+      product:
+        name: Name
+        created_at: Created at
+        updated_at: Updated at
+      report:
+        product_id: Product
+        ip: IP Address
+        notes: Notes
+        coordinates: Coordinates
+        created_at: Created at
+        updated_at: Updated at
+        geo_ip: GeoIP details
+        lat: Latitude
+        long: Longitude
+      role:
+        name: Name
+        created_at: Created at
+        updated_at: Updated at
+    models:
+      privilege:
+        one: Privilege
+        other: Privileges
+      product_detail:
+        one: Product detail
+        other: Product details
+      product:
+        one: Product
+        other: Products
+      report:
+        one: Report
+        other: Reports
+      role:
+        one: Role
+        other: Roles

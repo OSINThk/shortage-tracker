@@ -1,26 +1,26 @@
 <%= form.hidden_field :_destroy, { value: "false", class: "destroy" } %>
-<button type="button" class="remove-relationship"><%= t('.del_product_detail') %></button>
+<button type="button" class="remove-relationship"><%= t('.remove_product_detail') %></button>
 
 <div class="field">
-  <%= form.label t('.product_label') %>
-  <%= form.select :product_id, products.map { |product| [product, product.id] }, { include_blank: t('.select_product_label')  } %>
+  <%= form.label :product_id %>
+  <%= form.select :product_id, products.map { |product| [product, product.id] }, { include_blank: t('.select_product_id_blank')  } %>
 </div>
 
 <div class="field">
-  <%= form.label  t('.scarcity_label')  %>
-   <%= t('.normal_label') %>
+  <%= form.label :scarcity %>
+  <%= t('.scarcity.plentiful') %>
   <%= form.range_field :scarcity, :in => 1..5, :step => '1' %>
-   <%= t('.none_label') %>
+  <%= t('.scarcity.scarce') %>
 </div>
 
 <div class="field">
-  <%= form.label t('.price_label') %>
-   <%= t('.normal_label') %>
+  <%= form.label :price %>
+  <%= t('.price.normal') %>
   <%= form.range_field :price, :in => 1..5, :step => '1' %>
-   <%= t('.expensive_label') %>
+  <%= t('.price.expensive') %>
 </div>
 
 <div class="field">
-  <%= form.label t('.note_label')  %>
+  <%= form.label :notes %>
   <%= form.text_field :notes %>
 </div>

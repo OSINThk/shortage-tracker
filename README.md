@@ -68,13 +68,11 @@ Once we have more than one regular contributor we will use a GitHub PR workflow 
 
 This is a list of things that can be done to improve the application:
 
-- [ ] Implement `get_best_language` in `application_controller.rb`
 - [ ] Improve error pages.
 - [ ] Button to center the homepage map using device location.
 - [ ] Report#new/Report#edit: populate coordinates via map selection.
-- [ ] Missing Map Tiles at high zoom levels. (New tile provider?)
+- [ ] Host our own tiles.
 - [ ] :omniauthable
-- [ ] Internationalization/Localization.
 - [ ] Inline reporting interface.
 - [ ] Fix tests now that pundit is in place.
 - [ ] Design for each page (mobile device focused)
@@ -82,6 +80,23 @@ This is a list of things that can be done to improve the application:
 - [ ] Implement CI via GitHub Actions.
 - [ ] Photo upload.
 - [ ] Product taxonomy.
+
+### Localization Needing Implementation
+- [ ] Implement `get_best_language` in `app/controllers/application_controller.rb`
+- [ ] `app/javascript/packs/home_page_map.js`
+- [ ] Error pages.
+
+#### Localization Needing Translations
+- [ ] `app/views/pages/about.zh-CN.html.erb`
+- [ ] `app/views/pages/about.zh-HK.html.erb`
+- [ ] `app/views/pages/about.zh-TW.html.erb`
+- [ ] `config/locales/active-record.zh-CN.yml`
+- [ ] `config/locales/active-record.zh-HK.yml`
+- [ ] `config/locales/active-record.zh-TW.yml`
+- [ ] `config/locales/devise-i18n.zh-HK.yml`
+- [ ] `config/locales/shortage-tracker.zh-CN.yml`
+- [ ] `config/locales/shortage-tracker.zh-HK.yml`
+- [ ] `config/locales/shortage-tracker.zh-TW.yml`
 
 ### The World is not Enough Bugfix
 

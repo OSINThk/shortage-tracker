@@ -1,40 +1,79 @@
 ---
 en:
+  locale: "EN"
   shortage_tracker: "Shortage Tracker BETA"
-  login: "Login"
-  logout: "Logout"
-  reports:
-    new:
-      new_report: "New Report"
-      back_link_label: "Back"
-    form:
-      latitude: "Latitude"
-      longitude: "Longitude"
-      latlon_notes: "Notes"
-      products_title: "Products"
-      add_product_detail: "Add Product Detail"
-      populate_location_label: "Populate Location"
-    product_details_fields:
-      product_label: "Product"
-      scarcity_label: "Scarcity"
-      price_label: "Price"
-      note_label: "Notes"
-      normal_label: "Normal"
-      none_label: "None"
-      expensive_label: " Expensive"
-      select_product_label: "Select Product..."
-      del_product_detail: "Remove Product Detail"
-    index:
-      report_title: "Reports"
-      report_msg1: "You have not yet created a report."
-      create_msg: "Create your first report now."
-      location: "Location"
-      notes: "Notes"
-      report_time: "Report Time"
   maps:
     index:
-      instruct_title: "Instructions"
-      instruct_body: "Press anywhere on the map to add a report. Alternatively,"
-      instruct_body_2: "add a report using your device location"
-      signin_msg: "Please"
-      signin_msg_2: "to add a report to the map."
+      page_title: "Instructions"
+      unauthenticated_instructions:
+        sentence_html: "Please %{link} to add a report to the map."
+        new_user_session: "log in"
+      authenticated_instructions:
+        sentence_html: "Press anywhere on the map to add a report. Alternatively, %{link}."
+        new_report: "add a report using your device location"
+  pages:
+    admin:
+      users: Users
+      roles: Roles
+      privileges: Privileges
+      products: Products
+      reports: Reports
+  partials:
+    header:
+      admin: "Admin"
+      new_report: "New Report"
+      reports: "My Reports"
+      destroy_user_session: "Log out"
+      about: "About"
+      new_user_registration: "Sign up"
+      new_user_session: "Log in"
+  reports:
+    form:
+      error_explanation_header:
+        one: "%{count} error prohibited this report from being saved:"
+        other: "%{count} errors prohibited this report from being saved:"
+      populate_location: "Populate Location"
+      products: "Products"
+      add_product_detail: "Add Product"
+    product_details_fields:
+      remove_product_detail: "Remove Product"
+      scarcity:
+        plentiful: "Normal"
+        scarce: "None"
+      price:
+        normal: "Normal"
+        expensive: "Expensive"
+      select_product_id_blank: "Select Product…"
+    edit:
+      page_title: "Editing Report"
+      report: "Show Report"
+      reports: "My Reports"
+    index:
+      page_title: "My Reports"
+      zero_cta:
+        sentence_html: "You have not yet made a report. %{link}"
+        new_report: "Create your first report now!"
+      new_report: "New Report"
+      user_id: "User"
+      coordinates: "Location"
+      notes: "Notes"
+      created_at: "Report Time"
+      show: "Show"
+      edit: "Edit"
+      destroy: "Destroy"
+      confirmation: "Are you sure?"
+    new:
+      page_title: "New Report"
+      reports: "My Reports"
+    show:
+      coordinates: "Location:"
+      notes: "Notes:"
+      user_id: "User ID:"
+      product_detail: "Product Details:"
+      product:
+        name: "Product"
+        scarcity: "Product Scarcity"
+        price: "Product Price"
+        notes: "Product Notes"
+      edit_report: "Edit Report"
+      reports: "My Reports"
