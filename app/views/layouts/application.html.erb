@@ -11,6 +11,8 @@
   </head>
   <body class="admin <%= "#{controller_name} #{action_name}" %>">
     <%= render :partial => 'partials/header' %>
+    <div class="cbox">
     <%= yield %>
+    </div>
   </body>
 </html>
