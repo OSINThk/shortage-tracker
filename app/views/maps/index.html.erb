@@ -1,3 +1,4 @@
+<div class="cbox">
 <h2>Instructions</h2>
 <% if current_user.nil? %>
   <p>Please <%= link_to 'sign in', new_user_session_path %> to add a report to the map.</p>
@@ -13,3 +14,4 @@
 <div id="map-container"></div>
 
 <%= javascript_pack_tag 'home_page_map' %>
+</div>

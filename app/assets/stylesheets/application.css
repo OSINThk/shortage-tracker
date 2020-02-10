@@ -23,6 +23,12 @@ colors below pulled from bootswatch Flatly Theme
     background: none;
 }
 
+.cbox {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
 button, [type="button"], [type="submit"] {
     display: inline-block;
     font-weight: 400;
