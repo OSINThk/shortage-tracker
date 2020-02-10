@@ -1,13 +1,14 @@
 
+/*
+Leave the original styles here for reference if needed
+IMPORTANT : these styles override bootswatch theme.
+
 body {
   background-color: #fff;
-  //color: #333;
-  margin: 23px; } // make smaller margin
+  color: #333;
+  margin: 33px;
+}
 
-
-// leave the original styles here for reference if needed
-// IMPORTANT TO KNOW: these styles override bootswatch theme.
-/*
 body, p, ol, ul, td {
  font-family: verdana, arial, helvetica, sans-serif;
  font-size: 13px;
@@ -67,6 +68,7 @@ div.actions {
   font-size: 12px;
   list-style: square; }
 
-// commenting out - messes up the formatting on bootswatch theme forms
-//label {
- // display: block; }
+/*
+label {
+  display: block; }
+*/

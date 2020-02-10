@@ -10,7 +10,7 @@
     </div>
   <% end %>
 <hr>
-<div align="left">
+<div class="d-flex">
   <div class="card border-primary mb-3" style="max-width: 20rem;">
     <div class="card-header" >
      <h3>Location</h3>
@@ -20,25 +20,20 @@
         <%= form.label :lat %>
         <%= form.text_field :lat %>
       </div>
-
       <div class="field">
        <%= form.label :long %>
        <%= form.text_field :long %>
        <%= form.label :notes %>
        <%= form.text_field :notes %>
       </div>
-
       <button type="button" class="find-me"><%= t('.populate_location') %></button>
      </div>
   </div>
 </div>
 
   <hr>
-  <div align="left">
-  <section class="form-section">
     <h3><%= t('.products') %></h3>
-    <ul class="form-section__card-stack">
-
+    <div align="left">
       <%= form.fields_for :product_detail do |product_detail_form| %>
         <li class="form-section__card form-section__product-detail-card">
           <%= render :partial => 'product_details_fields', locals: { form: product_detail_form, products: products, active_locale: active_locale } %>
@@ -54,13 +49,11 @@
           <% end %>
         </template>
         <button type="button" class="add-relationship" data-slug="<%= formslug %>"><%= t('.add_product_detail') %></button>
-      </li>
-    </ul>
-  </section>
-</div>
-<div class="actions">
-    <%= form.submit "Send Data", :class => 'btn-block btn-success' %>
-</div>
+    </div>
+    <hr>
+  <div class="actions">
+    <%= form.submit "Send Data", :class => 'btn-block' %>
+  </div>
 
 
 <% end %>
