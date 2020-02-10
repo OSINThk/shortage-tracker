@@ -1,3 +1,4 @@
+
 body {
   background-color: #fff;
   //color: #333;
@@ -5,7 +6,7 @@ body {
 
 
 // leave the original styles here for reference if needed
-// IMPORTANT: original styles override bootswatch theme.
+// IMPORTANT TO KNOW: these styles override bootswatch theme.
 /*
 body, p, ol, ul, td {
  font-family: verdana, arial, helvetica, sans-serif;
@@ -66,5 +67,6 @@ div.actions {
   font-size: 12px;
   list-style: square; }
 
+// commenting out - messes up the formatting on bootswatch theme forms
 //label {
  // display: block; }
