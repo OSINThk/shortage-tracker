@@ -77,13 +77,13 @@ let handleLoad = () => {
 
           productScarcity = document.createElement("p");
           productScarcity.appendChild(
-            document.createTextNode(`Scarcity: ${product.scarcity}`)
+            document.createTextNode(`${localization.product.scarcity}: ${product.scarcity}`)
           );
           popup.appendChild(productScarcity);
 
           productPrice = document.createElement("p");
           productPrice.appendChild(
-            document.createTextNode(`Price: ${product.price}`)
+            document.createTextNode(`${localization.product.price}: ${product.price}`)
           );
           popup.appendChild(productPrice);
 

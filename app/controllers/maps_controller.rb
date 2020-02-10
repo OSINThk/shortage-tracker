@@ -14,6 +14,18 @@ class MapsController < ApplicationController
       @latitude = "22.29"
       @longitude = "114.185"
     end
+
+    @localization = {
+      "report": {
+        "notes": I18n.translate('maps_controller.report.notes', ),
+        "created_at": I18n.translate('maps_controller.report.created_at')
+      },
+      "product": {
+        "price": I18n.translate('maps_controller.product.price'),
+        "scarcity": I18n.translate('maps_controller.product.scarcity'),
+        "notes": I18n.translate('maps_controller.product.notes')
+      }
+    }
   end
 
   def results

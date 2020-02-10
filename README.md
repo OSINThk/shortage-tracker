@@ -82,11 +82,11 @@ This is a list of things that can be done to improve the application:
 - [ ] Product taxonomy.
 
 ### Localization Needing Implementation
+- [ ] Localize products.
 - [ ] Implement `get_best_language` in `app/controllers/application_controller.rb`
-- [ ] `app/javascript/packs/home_page_map.js`
 - [ ] Error pages.
 
-#### Localization Needing Translations
+### Localization Needing Translations
 - [ ] `app/views/pages/about.zh-CN.html.erb`
 - [ ] `app/views/pages/about.zh-HK.html.erb`
 - [ ] `app/views/pages/about.zh-TW.html.erb`

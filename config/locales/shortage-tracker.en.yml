@@ -1,6 +1,14 @@
 ---
 en:
   locale: "EN"
+  maps_controller:
+    product:
+      notes: "Product Notes"
+      price: "Product Price"
+      scarcity: "Product Scarcity"
+    report:
+      created_at: "Report Time"
+      notes: "Report Notes"
   maps:
     index:
       authenticated_instructions:
@@ -48,7 +56,7 @@ en:
       destroy: "Destroy"
       edit: "Edit"
       new_report: "New Report"
-      notes: "Notes"
+      notes: "Report Notes"
       page_title: "My Reports"
       show: "Show"
       user_id: "User"
@@ -70,7 +78,7 @@ en:
     show:
       coordinates: "Location:"
       edit_report: "Edit Report"
-      notes: "Notes:"
+      notes: "Report Notes:"
       product:
         name: "Product"
         notes: "Product Notes"
