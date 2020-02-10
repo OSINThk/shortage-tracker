@@ -1,10 +1,10 @@
 <div class="card bg-light mb-3" style="max-width: 20rem;">
-  <div class="card-body">
+  <div class="card-body" align="left">
 
 <div class="field">
 <dl>
 <dt>
-  <%= form.label :product_id, 'Select a Product' %>
+  <%= form.label :product_id %>
   </dt>
   <dd>
   <%= form.select :product_id, products.map { |product| [product, product.id] }, { include_blank: "Select product..." } %>
@@ -50,7 +50,7 @@ Normal
 </div>
 
 <%= form.hidden_field :_destroy, { value: "false", class: "destroy" } %>
-<button type="button" class="remove-relationship">  Remove This Product </button>
+<button type="button" class="remove-relationship">  - Remove Product </button>
 
 </div>
 </div>

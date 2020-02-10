@@ -10,15 +10,13 @@
       </ul>
     </div>
   <% end %>
-
-
-  <div class="card border-primary mb-3" style="max-width: 20rem;" > 
-  <div class="card-body">
-
-  <h3>Location</h3>
-
-  <p> <button type="button" class="find-me">Populate Location</button></p>
-  
+<hr>
+<div align="left">
+  <div class="card border-primary mb-3" style="max-width: 20rem;"> 
+  <div class="card-header" >
+  <h3>Location</h3>  
+  </div>
+  <div class="card-body" align="left">
   <div class="field">
     <%= form.label :lat, "Latitude" %>
     <%= form.text_field :lat %>
@@ -27,11 +25,13 @@
     <%= form.label :notes %>
     <%= form.text_field :notes %>
   </div>
+  <button type="button" class="find-me">Populate Location</button>
+  </div>
+  </div>
+</div>
 
-  </div>
-  </div>
-  
-  
+  <hr>
+  <div align="left">
     <h3>Add Products</h3>
 
       <%= form.fields_for :product_detail do |product_detail_form| %>  
@@ -45,12 +45,15 @@
           <% end %>
         </template>
 
-        <div><p>    
-        <button type="button" class="add-relationship" data-slug="<%= formslug %>">Add Product Detail</button>
-            </p> </div>
-
-  <div class="actions">
-     <%= form.submit 'Create Report', :class => 'btn btn-success' %>
+        <p>    
+        <button type="button" class="add-relationship" data-slug="<%= formslug %>"> + Add Another Product</button>
+        </p> 
   </div>
+<hr>
+  <div class="actions">
+     <%= form.submit 'Create Report', :class => 'btn-block' %>
+  </div>
+
+
 <% end %>
 
