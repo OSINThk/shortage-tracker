@@ -11,7 +11,7 @@
     </div>
   <% end %>
 <hr>
-<div align="left">
+<div class="d-flex">
   <div class="card border-primary mb-3" style="max-width: 20rem;"> 
   <div class="card-header" >
   <h3>Location</h3>  
@@ -31,8 +31,8 @@
 </div>
 
   <hr>
-  <div align="left">
     <h3>Add Products</h3>
+    <div align="left">
 
       <%= form.fields_for :product_detail do |product_detail_form| %>  
         <%= render :partial => 'product_details_fields', locals: { form: product_detail_form, products: products } %>
@@ -44,9 +44,8 @@
               <%= render :partial => 'product_details_fields', locals: { form: product_detail_form, products: products } %>
           <% end %>
         </template>
-
         <p>    
-        <button type="button" class="add-relationship" data-slug="<%= formslug %>"> + Add Another Product</button>
+        <button type="button" class="add-relationship" data-slug="<%= formslug %>"> + Add a Product</button>
         </p> 
   </div>
 <hr>
