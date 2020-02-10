@@ -16,11 +16,11 @@ en:
       page_title: "Admin"
       user_administration: "User Administration"
       application_administration: "Application Administration"
-      users: Users
-      roles: Roles
-      privileges: Privileges
-      products: Products
-      reports: Reports
+      users: "Users"
+      roles: "Roles"
+      privileges: "Privileges"
+      products: "Products"
+      reports: "Reports"
   partials:
     header:
       admin: "Admin"
