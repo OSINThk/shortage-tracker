@@ -3,43 +3,43 @@ en:
   activerecord:
     attributes:
       privilege:
+        created_at: "Created at"
         name: "Name"
-        created_at: "Created at"
-        updated_at: "Updated at"
-      product_detail:
-        scarcity: "Scarcity"
-        price: "Price"
-        notes: "Notes"
-        created_at: "Created at"
         updated_at: "Updated at"
       product:
-        name: "Name"
         created_at: "Created at"
+        name: "Name"
+        updated_at: "Updated at"
+      product_detail:
+        created_at: "Created at"
+        notes: "Notes"
+        price: "Price"
+        scarcity: "Scarcity"
         updated_at: "Updated at"
       report:
-        product_id: "Product"
-        ip: "IP Address"
-        notes: "Notes"
         coordinates: "Coordinates"
         created_at: "Created at"
-        updated_at: "Updated at"
         geo_ip: "GeoIP details"
+        ip: "IP Address"
         lat: "Latitude"
         long: "Longitude"
+        notes: "Notes"
+        product_id: "Product"
+        updated_at: "Updated at"
       role:
-        name: "Name"
         created_at: "Created at"
+        name: "Name"
         updated_at: "Updated at"
     models:
       privilege:
         one: "Privilege"
         other: "Privileges"
-      product_detail:
-        one: "Product detail"
-        other: "Product details"
       product:
         one: "Product"
         other: "Products"
+      product_detail:
+        one: "Product detail"
+        other: "Product details"
       report:
         one: "Report"
         other: "Reports"
