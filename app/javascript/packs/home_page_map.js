@@ -108,7 +108,21 @@ map.on("dragend", handleLoad);
 map.on("resize", handleLoad);
 
 function redirectToReport(event) {
-  window.location = `/reports/new?lat=${event.latlng.lat}&long=${event.latlng.lng}`;
+  // Capture any locale.
+  let path = window.location.pathname.replace(/\/*$/, '');
+  let reportsPath = `${path}/reports/new`;
+
+  // Capture any querystring.
+  let querystring = window.location.search;
+  let addition = `lat=${event.latlng.lat}&long=${event.latlng.lng}`;
+  if (querystring.length) {
+    output = `${querystring}&${addition}`
+  } else {
+    output = `?${addition}`
+  }
+
+  // Head on.
+  window.location = `${reportsPath}${output}`;
 }
 
 // Handle clicking.

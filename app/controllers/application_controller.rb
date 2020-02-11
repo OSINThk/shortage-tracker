@@ -1,5 +1,4 @@
-require 'accept_language'
-require 'locale'
+require 'best_language'
 require 'i18n_debug'
 
 class ApplicationController < ActionController::Base
@@ -39,7 +38,13 @@ class ApplicationController < ActionController::Base
     end
 
     def set_locale(&action)
-      I18n.with_locale(get_best_language, &action)
+      locale = BestLanguage.get_best_language(
+        I18n.available_locales,
+        params[:locale],
+        request.env['HTTP_ACCEPT_LANGUAGE'],
+        I18n.default_locale
+      )
+      I18n.with_locale(locale, &action)
     end
 
     def set_i18n_debug(&action)
@@ -48,17 +53,6 @@ class ApplicationController < ActionController::Base
       else
         I18nDebug.with_backend(I18n.backend, &action)
       end
-    end
-
-    def get_best_language
-      if !params[:locale].nil?
-        return Locale.from_rfc5646(params[:locale]).rfc5646
-      end
-
-      # TODO: See if there are matches in the Accept-Language header.
-      header_locales = AcceptLanguage::Header.parse(request.env['HTTP_ACCEPT_LANGUAGE'])
-
-      return Locale.from_rfc5646(I18n.default_locale.to_s).rfc5646
     end
 
     def initialize

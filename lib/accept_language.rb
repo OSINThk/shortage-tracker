@@ -1,4 +1,4 @@
-require 'locale'
+require_relative './locale'
 
 PIECES = /(?:^|,| )([A-Za-z\-\*]+)(?:(?:;q=)?(\.[0-9]+|0\.[0-9]+|0|1))?(?=$|,| )/
 
@@ -58,6 +58,17 @@ module AcceptLanguage
       end
     end
 
+    def check?(available_locales)
+      available_locales.each do |locale|
+        # TODO: normalize.
+        if @locale.rfc5646 == locale.to_s
+          return true
+        end
+      end
+
+      return false
+    end
+
     def to_s
       output = @locale.is_a?(Locale) ? @locale.rfc5646 : @locale
       return "#{output};q=#{@quality}"
@@ -79,6 +90,18 @@ module AcceptLanguage
       end
 
       return Header.new(values)
+    end
+
+    def each(&block)
+      @values.each do |value|
+        # Stop iterating before processing "*".
+        # We want to proceed to the default in this scenario.
+        if (value.locale == "*")
+          return
+        end
+
+        block.call(value)
+      end
     end
   end
 end

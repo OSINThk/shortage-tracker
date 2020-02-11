@@ -9,13 +9,13 @@ Rails.application.routes.draw do
 
     devise_for :users
     resources :reports
-  end
 
-  scope '/admin' do
-    resources :products
-    resources :privileges
-    resources :roles
-    resources :users, except: [:create, :new]
+    scope '/admin' do
+      resources :products
+      resources :privileges
+      resources :roles
+      resources :users, except: [:create, :new]
+    end
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

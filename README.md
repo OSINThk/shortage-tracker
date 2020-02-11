@@ -68,7 +68,6 @@ Once we have more than one regular contributor we will use a GitHub PR workflow 
 
 This is a list of things that can be done to improve the application:
 
-- [ ] BUG: Click-to-report doesn't persist querystring.
 - [ ] Improve error pages.
 - [ ] Button to center the homepage map using device location.
 - [ ] Report#new/Report#edit: populate coordinates via map selection.
@@ -80,12 +79,11 @@ This is a list of things that can be done to improve the application:
 - [ ] Clustering of data on the server.
 - [ ] Implement CI via GitHub Actions.
 - [ ] Photo upload.
+- [ ] Implement language tag normalization.
 - [ ] Product taxonomy.
 
 ### Localization Needing Implementation
 - [ ] Localize products.
-- [ ] Implement `get_best_language` in `app/controllers/application_controller.rb`
-- [ ] Error pages.
 
 ### Localization Needing Translations
 - [ ] `app/views/pages/about.zh-CN.html.erb`
@@ -98,6 +96,15 @@ This is a list of things that can be done to improve the application:
 - [ ] `config/locales/shortage-tracker.zh-CN.yml`
 - [ ] `config/locales/shortage-tracker.zh-HK.yml`
 - [ ] `config/locales/shortage-tracker.zh-TW.yml`
+- [ ] `public/404.zh-CN.yml`
+- [ ] `public/404.zh-HK.yml`
+- [ ] `public/404.zh-TW.yml`
+- [ ] `public/422.zh-CN.yml`
+- [ ] `public/422.zh-HK.yml`
+- [ ] `public/422.zh-TW.yml`
+- [ ] `public/500.zh-CN.yml`
+- [ ] `public/500.zh-HK.yml`
+- [ ] `public/500.zh-TW.yml`
 
 ### The World is not Enough Bugfix
 

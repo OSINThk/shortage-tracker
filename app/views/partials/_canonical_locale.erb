@@ -1,0 +1,5 @@
+<% if !Regexp.new("^\/#{I18n.locale.to_s.downcase}(?:\/|$)").match(request.original_fullpath) %>
+<script>
+  window.location.replace('<%= "#{request.base_url}/#{I18n.locale.to_s.downcase}#{request.original_fullpath}" %>');
+</script>
+<% end %>
