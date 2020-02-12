@@ -1,6 +1,6 @@
 L.tileLayer(
   "https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=" +
-    process.env.MAPBOX_API_KEY,
+    "sk.eyJ1Ijoib3NpbnRoayIsImEiOiJjazZkYWRueHEwNTRkM2VtdmNnZWwwbmV4In0.B42ECPkQldyVNtvTplkY3A",
   {
     attribution:
       '© <a href="https://www.mapbox.com/feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
