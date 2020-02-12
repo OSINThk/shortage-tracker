@@ -1,6 +1,8 @@
 require 'digest'
 require 'date'
 
+MAX_REPORT_AGE = ENV.fetch("MAX_REPORT_AGE", 1).to_i
+
 class MapCursor
   @@field_separator = "~"
   @@value_separator = ","
@@ -110,7 +112,7 @@ class MapCursor
     def where(active_record_query)
       return active_record_query
         .where("ST_Within(coordinates::geometry, ST_MakeEnvelope(?, ?, ?, ?, 4326))", @x0, @y0, @x1, @y1)
-        .where("reports.updated_at > ?", (@since - 1).to_s)
+        .where("reports.updated_at > ?", (@since - MAX_REPORT_AGE).to_s)
     end
 
     def where_not(active_record_query)
