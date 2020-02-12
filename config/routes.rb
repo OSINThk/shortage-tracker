@@ -1,6 +1,7 @@
 LOCALE_SEGMENT = Regexp.new(Rails.application.config.i18n.available_locales.join('|').downcase)
 
 Rails.application.routes.draw do
+  resources :localizations
   scope "(:locale)", locale: LOCALE_SEGMENT do
     root to: "maps#index"
     get 'about', to: "pages#about"

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Localizable:</strong>
+  <%= @localization.localizable_id %>
+</p>
+
+<p>
+  <strong>Supported locale:</strong>
+  <%= @localization.supported_locale_id %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @localization.value %>
+</p>
+
+<%= link_to 'Edit', edit_localization_path(@localization) %> |
+<%= link_to 'Back', localizations_path %>

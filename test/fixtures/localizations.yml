@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  localizable: one
+  localizable_type: Localizable
+  supported_locale: one
+  value: MyText
+
+two:
+  localizable: two
+  localizable_type: Localizable
+  supported_locale: two
+  value: MyText
