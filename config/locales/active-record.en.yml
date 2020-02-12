@@ -30,6 +30,10 @@ en:
         created_at: "Created at"
         name: "Name"
         updated_at: "Updated at"
+      supported_locale:
+        created_at: "Created at"
+        name: "Name"
+        updated_at: "Updated at"
     models:
       privilege:
         one: "Privilege"
@@ -46,3 +50,6 @@ en:
       role:
         one: "Role"
         other: "Roles"
+      supported_locale:
+        one: "Supported locale"
+        other: "Supported locales"

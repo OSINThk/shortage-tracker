@@ -1,0 +1,2 @@
+class SupportedLocalePolicy < AdminPolicy
+end

@@ -1,5 +1,7 @@
 class SupportedLocalesController < ApplicationController
   before_action :set_supported_locale, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :is_admin
 
   # GET /supported_locales
   # GET /supported_locales.json
@@ -65,6 +67,10 @@ class SupportedLocalesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_supported_locale
       @supported_locale = SupportedLocale.find(params[:id])
+    end
+
+    def is_admin
+      authorize SupportedLocale
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

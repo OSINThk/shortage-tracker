@@ -26,6 +26,7 @@ en:
       products: "Products"
       reports: "Reports"
       roles: "Roles"
+      supported_locales: "Supported Locales"
       user_administration: "User Administration"
       users: "Users"
   partials:
