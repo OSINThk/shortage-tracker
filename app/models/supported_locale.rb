@@ -4,4 +4,5 @@ class SupportedLocale < ApplicationRecord
   end
 
   validates :name, presence: true
+  has_many :localization
 end

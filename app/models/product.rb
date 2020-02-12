@@ -6,4 +6,5 @@ class Product < ApplicationRecord
   validates :name, presence: true
 
   has_many :product_detail
+  has_many :localization, as: :localizable
 end

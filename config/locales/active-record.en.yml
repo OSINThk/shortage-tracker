@@ -2,6 +2,10 @@
 en:
   activerecord:
     attributes:
+      localization:
+        created_at: "Created at"
+        value: "Value"
+        updated_at: "Updated at"
       privilege:
         created_at: "Created at"
         name: "Name"
@@ -35,6 +39,9 @@ en:
         name: "Name"
         updated_at: "Updated at"
     models:
+      localization:
+        one: "Localization"
+        other: "Localizations"
       privilege:
         one: "Privilege"
         other: "Privileges"

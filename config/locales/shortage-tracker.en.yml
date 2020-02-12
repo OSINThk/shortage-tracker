@@ -21,6 +21,8 @@ en:
   pages:
     admin:
       application_administration: "Application Administration"
+      localization: "Localization"
+      localization_administration: "Localization Administration"
       page_title: "Admin"
       privileges: "Privileges"
       products: "Products"

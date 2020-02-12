@@ -1,5 +1,7 @@
 class LocalizationsController < ApplicationController
   before_action :set_localization, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :is_admin
 
   # GET /localizations
   # GET /localizations.json
@@ -65,6 +67,10 @@ class LocalizationsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_localization
       @localization = Localization.find(params[:id])
+    end
+
+    def is_admin
+      authorize Localization
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
