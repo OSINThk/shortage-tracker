@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Supported Locales</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @supported_locales.each do |supported_locale| %>
+      <tr>
+        <td><%= supported_locale.name %></td>
+        <td><%= link_to 'Show', supported_locale %></td>
+        <td><%= link_to 'Edit', edit_supported_locale_path(supported_locale) %></td>
+        <td><%= link_to 'Destroy', supported_locale, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Supported Locale', new_supported_locale_path %>
