@@ -16,6 +16,21 @@
     <%= form.text_field :name %>
   </div>
 
+  <h3>Localizations for Product</h3>
+  <% supported_locales.each do |supported_locale| %>
+
+    <%= form.fields_for :localization, find_localization(product, supported_locale) || Localization.new(localizable: product, supported_locale: supported_locale) do |localization_form| %>
+      <%= localization_form.hidden_field :id %>
+      <%= localization_form.hidden_field :localizable_type %>
+      <%= localization_form.hidden_field :localizable_id %>
+      <%= localization_form.hidden_field :supported_locale_id %>
+      <div class="field">
+        <%= localization_form.label :value, supported_locale %>
+        <%= localization_form.text_field :value %>
+      </div>
+    <% end %>
+  <% end %>
+
   <div class="actions">
     <%= form.submit %>
   </div>

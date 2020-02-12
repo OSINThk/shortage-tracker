@@ -3,9 +3,10 @@
 <table>
   <thead>
     <tr>
+      <th>Localizable Type</th>
       <th>Localizable</th>
-      <th>Supported locale</th>
-      <th>Value</th>
+      <th>Supported Locale</th>
+      <th>Localized Value</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -13,8 +14,9 @@
   <tbody>
     <% @localizations.each do |localization| %>
       <tr>
-        <td><%= localization.localizable_id %></td>
-        <td><%= localization.supported_locale_id %></td>
+        <td><%= localization.localizable_type %></td>
+        <td><%= localization.localizable %></td>
+        <td><%= localization.supported_locale.name %></td>
         <td><%= localization.value %></td>
         <td><%= link_to 'Show', localization %></td>
         <td><%= link_to 'Edit', edit_localization_path(localization) %></td>

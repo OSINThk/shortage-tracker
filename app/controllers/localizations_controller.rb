@@ -6,7 +6,7 @@ class LocalizationsController < ApplicationController
   # GET /localizations
   # GET /localizations.json
   def index
-    @localizations = Localization.all
+    @localizations = Localization.includes(:localizable, :supported_locale).all
   end
 
   # GET /localizations/1

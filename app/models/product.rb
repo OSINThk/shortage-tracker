@@ -7,4 +7,6 @@ class Product < ApplicationRecord
 
   has_many :product_detail
   has_many :localization, as: :localizable
+
+  accepts_nested_attributes_for :localization
 end

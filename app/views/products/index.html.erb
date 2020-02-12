@@ -4,6 +4,9 @@
   <thead>
     <tr>
       <th>Name</th>
+      <% @supported_locales.each do |supported_locale| %>
+        <th><%= supported_locale.name %></th>
+      <% end %>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -12,6 +15,9 @@
     <% @products.each do |product| %>
       <tr>
         <td><%= product.name %></td>
+        <% @supported_locales.each do |supported_locale| %>
+          <td><%= find_localization(product, supported_locale) %></td>
+        <% end %>
         <td><%= link_to 'Show', product %></td>
         <td><%= link_to 'Edit', edit_product_path(product) %></td>
         <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
