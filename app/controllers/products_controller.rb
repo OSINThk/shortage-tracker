@@ -1,12 +1,16 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  before_action :is_admin
+  before_action :is_admin, except: [:index]
 
   # GET /products
   # GET /products.json
   def index
     @products = Product.all
+    respond_to do |format|
+      format.html { authorize Product }
+      format.json {}
+    end
   end
 
   # GET /products/1
