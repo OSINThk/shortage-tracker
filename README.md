@@ -82,10 +82,8 @@ This is a list of things that can be done to improve the application:
 - [ ] Implement language tag normalization.
 - [ ] Product taxonomy.
 
-### Localization Needing Implementation
-- [ ] Localize products.
-
 ### Localization Needing Translations
+- [ ] All products in the database.
 - [ ] `app/views/pages/about.zh-CN.html.erb`
 - [ ] `app/views/pages/about.zh-HK.html.erb`
 - [ ] `app/views/pages/about.zh-TW.html.erb`
