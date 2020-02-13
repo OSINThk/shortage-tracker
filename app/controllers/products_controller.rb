@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index]
   before_action :is_admin, except: [:index]
 
   # GET /products
@@ -8,8 +8,13 @@ class ProductsController < ApplicationController
   def index
     @products = Product.includes({ localization: :supported_locale }).all
     respond_to do |format|
-      format.html { authorize Product }
-      format.json {}
+      format.html {
+        authenticate_user!
+        authorize Product
+      }
+      format.json {
+        # Anybody can read the list of products.
+      }
     end
   end
 
