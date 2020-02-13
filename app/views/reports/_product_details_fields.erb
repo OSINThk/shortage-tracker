@@ -3,7 +3,7 @@
 
 <div class="field">
   <%= form.label :product_id %>
-  <%= form.select :product_id, products.map { |product| [product, product.id] }, { include_blank: t('.select_product_id_blank')  } %>
+  <%= form.select :product_id, products.map { |product| [find_localization(product, active_locale), product.id] }, { include_blank: t('.select_product_id_blank')  } %>
 </div>
 
 <div class="field">

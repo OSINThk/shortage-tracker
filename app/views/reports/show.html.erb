@@ -24,7 +24,7 @@
     <li>
       <dl>
         <dt><%= t('.product.name') %></dt>
-          <dd><%= product_detail.product.name %></dd>
+          <dd><%= find_localization(product_detail.product, @active_locale) %></dd>
         <dt><%= t('.product.scarcity') %></dt>
           <dd><%= product_detail.scarcity %></dd>
         <dt><%= t('.product.price') %></dt>

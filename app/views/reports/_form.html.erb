@@ -33,7 +33,7 @@
     <ul class="form-section__card-stack">
       <%= form.fields_for :product_detail do |product_detail_form| %>
         <li class="form-section__card form-section__product-detail-card">
-          <%= render :partial => 'product_details_fields', locals: { form: product_detail_form, products: products } %>
+          <%= render :partial => 'product_details_fields', locals: { form: product_detail_form, products: products, active_locale: active_locale } %>
         </li>
       <% end %>
       <% formslug = get_unique_id() %>
@@ -42,7 +42,7 @@
         <template id="template-<%= formslug %>">
           <%= form.fields_for :product_detail, ProductDetail.new(scarcity: 1, price: 1), { child_index: formslug } do |product_detail_form| %>
             <li class="form-section__card form-section__product-detail-card">
-              <%= render :partial => 'product_details_fields', locals: { form: product_detail_form, products: products } %>
+              <%= render :partial => 'product_details_fields', locals: { form: product_detail_form, products: products, active_locale: active_locale } %>
             </li>
           <% end %>
         </template>
