@@ -82,7 +82,7 @@ class MapCursor
       active_record_query = filter_products(active_record_query)
     end
 
-    active_record_query = active_record_query.includes(product_detail: :product)
+    active_record_query = active_record_query.includes(product_detail: { product: :localization })
     active_record_query = where(active_record_query)
     active_record_query = get_exclusions(active_record_query, root)
     return active_record_query

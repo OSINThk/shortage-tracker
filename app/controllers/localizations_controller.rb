@@ -66,7 +66,7 @@ class LocalizationsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_localization
-      @localization = Localization.find(params[:id])
+      @localization = Localization.includes(:localizable, :supported_locale).find(params[:id])
     end
 
     def is_admin

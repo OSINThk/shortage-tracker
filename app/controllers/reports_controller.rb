@@ -101,11 +101,11 @@ class ReportsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_report
-      @report = Report.find(params[:id])
+      @report = Report.includes(product_detail: { product: :localization }).find(params[:id])
     end
 
     def set_products
-      @products = Product.all
+      @products = Product.includes(:localization).all
     end
 
     def set_lat_long

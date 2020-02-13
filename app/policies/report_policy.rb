@@ -34,9 +34,9 @@ class ReportPolicy < ApplicationPolicy
     def resolve
       roles = get_roles(user)
       if roles.include?('admin')
-        scope.includes(product_detail: :product).all
+        scope.includes(product_detail: { product: :localization }).all
       else
-        scope.includes(product_detail: :product).where(user_id: user.id)
+        scope.includes(product_detail: { product: :localization }).where(user_id: user.id)
       end
     end
 
