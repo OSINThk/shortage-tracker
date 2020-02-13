@@ -1,6 +1,7 @@
 class PrivilegesController < ApplicationController
   before_action :set_privilege, only: [:show, :edit, :update, :destroy]
   before_action :set_roles, only: [:new, :edit, :create, :update]
+  before_action :authenticate_user!
   before_action :is_admin
 
   # GET /privileges
@@ -66,7 +67,7 @@ class PrivilegesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_privilege
-      @privilege = Privilege.find(params[:id])
+      @privilege = Privilege.includes(:role).find(params[:id])
     end
 
     def set_roles

@@ -1,6 +1,8 @@
 class ReportsController < ApplicationController
   before_action :set_report, only: [:show, :edit, :update, :destroy]
   before_action :set_products, only: [:new, :edit, :create, :update]
+  before_action :set_lat_long, only: [:new, :edit]
+  before_action :authenticate_user!
 
   # GET /reports
   # GET /reports.json
@@ -20,7 +22,7 @@ class ReportsController < ApplicationController
   def new
     authorize Report
 
-    @report = Report.new
+    @report = Report.new(coordinates: "POINT(#{@long} #{@lat})")
     @report.product_detail.build(scarcity: 1, price: 1)
   end
 
@@ -37,10 +39,11 @@ class ReportsController < ApplicationController
     passed_params = report_params
 
     # Create a mutable version of the params.
-    augmented_params = passed_params.except(:lat, :long)
+    augmented_params = passed_params.except(:lat, :long).to_hash
 
     # Augment the parameters with server-known information.
     augmented_params["ip"] = request.remote_ip
+    augmented_params["geo_ip"] = get_geo_ip(request.remote_ip)
     augmented_params["user_id"] = current_user.id
 
     # Construct the actual WKT.
@@ -67,7 +70,7 @@ class ReportsController < ApplicationController
     passed_params = report_params
 
     # Create a mutable version of the params.
-    augmented_params = passed_params.except(:lat, :long)
+    augmented_params = passed_params.except(:lat, :long).to_hash
 
     # Construct the actual WKT.
     augmented_params["coordinates"] = "POINT(#{passed_params["long"]} #{passed_params["lat"]})"
@@ -98,11 +101,48 @@ class ReportsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_report
-      @report = Report.find(params[:id])
+      @report = Report.includes(product_detail: { product: :localization }).find(params[:id])
     end
 
     def set_products
-      @products = Product.all
+      @products = Product.includes(:localization).all
+    end
+
+    def set_lat_long
+      @lat = params["lat"]
+      @long = params["long"]
+    end
+
+    def get_geo_ip(ip)
+      results = {}
+      city = $geoip_city.get(ip)
+      asn = $geoip_asn.get(ip)
+
+      if !city.nil?
+        results = results.merge(city)
+      end
+
+      if !asn.nil?
+        results["asn"] = asn
+      end
+
+      return walk(results)
+    end
+
+    def walk(thing)
+      if (!thing.is_a?(Hash) && !thing.is_a?(Array))
+        return thing
+      end
+
+      if thing.is_a?(Hash) && thing.has_key?("names")
+        if (thing["names"].has_key?("en"))
+          thing["names"] = { "en": thing["names"]["en"] }
+        end
+      end
+
+      thing.each {|key, value| walk(value || key)}
+
+      return thing
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -1,0 +1,62 @@
+---
+en:
+  activerecord:
+    attributes:
+      localization:
+        created_at: "Created at"
+        value: "Value"
+        updated_at: "Updated at"
+      privilege:
+        created_at: "Created at"
+        name: "Name"
+        updated_at: "Updated at"
+      product:
+        created_at: "Created at"
+        name: "Name"
+        updated_at: "Updated at"
+      product_detail:
+        created_at: "Created at"
+        notes: "Notes"
+        price: "Price"
+        scarcity: "Scarcity"
+        updated_at: "Updated at"
+      report:
+        coordinates: "Coordinates"
+        created_at: "Created at"
+        geo_ip: "GeoIP details"
+        ip: "IP Address"
+        lat: "Latitude"
+        long: "Longitude"
+        notes: "Notes"
+        product_id: "Product"
+        updated_at: "Updated at"
+      role:
+        created_at: "Created at"
+        name: "Name"
+        updated_at: "Updated at"
+      supported_locale:
+        created_at: "Created at"
+        name: "Name"
+        updated_at: "Updated at"
+    models:
+      localization:
+        one: "Localization"
+        other: "Localizations"
+      privilege:
+        one: "Privilege"
+        other: "Privileges"
+      product:
+        one: "Product"
+        other: "Products"
+      product_detail:
+        one: "Product detail"
+        other: "Product details"
+      report:
+        one: "Report"
+        other: "Reports"
+      role:
+        one: "Role"
+        other: "Roles"
+      supported_locale:
+        one: "Supported locale"
+        other: "Supported locales"

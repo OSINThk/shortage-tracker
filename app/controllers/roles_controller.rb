@@ -1,6 +1,7 @@
 class RolesController < ApplicationController
   before_action :set_role, only: [:show, :edit, :update, :destroy]
   before_action :set_privileges, only: [:new, :edit, :create, :update]
+  before_action :authenticate_user!
   before_action :is_admin
 
   # GET /roles
@@ -66,7 +67,7 @@ class RolesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_role
-      @role = Role.find(params[:id])
+      @role = Role.includes(:privilege).find(params[:id])
     end
 
     def set_privileges

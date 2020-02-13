@@ -1,11 +1,21 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-  before_action :is_admin
+  before_action :authenticate_user!, except: [:index]
+  before_action :is_admin, except: [:index]
 
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    @products = Product.includes({ localization: :supported_locale }).all
+    respond_to do |format|
+      format.html {
+        authenticate_user!
+        authorize Product
+      }
+      format.json {
+        # Anybody can read the list of products.
+      }
+    end
   end
 
   # GET /products/1
@@ -65,7 +75,7 @@ class ProductsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
-      @product = Product.find(params[:id])
+      @product = Product.includes({ localization: :supported_locale }).find(params[:id])
     end
 
     def is_admin
@@ -74,6 +84,15 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name)
+      params.require(:product).permit(
+        :name,
+        localization_attributes: [
+          :id,
+          :value,
+          :localizable_type,
+          :localizable_id,
+          :supported_locale_id
+        ]
+      )
     end
 end

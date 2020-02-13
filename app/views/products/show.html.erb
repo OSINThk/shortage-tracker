@@ -3,5 +3,16 @@
   <%= @product.name %>
 </p>
 
+<p>
+  <strong>Localizations:</strong>
+</p>
+
+<dl>
+  <% @product.localization.each do |localization| %>
+    <dt><%= localization.supported_locale.name %></dt>
+      <dd><%= localization.value %></dd>
+  <% end %>
+</dl>
+
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>

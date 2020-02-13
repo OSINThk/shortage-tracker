@@ -1,2 +1,3 @@
-json.extract! product, :id, :name, :created_at, :updated_at
-json.url product_url(product, format: :json)
+json.extract! product, :id, :name
+json.localization localization_hash(product)
+# json.url product_url(product, format: :json, locale: nil)

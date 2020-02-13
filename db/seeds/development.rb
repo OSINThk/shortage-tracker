@@ -1,8 +1,19 @@
+locales = [
+  'en',
+  'zh-HK'
+].map { |name| SupportedLocale.create(name: name) }
+
 products = [
   'masks',
   'gloves',
   'bottled water'
 ].map { |name| Product.create(name: name) }
+
+products.each do |product|
+  locales.each do |locale|
+    Localization.create(localizable: product, value: "#{locale}-#{product.name}", supported_locale: locale)
+  end
+end
 
 role = Role.create(name: 'admin')
 user = User.create(email: "admin@example.com", password: "password", role: [role], confirmed_at: Time.now)

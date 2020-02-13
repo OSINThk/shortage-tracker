@@ -1,6 +1,8 @@
 require 'digest'
 require 'date'
 
+MAX_REPORT_AGE = ENV.fetch("MAX_REPORT_AGE", 1).to_i
+
 class MapCursor
   @@field_separator = "~"
   @@value_separator = ","
@@ -61,7 +63,7 @@ class MapCursor
     # Don't try to load parents beyond the root.
     if root != key()
       @parent_cursors.each do |parent_cursor_key|
-        parent_cursor_value = $redis.get(parent_cursor_key)
+        parent_cursor_value = Redis.current.get(parent_cursor_key)
 
         # If it doesn't come back who cares.
         if (!parent_cursor_value.nil?)
@@ -80,14 +82,14 @@ class MapCursor
       active_record_query = filter_products(active_record_query)
     end
 
-    active_record_query = active_record_query.includes(product_detail: :product)
+    active_record_query = active_record_query.includes(product_detail: { product: :localization })
     active_record_query = where(active_record_query)
     active_record_query = get_exclusions(active_record_query, root)
     return active_record_query
   end
 
   def save
-    $redis.set(key(), value(), ex: @@expiration_seconds)
+    Redis.current.set(key(), value(), ex: @@expiration_seconds)
   end
 
   protected
@@ -110,7 +112,7 @@ class MapCursor
     def where(active_record_query)
       return active_record_query
         .where("ST_Within(coordinates::geometry, ST_MakeEnvelope(?, ?, ?, ?, 4326))", @x0, @y0, @x1, @y1)
-        .where("reports.updated_at > ?", (@since - 1).to_s)
+        .where("reports.updated_at > ?", (@since - MAX_REPORT_AGE).to_s)
     end
 
     def where_not(active_record_query)

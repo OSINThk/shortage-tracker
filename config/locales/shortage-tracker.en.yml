@@ -1,0 +1,93 @@
+---
+en:
+  locale: "EN"
+  maps_controller:
+    product:
+      notes: "Product Notes"
+      price: "Product Price"
+      scarcity: "Product Scarcity"
+    report:
+      created_at: "Report Time"
+      notes: "Report Notes"
+  maps:
+    index:
+      authenticated_instructions:
+        new_report: "add a report using your device location"
+        sentence_html: "Press anywhere on the map to add a report. Alternatively, %{link}."
+      page_title: "Instructions"
+      unauthenticated_instructions:
+        new_user_session: "log in"
+        sentence_html: "Please %{link} to add a report to the map."
+  pages:
+    admin:
+      application_administration: "Application Administration"
+      localization: "Localization"
+      localization_administration: "Localization Administration"
+      page_title: "Admin"
+      privileges: "Privileges"
+      products: "Products"
+      reports: "Reports"
+      roles: "Roles"
+      supported_locales: "Supported Locales"
+      user_administration: "User Administration"
+      users: "Users"
+  partials:
+    header:
+      about: "About"
+      admin: "Admin"
+      destroy_user_session: "Log out"
+      new_report: "New Report"
+      new_user_registration: "Sign up"
+      new_user_session: "Log in"
+      reports: "My Reports"
+  reports:
+    edit:
+      page_title: "Editing Report"
+      report: "Show Report"
+      reports: "My Reports"
+    form:
+      add_product_detail: "Add Product"
+      error_explanation_header:
+        one: "%{count} error prohibited this report from being saved:"
+        other: "%{count} errors prohibited this report from being saved:"
+      populate_location: "Populate Location"
+      products: "Products"
+    index:
+      confirmation: "Are you sure?"
+      coordinates: "Location"
+      created_at: "Report Time"
+      destroy: "Destroy"
+      edit: "Edit"
+      new_report: "New Report"
+      notes: "Report Notes"
+      page_title: "My Reports"
+      show: "Show"
+      user_id: "User"
+      zero_cta:
+        new_report: "Create your first report now!"
+        sentence_html: "You have not yet made a report. %{link}"
+    new:
+      page_title: "New Report"
+      reports: "My Reports"
+    product_details_fields:
+      price:
+        expensive: "Expensive"
+        normal: "Normal"
+      remove_product_detail: "Remove Product"
+      scarcity:
+        plentiful: "Normal"
+        scarce: "None"
+      select_product_id_blank: "Select Product…"
+    show:
+      coordinates: "Location:"
+      edit_report: "Edit Report"
+      notes: "Report Notes:"
+      product:
+        name: "Product"
+        notes: "Product Notes"
+        price: "Product Price"
+        scarcity: "Product Scarcity"
+      product_detail: "Product Details:"
+      reports: "My Reports"
+      user_id: "User ID:"
+  shortage_tracker: "Shortage Tracker BETA"

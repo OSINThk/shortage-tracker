@@ -1,7 +1,7 @@
 <%= form_with(model: report, local: true) do |form| %>
   <% if report.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(report.errors.count, "error") %> prohibited this report from being saved:</h2>
+      <h2><%= t('.error_explanation_header', { count: report.errors.count }) %></h2>
 
       <ul>
         <% report.errors.full_messages.each do |message| %>
@@ -11,15 +11,15 @@
     </div>
   <% end %>
 
-  <button type="button" class="find-me">Populate Location</button>
+  <button type="button" class="find-me"><%= t('.populate_location') %></button>
 
   <div class="field">
-    <%= form.label :lat, "Latitude" %>
+    <%= form.label :lat %>
     <%= form.text_field :lat %>
   </div>
 
   <div class="field">
-    <%= form.label :long, "Longitude" %>
+    <%= form.label :long %>
     <%= form.text_field :long %>
   </div>
 
@@ -29,11 +29,11 @@
   </div>
 
   <section class="form-section">
-    <h3>Products</h3>
+    <h3><%= t('.products') %></h3>
     <ul class="form-section__card-stack">
       <%= form.fields_for :product_detail do |product_detail_form| %>
         <li class="form-section__card form-section__product-detail-card">
-          <%= render :partial => 'product_details_fields', locals: { form: product_detail_form, products: products } %>
+          <%= render :partial => 'product_details_fields', locals: { form: product_detail_form, products: products, active_locale: active_locale } %>
         </li>
       <% end %>
       <% formslug = get_unique_id() %>
@@ -42,11 +42,11 @@
         <template id="template-<%= formslug %>">
           <%= form.fields_for :product_detail, ProductDetail.new(scarcity: 1, price: 1), { child_index: formslug } do |product_detail_form| %>
             <li class="form-section__card form-section__product-detail-card">
-              <%= render :partial => 'product_details_fields', locals: { form: product_detail_form, products: products } %>
+              <%= render :partial => 'product_details_fields', locals: { form: product_detail_form, products: products, active_locale: active_locale } %>
             </li>
           <% end %>
         </template>
-        <button type="button" class="add-relationship" data-slug="<%= formslug %>">Add Product Detail</button>
+        <button type="button" class="add-relationship" data-slug="<%= formslug %>"><%= t('.add_product_detail') %></button>
       </li>
     </ul>
   </section>

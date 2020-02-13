@@ -29,3 +29,9 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+# Ignore maxmind database files.
+*.mmdb
+
+# Ignore .env
+.env

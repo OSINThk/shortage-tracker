@@ -10,11 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_05_150800) do
+ActiveRecord::Schema.define(version: 2020_02_12_153750) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "postgis"
+
+  create_table "localizations", force: :cascade do |t|
+    t.string "localizable_type", null: false
+    t.bigint "localizable_id", null: false
+    t.bigint "supported_locale_id", null: false
+    t.text "value"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["localizable_type", "localizable_id"], name: "index_localizations_on_localizable_type_and_localizable_id"
+    t.index ["supported_locale_id"], name: "index_localizations_on_supported_locale_id"
+  end
 
   create_table "privileges", force: :cascade do |t|
     t.string "name"
@@ -54,7 +65,9 @@ ActiveRecord::Schema.define(version: 2020_02_05_150800) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.jsonb "geo_ip"
     t.index ["coordinates"], name: "index_reports_on_coordinates", using: :gist
+    t.index ["geo_ip"], name: "index_reports_on_geo_ip", using: :gin
     t.index ["user_id"], name: "index_reports_on_user_id"
   end
 
@@ -69,6 +82,12 @@ ActiveRecord::Schema.define(version: 2020_02_05_150800) do
     t.bigint "user_id", null: false
     t.index ["role_id", "user_id"], name: "index_roles_users_on_role_id_and_user_id"
     t.index ["user_id", "role_id"], name: "index_roles_users_on_user_id_and_role_id"
+  end
+
+  create_table "supported_locales", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -97,6 +116,7 @@ ActiveRecord::Schema.define(version: 2020_02_05_150800) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "localizations", "supported_locales"
   add_foreign_key "product_details", "products"
   add_foreign_key "product_details", "reports"
   add_foreign_key "reports", "users"

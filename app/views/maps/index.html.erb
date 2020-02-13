@@ -1,15 +1,56 @@
-<h2>Instructions</h2>
-<% if current_user.nil? %>
-  <p>Please <%= link_to 'sign in', new_user_session_path %> to add a report to the map.</p>
-<% else %>
-  <p>Press anywhere on the map to add a report. Alternatively, <%= link_to 'add a report using your device location', new_report_path %>.</p>
-<% end %>
-
 <style>
-#map-container {
-  height: 500px;
+#info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: white;
+  padding: 25px 25px 25px 25px;
+  max-width: 490px;
+}
+html, body, #map, #map-container {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100vw;
 }
 </style>
-<div id="map-container"></div>
+<div id="map-container">
+  <div id="info">
+    <%= render :partial => 'partials/header' %>
+    <h2><%= t('.page_title') %></h2>
+    <% if current_user.nil? %>
+      <p><%=
+        t(
+          '.unauthenticated_instructions.sentence_html',
+          {
+            link: link_to(
+              t('.unauthenticated_instructions.new_user_session'),
+              new_user_session_path
+            )
+          }
+        )
+      %></p>
+    <% else %>
+      <p><%=
+        t(
+          '.authenticated_instructions.sentence_html',
+          {
+            link: link_to(
+              t('.authenticated_instructions.new_report'),
+              new_report_path
+            )
+          }
+        )
+      %></p>
+    <% end %>
+  </div>
 
+  <div id="map"></div>
+</div>
+
+<script type="text/javascript">
+  var map = L.map("map", { zoomControl: false }).setView([<%= @latitude %>, <%= @longitude %>], 13);
+  var localization = <%= raw @localization.to_json %>;
+</script>
 <%= javascript_pack_tag 'home_page_map' %>

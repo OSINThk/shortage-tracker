@@ -1,40 +1,40 @@
 <p>
-  <strong>Location:</strong>
+  <strong><%= t('.coordinates') %></strong>
   <%= @report.coordinates %>
 </p>
 
 <p>
-  <strong>Notes:</strong>
+  <strong><%= t('.notes') %></strong>
   <%= @report.notes %>
 </p>
 
 <% if current_user.id != @report.user_id %>
 <p>
-  <strong>User:</strong>
+  <strong><%= t('.user_id') %></strong>
   <%= @report.user_id %>
 </p>
 <% end %>
 
 <p>
-  <strong>Product Details:</strong>
+  <strong><%= t('.product_detail') %></strong>
 </p>
 
 <ul>
   <% @report.product_detail.each do |product_detail| %>
     <li>
       <dl>
-        <dt>Product</dt>
-          <dd><%= product_detail.product.name %></dd>
-        <dt>Product Scarcity</dt>
+        <dt><%= t('.product.name') %></dt>
+          <dd><%= find_localization(product_detail.product, @active_locale) %></dd>
+        <dt><%= t('.product.scarcity') %></dt>
           <dd><%= product_detail.scarcity %></dd>
-        <dt>Product Price</dt>
+        <dt><%= t('.product.price') %></dt>
           <dd><%= product_detail.price %></dd>
-        <dt>Product Notes</dt>
+        <dt><%= t('.product.notes') %></dt>
           <dd><%= product_detail.notes %></dd>
       </dl>
     </li>
   <% end %>
 </ul>
 
-<%= link_to 'Edit', edit_report_path(@report) %> |
-<%= link_to 'Back', reports_path %>
+<%= link_to t('.edit_report'), edit_report_path(@report) %> |
+<%= link_to t('.reports'), reports_path %>

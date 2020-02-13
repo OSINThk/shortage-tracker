@@ -1,23 +1,23 @@
 <%= form.hidden_field :_destroy, { value: "false", class: "destroy" } %>
-<button type="button" class="remove-relationship">Remove Product Details</button>
+<button type="button" class="remove-relationship"><%= t('.remove_product_detail') %></button>
 
 <div class="field">
   <%= form.label :product_id %>
-  <%= form.select :product_id, products.map { |product| [product, product.id] }, { include_blank: "Select product..." } %>
+  <%= form.select :product_id, products.map { |product| [find_localization(product, active_locale), product.id] }, { include_blank: t('.select_product_id_blank')  } %>
 </div>
 
 <div class="field">
   <%= form.label :scarcity %>
-  Normal
+  <%= t('.scarcity.plentiful') %>
   <%= form.range_field :scarcity, :in => 1..5, :step => '1' %>
-  None
+  <%= t('.scarcity.scarce') %>
 </div>
 
 <div class="field">
   <%= form.label :price %>
-  Normal
+  <%= t('.price.normal') %>
   <%= form.range_field :price, :in => 1..5, :step => '1' %>
-  Expensive
+  <%= t('.price.expensive') %>
 </div>
 
 <div class="field">

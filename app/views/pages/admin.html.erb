@@ -1,14 +1,20 @@
-<h2>Admin</h2>
+<h2><%= t('.page_title') %></h2>
 
-<h3>User Administration</h3>
+<h3><%= t('.user_administration') %></h3>
 <ul>
-  <li><%= link_to 'Users', users_path %></li>
-  <li><%= link_to 'Roles', roles_path %></li>
-  <li><%= link_to 'Privileges', privileges_path %></li>
+  <li><%= link_to t('.users'), users_path %></li>
+  <li><%= link_to t('.roles'), roles_path %></li>
+  <li><%= link_to t('.privileges'), privileges_path %></li>
 </ul>
 
-<h3>Application Administration</h3>
+<h3><%= t('.application_administration') %></h3>
 <ul>
-  <li><%= link_to 'Products', products_path %></li>
-  <li><%= link_to 'Reports', reports_path %></li>
+  <li><%= link_to t('.products'), products_path %></li>
+  <li><%= link_to t('.reports'), reports_path %></li>
+</ul>
+
+<h3><%= t('.localization_administration') %></h3>
+<ul>
+  <li><%= link_to t('.supported_locales'), supported_locales_path %></li>
+  <li><%= link_to t('.localization'), localizations_path %></li>
 </ul>

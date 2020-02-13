@@ -3,6 +3,29 @@ require 'bigdecimal'
 
 class MapsController < ApplicationController
   def index
+    # Guess where the request is coming from.
+    result = $geoip_city.get(request.remote_ip)
+
+    if !result.nil?
+      @latitude = result["location"]["latitude"]
+      @longitude = result["location"]["longitude"]
+    else
+      # Default to Hong Kong
+      @latitude = "22.29"
+      @longitude = "114.185"
+    end
+
+    @localization = {
+      "report": {
+        "notes": I18n.translate('maps_controller.report.notes', ),
+        "created_at": I18n.translate('maps_controller.report.created_at')
+      },
+      "product": {
+        "price": I18n.translate('maps_controller.product.price'),
+        "scarcity": I18n.translate('maps_controller.product.scarcity'),
+        "notes": I18n.translate('maps_controller.product.notes')
+      }
+    }
   end
 
   def results
