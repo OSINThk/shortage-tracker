@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   # as `authenticate_user!` (or whatever your resource is) will halt the filter chain and redirect
   # before the location can be stored.
 
+  before_action :set_supported_locales
   around_action :set_locale
   around_action :set_i18n_debug
 
@@ -37,6 +38,10 @@ class ApplicationController < ActionController::Base
       store_location_for(:user, request.fullpath)
     end
 
+    def set_supported_locales
+      @supported_locales = SupportedLocale.all
+    end
+
     def set_locale(&action)
       locale = BestLanguage.get_best_language(
         I18n.available_locales,
@@ -44,6 +49,7 @@ class ApplicationController < ActionController::Base
         request.env['HTTP_ACCEPT_LANGUAGE'],
         I18n.default_locale
       )
+      @active_locale = @supported_locales.find {|supported_locale| supported_locale.name.downcase == locale.downcase }
       I18n.with_locale(locale, &action)
     end
 

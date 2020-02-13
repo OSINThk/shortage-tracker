@@ -1,6 +1,5 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-  before_action :set_supported_locales, only: [:index, :new, :edit, :create, :update]
   before_action :authenticate_user!
   before_action :is_admin, except: [:index]
 
@@ -72,10 +71,6 @@ class ProductsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_product
       @product = Product.includes({ localization: :supported_locale }).find(params[:id])
-    end
-
-    def set_supported_locales
-      @supported_locales = SupportedLocale.all
     end
 
     def is_admin
