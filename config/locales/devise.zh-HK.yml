@@ -6,10 +6,12 @@
 #  - Should be minor enough to claim CC0 for my changes.
 # 4.3.0 By arguablewaffles
 #  - Major rewrite of most phrases
-# 4.3.1 By arguablewaffles (this file)
+# 4.3.1 By arguablewaffles
 #  - Translate send_paranoid_instructions (x3)
 #  - Standardize terms
 #  - Additional minor tweaks for less verboseness
+# 4.4.0 By norrisng (this file)
+#  - Port updated phrases from devise-i18n.zh-HK.yml
 # Additional translations at https://github.com/plataformatec/devise/wiki/I18n
 
 zh-HK:
@@ -30,18 +32,18 @@ zh-HK:
       unconfirmed: "請先確認您的帳號。"
     mailer:
       confirmation_instructions:
-        subject: "帳號確認信息"
+        subject: "確認帳號"
       reset_password_instructions:
-        subject: "重置密碼信息"
+        subject: "更改密碼"
       unlock_instructions:
-        subject: "帳號解鎖信息"
+        subject: "解封帳號"
       email_changed:
-        subject: "電郵已被修改"
+        subject: "電郵已被更改"
       password_change:
-        subject: "密碼已被重設"
+        subject: "您的密碼已被更改"
     omniauth_callbacks:
-      failure: "由於%{reason}，無法從%{kind}獲得授權。"
-      success: "成功從%{kind}獲得授權。"
+      failure: "由於%{reason}，無法從%{kind}獲取授權。"
+      success: "成功從%{kind}獲取授權。"
     passwords:
       no_token: "此網頁無法從密碼重設電郵外瀏覽。如您是從密碼重設電郵的連結到這個網頁，請確保您輸入的連結是完整的。"
       send_instructions: "您幾分鐘內將會收到密碼重設電郵。"
@@ -53,8 +55,8 @@ zh-HK:
       signed_up: "歡迎！您已成功註冊。"
       signed_up_but_inactive: "您已註冊，但帳號尚未啟用。"
       signed_up_but_locked: "您已註冊，但帳號被封鎖。"
-      signed_up_but_unconfirmed: "帳號確認電郵已寄出，請檢查您的電郵（包括垃圾郵箱），並點擊電郵內的連結啟用帳號。"
-      update_needs_confirmation: "帳號更新成功，但我們需要確認您的新電郵。請檢查電郵（包括垃圾郵箱），並點擊電郵內的連結。"
+      signed_up_but_unconfirmed: "帳號確認電郵已寄出，請檢查您的電郵（包括垃圾郵箱），並按電郵內的連結啟用帳號。"
+      update_needs_confirmation: "帳號更新成功，但新的電郵地址有待確認。請檢查電郵（包括垃圾郵箱），並按電郵內的連結。"
       updated: "帳號更新成功。"
       updated_but_not_signed_in: "帳號更新成功，但由於密碼已更改，您必須重新登入。"
     sessions:
@@ -73,4 +75,4 @@ zh-HK:
       not_found: "找不到。"
       not_locked: "未鎖定。"
       not_saved:
-        other: "發生%{count}個錯誤，導致%{resource}未能保存："
+        other: "發生 %{count} 個錯誤，導致%{resource}未能儲存："
