@@ -66,7 +66,7 @@ zh-HK:
         instruction: 有人要求寄出更改密碼電郵。如欲更改密碼，請按以下連結：
         instruction_2: 如您並沒有要求更改密碼，請不要理會此電郵。
         instruction_3: 如您不按以上的連結並更改密碼，密碼並不會被改。
-        subject: 重置密碼信息
+        subject: 重設密碼
       unlock_instructions:
         action: 解封帳號
         greeting: 您好，%{recipient}
