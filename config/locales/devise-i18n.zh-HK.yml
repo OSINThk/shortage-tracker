@@ -2,139 +2,145 @@ zh-HK:
   activerecord:
     attributes:
       user:
-        confirmation_sent_at:
-        confirmation_token:
-        confirmed_at:
-        created_at:
-        current_password:
-        current_sign_in_at:
-        current_sign_in_ip:
+        confirmation_sent_at: 確認電郵發出時間
+        confirmation_token: 確認金輪
+        confirmed_at: 用戶確認時間
+        created_at: 用戶建立時間
+        current_password: 現時密碼
+        current_sign_in_at: 現時登入時間
+        current_sign_in_ip: 現時登入IP位址
         email: 電郵
-        encrypted_password:
-        failed_attempts:
-        last_sign_in_at:
-        last_sign_in_ip:
-        locked_at:
+        encrypted_password: 已加密密碼
+        failed_attempts: 錯誤登入次數
+        last_sign_in_at: 上次登入於
+        last_sign_in_ip: 上次登入於IP位址
+        locked_at: 封鎖時間
         password: 密碼
-        password_confirmation:
-        remember_created_at:
+        password_confirmation: 確認密碼
+        remember_created_at: 「記住我」建立時間
         remember_me: 記住我
-        reset_password_sent_at:
-        reset_password_token:
-        sign_in_count:
-        unconfirmed_email:
-        unlock_token:
-        updated_at:
+        reset_password_sent_at: 密碼重設電郵寄出時間
+        reset_password_token: 重設密碼金輪
+        sign_in_count: 登入次數
+        unconfirmed_email: 電郵尚未確認
+        unlock_token: 解鎖
+        updated_at: 上次更新於
     models:
       user:
+        one: 用戶
+        other: 其他用戶
   devise:
     confirmations:
-      confirmed: 啟用同埋登入咗帳戶。
+      confirmed: 帳號已成功確認。您現已登入。
       new:
-        resend_confirmation_instructions:
-      send_instructions: 幾分鐘之後，你會收到一封電郵，入面有啟用帳戶嘅步驟。
-      send_paranoid_instructions: 如果我哋既紀錄入面有呢個電郵的話，幾分鐘之後，你會收到一封電郵，入面有啟用帳戶嘅步驟。
+        resend_confirmation_instructions: 再次寄出確認電郵
+      send_instructions: 您幾分鐘內將會收到帳號確認電郵。
+      send_paranoid_instructions: 如您的電郵已登記，您將會收帳號確認電郵。
     failure:
-      already_authenticated: 已經登入咗。
-      inactive: 帳戶未啟用。
-      invalid:
-      last_attempt: 你仲有一次嘗試正確密碼嘅機會，過後你嘅帳戶會被鎖住。
-      locked: 你個帳戶已經鎖咗。
-      not_found_in_database:
-      timeout: 超時，請重新登入。
-      unauthenticated: 請登入，或者開個帳戶。
-      unconfirmed: 帳戶未啟用。
+      already_authenticated: 您已經登入。
+      inactive: 帳號尚未啟用。
+      invalid: 電郵或密碼錯誤。
+      last_attempt: 您還有一次登入機會。若再次失敗，您的帳號將被封鎖。
+      locked: 您的帳號已被封鎖。
+      not_found_in_database: 電郵或密碼錯誤。
+      timeout: 登入逾時，請重新登入。
+      unauthenticated: 請先註冊或登入。
+      unconfirmed: 請先確認您的帳號。
     mailer:
       confirmation_instructions:
-        action:
-        greeting:
-        instruction:
-        subject: 啟用帳戶
+        action: 確認帳號
+        greeting: '%{recipient} 您好！'
+        instruction: 請按以下鏈接確認您的電郵：
+        subject: 帳號確認信息
       email_changed:
-        greeting:
-        message:
-        subject:
+        greeting: 您好，%{recipient}
+        message: 您的電郵已更改為 %{email}
+        subject: 電郵已被更改
       password_change:
-        greeting:
-        message:
-        subject:
+        greeting: 您好，%{recipient}
+        message: 您的密碼已被更改
+        subject: 密碼已被重設
       reset_password_instructions:
-        action:
-        greeting:
-        instruction:
-        instruction_2:
-        instruction_3:
-        subject: 重設密碼
+        action: 更改密碼
+        greeting: 您好，%{recipient}
+        instruction: 有人要求寄出更改密碼電郵。如欲更改密碼，請按以下連結：
+        instruction_2: 如您並沒有要求更改密碼，請不要理會此電郵。
+        instruction_3: 如您不按以上的連結並更改密碼，密碼並不會被改。
+        subject: 重置密碼信息
       unlock_instructions:
-        action:
-        greeting:
-        instruction:
-        message:
-        subject: 帳戶解鎖
+        action: 解封帳號
+        greeting: 您好，%{recipient}
+        instruction: 請按以下鏈接解封您的帳號：
+        message: 由於錯誤登入次數太多，您的帳號已被封鎖。
+        subject: 解封帳號說明
     omniauth_callbacks:
-      failure: 由%{kind}登入唔到，原因︰%{reason}。
-      success: "%{kind}登入成功。"
+      failure: 由於%{reason}，無法從%{kind}獲取授權。
+      success: 成功從%{kind}獲取授權。
     passwords:
       edit:
-        change_my_password:
-        change_your_password:
-        confirm_new_password:
-        new_password:
+        change_my_password: 更改我的密碼
+        change_your_password: 更改您的密碼
+        confirm_new_password: 確認新密碼
+        new_password: 新密碼
       new:
-        forgot_your_password:
-        send_me_reset_password_instructions:
-      no_token: 請肯定網址係密碼重設電郵入面嗰個。唔經呢封電郵睇唔到呢版。
-      send_instructions: 幾分鐘之後，你會收到一封電郵，入面有重設密碼嘅步驟。
-      send_paranoid_instructions: 如果我哋既紀錄入面有呢個電郵的話，幾分鐘之後，你會收到一封電郵，入面有重設密碼嘅步驟。
-      updated: 成功改咗密碼；重新登入咗。
-      updated_not_active: 成功改咗密碼。
+        forgot_your_password: 忘記密碼？
+        send_me_reset_password_instructions: 寄出密碼重設說明
+      no_token: 此網頁無法從密碼重設電郵外瀏覽。如您是從密碼重設電郵中的連結到這個網頁，請確保您輸入的連結是完整的。
+      send_instructions: 您幾分鐘內將會收到密碼重設電郵。
+      send_paranoid_instructions: 如您的電郵已登記，您將會收到密碼重設電郵。
+      updated: 密碼已成功更改，您現已登入。
+      updated_not_active: 密碼已成功更改。
     registrations:
-      destroyed: 帳戶已經註銷。有緣再會。
+      destroyed: 帳號已成功取消，希望在不久的將來再見。
       edit:
-        are_you_sure:
-        cancel_my_account:
-        currently_waiting_confirmation_for_email:
-        leave_blank_if_you_don_t_want_to_change_it:
-        title:
-        unhappy:
-        update:
-        we_need_your_current_password_to_confirm_your_changes:
+        are_you_sure: 確認？
+        cancel_my_account: 取消帳號
+        currently_waiting_confirmation_for_email: 正等待電郵確認：%{email}
+        leave_blank_if_you_don_t_want_to_change_it: 如非更改，請留空
+        title: 編輯 %{resource}
+        unhappy: 不滿意嗎？
+        update: 更新
+        we_need_your_current_password_to_confirm_your_changes: 請再次輸入密碼
       new:
-        sign_up:
-      signed_up: 註冊咗。歡迎！
-      signed_up_but_inactive: 註冊咗；不過要啟用埋帳戶先可以登入。
-      signed_up_but_locked: 註冊咗；不過帳戶鎖咗，未可以登入住。
-      signed_up_but_unconfirmed: 註冊咗；你會收到封電郵，入面有啟用帳戶嘅步驟。
-      update_needs_confirmation: 更新咗帳戶。你會喺新電郵地址收到封電郵，入面有確認新電郵步驟。
-      updated: 更新咗帳戶。
-      updated_but_not_signed_in:
+        sign_up: 註冊
+      signed_up: 歡迎！您已成功註冊。
+      signed_up_but_inactive: 您已註冊，但帳號尚未啟用。
+      signed_up_but_locked: 您已註冊，但帳號被封鎖。
+      signed_up_but_unconfirmed: 帳號確認電郵已寄出，請檢查您的電郵（包括垃圾郵箱），並按電郵內的連結啟用帳號。
+      update_needs_confirmation: 帳號更新成功，但新的電郵地址有待確認。請檢查電郵（包括垃圾郵箱），並按電郵內的連結。
+      updated: 帳號更新成功。
+      updated_but_not_signed_in: 帳號更新成功，但由於密碼已更改，您必須重新登入。
     sessions:
       already_signed_out: 登出成功。
       new:
-        sign_in:
-      signed_in: 登入咗。
-      signed_out: 登出咗。
+        sign_in: 登入
+      signed_in: 登入成功。
+      signed_out: 登出成功。
     shared:
       links:
-        back:
-        didn_t_receive_confirmation_instructions:
-        didn_t_receive_unlock_instructions:
-        forgot_your_password:
-        sign_in:
-        sign_in_with_provider:
-        sign_up:
+        back: 返回
+        didn_t_receive_confirmation_instructions: 收不到確認電郵？
+        didn_t_receive_unlock_instructions: 收不到帳戶解封電郵？
+        forgot_your_password: 忘記密碼？
+        sign_in: 登入
+        sign_in_with_provider: 以 %{provider} 賬號登入
+        sign_up: 註冊
       minimum_password_length:
+        one: （密碼不能少於 %{count} 個字元）
+        other: （密碼不能少於 %{count} 個字元）
     unlocks:
       new:
-        resend_unlock_instructions:
-      send_instructions: 幾分鐘之後，你會收到一封電郵，入面有帳戶解鎖嘅步驟。
-      send_paranoid_instructions: 如果我哋既紀錄入面有呢個帳戶的話，幾分鐘之後，你會收到一封電郵，入面有帳戶解鎖嘅步驟。
-      unlocked: 帳戶解咗鎖；請重新登入。
+        resend_unlock_instructions: 再次寄出帳戶解封電郵
+      send_instructions: 您幾分鐘內將會收到帳號解封帳號電郵。
+      send_paranoid_instructions: 如您的電郵已登記，您將會收到解封帳號電郵。
+      unlocked: 您的帳號已成功解封，請先登入。
   errors:
     messages:
-      already_confirmed: 已經啟用咗；可以登入。
-      confirmation_period_expired: 超時。請重新要過個，然後喺%{period}之內確認。
-      expired: 超時。請重新要過個。
-      not_found: 搵唔到
-      not_locked: 無鎖到
-      not_saved: 有%{count}個問題，%{resource}儲存唔到。
+      already_confirmed: 已確認，請再次嘗試登入。
+      confirmation_period_expired: 註冊帳號後須在%{period}內確認。請重新註冊。
+      expired: 確認電郵已失效，請重新註冊。
+      not_found: 找不到。
+      not_locked: 未鎖定。
+      not_saved:
+        one: 發生 1 個錯誤，導致%{resource}未能儲存：
+        other: 發生 %{count} 個錯誤，導致%{resource}未能儲存：
