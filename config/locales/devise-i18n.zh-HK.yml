@@ -50,7 +50,7 @@ zh-HK:
       confirmation_instructions:
         action: 確認帳號
         greeting: '%{recipient} 您好！'
-        instruction: 請按以下鏈接確認您的電郵：
+        instruction: 請按以下連結確認您的電郵：
         subject: 帳號確認信息
       email_changed:
         greeting: 您好，%{recipient}
@@ -70,7 +70,7 @@ zh-HK:
       unlock_instructions:
         action: 解封帳號
         greeting: 您好，%{recipient}
-        instruction: 請按以下鏈接解封您的帳號：
+        instruction: 請按以下連結解封您的帳號：
         message: 由於錯誤登入次數太多，您的帳號已被封鎖。
         subject: 解封帳號說明
     omniauth_callbacks:
