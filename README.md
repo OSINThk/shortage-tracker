@@ -90,7 +90,6 @@ This is a list of things that can be done to improve the application:
 - [ ] `config/locales/active-record.zh-CN.yml`
 - [ ] `config/locales/active-record.zh-HK.yml`
 - [ ] `config/locales/active-record.zh-TW.yml`
-- [ ] `config/locales/devise-i18n.zh-HK.yml`
 - [ ] `config/locales/shortage-tracker.zh-CN.yml`
 - [ ] `config/locales/shortage-tracker.zh-HK.yml`
 - [ ] `config/locales/shortage-tracker.zh-TW.yml`
