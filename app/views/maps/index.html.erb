@@ -17,7 +17,9 @@
 </style>
 <div id="map-container">
   <div id="info">
-    <%= render :partial => 'partials/header' %>
+    <!-- <%= render :partial => 'partials/header' %>
+        Is this line supposed to be commented out?
+        Maps disappear if uncommented -->
     <h2><%= t('.page_title') %></h2>
     <% if current_user.nil? %>
       <p><%=
@@ -52,4 +54,3 @@
   var localization = <%= raw @localization.to_json %>;
 </script>
 <%= javascript_pack_tag 'home_page_map' %>
-

@@ -25,11 +25,9 @@
     </ul>
   </div>
 </nav>
-<div>
-  <p>
-    <h1><%= link_to t('shortage_tracker'), root_path %></h1>
-  </p>
-   </div>
+<div class="cbox">
+  <h1><%= link_to t('shortage_tracker'), root_path %></h1>
+</div>
 <% if Rails.application.config.i18n.available_locales.length > 1 %>
   <ul>
     <% Rails.application.config.i18n.available_locales.each do |locale| %>
