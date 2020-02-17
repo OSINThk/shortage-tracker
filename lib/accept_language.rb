@@ -84,9 +84,12 @@ module AcceptLanguage
 
     def self.parse(header_string)
       values = []
-      header_string.scan(PIECES).each do |match|
-        locale, quality = match
-        values << Value.new(locale, quality)
+
+      if header_string.is_a?(String)
+        header_string.scan(PIECES).each do |match|
+          locale, quality = match
+          values << Value.new(locale, quality)
+        end
       end
 
       return Header.new(values)
