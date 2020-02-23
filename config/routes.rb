@@ -1,13 +1,15 @@
 LOCALE_SEGMENT = Regexp.new(Rails.application.config.i18n.available_locales.join('|').downcase)
 
 Rails.application.routes.draw do
+  devise_for :users, only: :omniauth_callbacks, controllers: { omniauth_callbacks: 'users/omniauth_callbacks'}
+
   scope "(:locale)", locale: LOCALE_SEGMENT do
     root to: "maps#index"
     get 'about', to: "pages#about"
     get 'admin', to: "pages#admin"
     get 'results', to: "maps#results"
 
-    devise_for :users
+    devise_for :users, skip: :omniauth_callbacks
     resources :reports
 
     scope '/admin' do
