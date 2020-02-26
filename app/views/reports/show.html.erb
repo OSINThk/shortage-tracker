@@ -1,40 +1,38 @@
-<p>
-  <strong><%= t('.coordinates') %></strong>
-  <%= @report.coordinates %>
-</p>
-
-<p>
-  <strong><%= t('.notes') %></strong>
-  <%= @report.notes %>
-</p>
-
-<% if current_user.id != @report.user_id %>
-<p>
-  <strong><%= t('.user_id') %></strong>
-  <%= @report.user_id %>
-</p>
-<% end %>
-
-<p>
-  <strong><%= t('.product_detail') %></strong>
-</p>
-
-<ul>
-  <% @report.product_detail.each do |product_detail| %>
-    <li>
-      <dl>
-        <dt><%= t('.product.name') %></dt>
-          <dd><%= find_localization(product_detail.product, @active_locale) %></dd>
-        <dt><%= t('.product.scarcity') %></dt>
-          <dd><%= product_detail.scarcity %></dd>
-        <dt><%= t('.product.price') %></dt>
-          <dd><%= product_detail.price %></dd>
-        <dt><%= t('.product.notes') %></dt>
-          <dd><%= product_detail.notes %></dd>
-      </dl>
-    </li>
+<div class="cbox">
+  <p>
+    <strong><%= t('.coordinates') %></strong>
+    <%= @report.coordinates %>
+  </p>
+  <p>
+    <strong><%= t('.notes') %></strong>
+    <%= @report.notes %>
+  </p>
+  <% if current_user.id != @report.user_id %>
+    <p>
+      <strong><%= t('.user_id') %></strong>
+      <%= @report.user_id %>
+    </p>
   <% end %>
-</ul>
-
-<%= link_to t('.edit_report'), edit_report_path(@report) %> |
-<%= link_to t('.reports'), reports_path %>
+  <div class="card border-primary mb-3" style="max-width: 20rem;">
+    <div class="card-header">
+      <h4> <%= t('.product_detail') %> </h4>
+    </div>
+    <div class="card-body">
+      <% @report.product_detail.each do |product_detail| %>
+        <dl>
+          <dt><%= t('.product.name') %></dt>
+          <dd><%= find_localization(product_detail.product, @active_locale) %></dd>
+          <dt><%= t('.product.scarcity') %></dt>
+          <dd><%= product_detail.scarcity %></dd>
+          <dt><%= t('.product.price') %></dt>
+          <dd><%= product_detail.price %></dd>
+          <dt><%= t('.product.notes') %></dt>
+          <dd><%= product_detail.notes %></dd>
+        </dl>
+        <hr>
+      <% end %>
+    </div>
+  </div>
+  <%= link_to t('.edit_report'), edit_report_path(@report) %> |
+  <%= link_to t('.reports'), reports_path %>
+</div>

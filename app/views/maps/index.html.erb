@@ -1,23 +1,25 @@
-<style>
-#info {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  background-color: white;
-  padding: 25px 25px 25px 25px;
-  max-width: 490px;
-}
-html, body, #map, #map-container {
-    padding: 0;
-    margin: 0;
-    height: 100%;
-    width: 100vw;
-}
+  <style>
+  #info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: white;
+    padding: 25px 25px 25px 25px;
+    max-width: 490px;
+  }
+  html, body, #map, #map-container {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100vw;
+  }
 </style>
 <div id="map-container">
   <div id="info">
-    <%= render :partial => 'partials/header' %>
+    <!-- <%= render :partial => 'partials/header' %>
+        Is this line supposed to be commented out?
+        Maps disappear if uncommented -->
     <h2><%= t('.page_title') %></h2>
     <% if current_user.nil? %>
       <p><%=
@@ -45,10 +47,8 @@ html, body, #map, #map-container {
       %></p>
     <% end %>
   </div>
-
   <div id="map"></div>
 </div>
-
 <script type="text/javascript">
   var map = L.map("map", { zoomControl: false }).setView([<%= @latitude %>, <%= @longitude %>], 13);
   var localization = <%= raw @localization.to_json %>;
