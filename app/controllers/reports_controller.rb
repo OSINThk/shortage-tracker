@@ -1,8 +1,11 @@
 class ReportsController < ApplicationController
   before_action :set_report, only: [:show, :edit, :update, :destroy]
   before_action :set_products, only: [:new, :edit, :create, :update]
-  before_action :set_lat_long, only: [:new, :edit]
-  before_action :authenticate_user!
+  before_action :set_lat_long, only: [:new, :edit, :create_bot_report]
+  before_action :authenticate_user!, except: [:create_bot_report]
+
+  skip_before_action :verify_authenticity_token, only: [:create_bot_report]
+
 
   # GET /reports
   # GET /reports.json
@@ -36,20 +39,7 @@ class ReportsController < ApplicationController
   def create
     authorize Report
 
-    passed_params = report_params
-
-    # Create a mutable version of the params.
-    augmented_params = passed_params.except(:lat, :long).to_hash
-
-    # Augment the parameters with server-known information.
-    augmented_params["ip"] = request.remote_ip
-    augmented_params["geo_ip"] = get_geo_ip(request.remote_ip)
-    augmented_params["user_id"] = current_user.id
-
-    # Construct the actual WKT.
-    augmented_params["coordinates"] = "POINT(#{passed_params["long"]} #{passed_params["lat"]})"
-
-    @report = Report.new(augmented_params)
+    handle_report_submission
 
     respond_to do |format|
       if @report.save
@@ -61,6 +51,23 @@ class ReportsController < ApplicationController
       end
     end
   end
+
+  def create_bot_report
+     if request.headers["X-Telegram-Bot-Key"] != ENV["TELEGRAM_BOT_SECRET"]
+      return head :unauthorized
+    end
+
+    handle_report_submission
+
+    respond_to do |format|
+      if @report.save
+        format.json { render :show, status: :created, location: @report }
+      else
+        format.json { render json: @report.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
 
   # PATCH/PUT /reports/1
   # PATCH/PUT /reports/1.json
@@ -160,5 +167,31 @@ class ReportsController < ApplicationController
           :_destroy
         ]
       )
+    end
+
+    def handle_report_submission
+      passed_params = report_params
+
+      # Create a mutable version of the params.
+      augmented_params = passed_params.except(:lat, :long).to_hash
+
+      # Augment the parameters with server-known information.
+      augmented_params["ip"] = request.remote_ip
+      augmented_params["geo_ip"] = get_geo_ip(request.remote_ip)
+
+      if current_user&.id?
+        augmented_params["user_id"] = current_user&.id
+      else
+        u = User.find_or_create_by(email: "bot@osinthk.org")
+        u.save(validate: false)
+        augmented_params["user_id"] = u.id
+      end
+
+      puts "hello! #{augmented_params["user_id"]}, #{u}"
+
+      # Construct the actual WKT.
+      augmented_params["coordinates"] = "POINT(#{passed_params["long"]} #{passed_params["lat"]})"
+
+      @report = Report.new(augmented_params)
     end
 end
