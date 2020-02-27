@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     get 'about', to: "pages#about"
     get 'admin', to: "pages#admin"
     get 'results', to: "maps#results"
-    post 'create_bot_report', to: "bot#create_bot_report"
+    post 'create_bot_report', to: "reports#create_bot_report"
 
     devise_for :users
     resources :reports
