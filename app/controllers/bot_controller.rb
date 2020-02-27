@@ -6,7 +6,7 @@ class BotController < ApplicationController
   # POST /bot_report
   def create_bot_report
 
-    if request.headers["X-Telegram-Bot-Key"] != 'secret_key'
+    if request.headers["X-Telegram-Bot-Key"] != ENV["TELEGRAM_BOT_SECRET"]
       return head :unauthorized
     end
 
