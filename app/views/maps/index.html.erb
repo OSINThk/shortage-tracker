@@ -53,4 +53,5 @@
   var map = L.map("map", { zoomControl: false }).setView([<%= @latitude %>, <%= @longitude %>], 13);
   var localization = <%= raw @localization.to_json %>;
 </script>
+
 <%= javascript_pack_tag 'home_page_map' %>
