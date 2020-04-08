@@ -1,9 +1,18 @@
-L.tileLayer(
+/*L.tileLayer(
   "https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token=" +
     "sk.eyJ1Ijoib3NpbnRoayIsImEiOiJjazZkYWRueHEwNTRkM2VtdmNnZWwwbmV4In0.B42ECPkQldyVNtvTplkY3A",
   {
     attribution:
       '© <a href="https://www.mapbox.com/feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    maxZoom: 18,
+    setView: true
+  }
+).addTo(map);*/
+L.tileLayer(
+  "https://api.maptiler.com/maps/darkmatter/{z}/{x}/{y}.png?key=x2KQlEwh298qpEFMar2A",
+  {
+    attribution:
+      '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
     maxZoom: 18,
     setView: true
   }
