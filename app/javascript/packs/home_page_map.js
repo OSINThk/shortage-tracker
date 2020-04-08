@@ -8,15 +8,10 @@
     setView: true
   }
 ).addTo(map);*/
-L.tileLayer(
-  "https://api.maptiler.com/maps/darkmatter/{z}/{x}/{y}.png?key=x2KQlEwh298qpEFMar2A",
-  {
-    attribution:
-      '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
-    maxZoom: 18,
-    setView: true
-  }
-).addTo(map);
+const tileUrl = 'https://api.maptiler.com/maps/darkmatter/{z}/{x}/{y}.png?key=x2KQlEwh298qpEFMar2A';
+const attribution = '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>';
+
+L.tileLayer(tileUrl, { attribution, maxZoom: 18, setView: true }).addTo(map);
 
 // Position the zoomcontrol where we want it
 L.control
