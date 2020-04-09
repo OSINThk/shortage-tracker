@@ -64,9 +64,6 @@ let handleLoad = () => {
         popup = document.createElement("div");
         popup.style.maxHeight = "300px";
         popup.style.overflowX = "auto";
-        reportTime = document.createElement("h6");
-        reportTime.appendChild(document.createTextNode(report.created_at)); 
-        popup.appendChild(reportTime);
 
         reportNotes = document.createElement("p");
         reportNotes.appendChild(document.createTextNode(report.notes));
@@ -94,6 +91,10 @@ let handleLoad = () => {
           productNotes = document.createElement("p");
           productNotes.appendChild(document.createTextNode(product.notes));
           popup.appendChild(productNotes);
+
+          reportTime = document.createElement("h6");
+          reportTime.appendChild(document.createTextNode(report.created_at)); 
+          popup.appendChild(reportTime);
         });
 
         L.marker([report.lat, report.long])
