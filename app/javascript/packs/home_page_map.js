@@ -8,7 +8,7 @@
     setView: true
   }
 ).addTo(map);*/
-//const tileUrl = 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png'; 
+const tileUrl = 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png'; 
 const attribution = '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>';
 
 
