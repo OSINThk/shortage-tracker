@@ -14,7 +14,7 @@ const attribution = '© <a href="https://www.mapbox.com/feedback/">Mapbox</a> ©
 L.tileLayer(tileUrl, { attribution, maxZoom: 18, setView: true }).addTo(map);
 
 // Position the zoomcontrol where we want it
-L.control
+L.control 
   .zoom({
     position: "topright"
   })
@@ -65,7 +65,7 @@ let handleLoad = () => {
         popup.style.maxHeight = "300px";
         popup.style.overflowX = "auto";
         reportTime = document.createElement("h6");
-        reportTime.appendChild(document.createTextNode(report.created_at));
+        reportTime.appendChild(document.createTextNode(report.created_at)); 
         popup.appendChild(reportTime);
 
         reportNotes = document.createElement("p");
