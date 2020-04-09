@@ -8,8 +8,10 @@
     setView: true
   }
 ).addTo(map);*/
-const tileUrl = 'https://api.mapbox.com/styles/v1/john-525/ck8sgtdwd0ij11is59scz4kar/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoiam9obi01MjUiLCJhIjoiY2s4c2dsM2dhMGZ2bTNsbGoyNGViZ3FvZiJ9.IAIhKh1bJxHnXGU_toe-sQ';
-const attribution = '© <a href="https://www.mapbox.com/feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>';
+const tileUrl = 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png';
+const attribution = '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>';
+
+
 
 L.tileLayer(tileUrl, { attribution, maxZoom: 18, setView: true }).addTo(map);
 
