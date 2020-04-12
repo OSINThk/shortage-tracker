@@ -47,19 +47,18 @@
           }
         )
       %></p>
-    <% else %>
-      <p><%=
-        t(
-          '.authenticated_instructions.sentence_html',
-          {
-            link: link_to(
-              t('.authenticated_instructions.new_report'),
-              new_report_path
-            )
-          }
-        )
-      %></p>
     <% end %>
+    <p><%=
+      t(
+        '.authenticated_instructions.sentence_html',
+        {
+          link: link_to(
+            t('.authenticated_instructions.new_report'),
+            new_report_path
+          )
+        }
+      )
+    %></p>
   </div>
   <div id="map"></div>
 </div>

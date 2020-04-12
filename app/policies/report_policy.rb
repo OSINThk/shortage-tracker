@@ -4,12 +4,11 @@ class ReportPolicy < ApplicationPolicy
   end
 
   def show?
-    roles = get_roles(user)
-    roles.include?('admin') || record.user_id == user.id
+    true
   end
 
   def create?
-    !user.nil?
+    true
   end
 
   def new?
@@ -17,8 +16,7 @@ class ReportPolicy < ApplicationPolicy
   end
 
   def update?
-    roles = get_roles(user)
-    roles.include?('admin') || record.user_id == user.id
+    true
   end
 
   def edit?

@@ -2,7 +2,7 @@ class ReportsController < ApplicationController
   before_action :set_report, only: [:show, :edit, :update, :destroy]
   before_action :set_products, only: [:new, :edit, :create, :update]
   before_action :set_lat_long, only: [:new, :edit, :create_bot_report]
-  before_action :authenticate_user!, except: [:create_bot_report]
+  before_action :authenticate_user!, only: [:index, :destroy]
 
   skip_before_action :verify_authenticity_token, only: [:create_bot_report]
 

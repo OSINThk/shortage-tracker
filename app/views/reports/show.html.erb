@@ -7,7 +7,7 @@
     <strong><%= t('.notes') %></strong>
     <%= @report.notes %>
   </p>
-  <% if current_user.id != @report.user_id %>
+  <% if user_signed_in? && current_user.id != @report.user_id %>
     <p>
       <strong><%= t('.user_id') %></strong>
       <%= @report.user_id %>
@@ -33,6 +33,8 @@
       <% end %>
     </div>
   </div>
-  <%= link_to t('.edit_report'), edit_report_path(@report) %> |
-  <%= link_to t('.reports'), reports_path %>
+  <%= link_to t('.edit_report'), edit_report_path(@report) %>
+  <% if user_signed_in? && current_user.id != @report.user_id %>
+    | <%= link_to t('.reports'), reports_path %>
+  <% end %>
 </div>
