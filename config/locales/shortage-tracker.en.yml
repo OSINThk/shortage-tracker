@@ -18,6 +18,8 @@ en:
       unauthenticated_instructions:
         new_user_session: "log in"
         sentence_html: "Please %{link} to add a report to the map."
+    footer:
+      new_report: "New Report"
   pages:
     admin:
       application_administration: "Application Administration"

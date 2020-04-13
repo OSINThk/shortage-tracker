@@ -43,7 +43,7 @@ class ReportsController < ApplicationController
 
     respond_to do |format|
       if @report.save
-        format.html { redirect_to @report, notice: 'Report was successfully created.' }
+        format.html { redirect_to root_path_with_report_location, notice: 'Report was successfully created.' }
         format.json { render :show, status: :created, location: @report }
       else
         format.html { render :new }
@@ -84,7 +84,7 @@ class ReportsController < ApplicationController
 
     respond_to do |format|
       if @report.update(augmented_params)
-        format.html { redirect_to @report, notice: 'Report was successfully updated.' }
+        format.html { redirect_to root_path_with_report_location, notice: 'Report was successfully updated.' }
         format.json { render :show, status: :ok, location: @report }
       else
         format.html { render :edit }
@@ -193,5 +193,12 @@ class ReportsController < ApplicationController
       augmented_params["coordinates"] = "POINT(#{passed_params["long"]} #{passed_params["lat"]})"
 
       @report = Report.new(augmented_params)
+    end
+
+    def root_path_with_report_location
+      root_path({
+        latitude: @report.lat,
+        longitude: @report.long,
+      }).gsub('?', '/?')
     end
 end

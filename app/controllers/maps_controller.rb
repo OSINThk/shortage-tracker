@@ -10,9 +10,9 @@ class MapsController < ApplicationController
       @latitude = result["location"]["latitude"]
       @longitude = result["location"]["longitude"]
     else
-      # Default to Hong Kong
-      @latitude = "22.29"
-      @longitude = "114.185"
+      # Set requested latitude and longitude or Default to Hong Kong
+      @latitude = params[:latitude].presence || "22.29"
+      @longitude = params[:longitude].presence || "114.185"
     end
 
     @localization = {

@@ -30,37 +30,10 @@
   }
 </style>
 <div id="map-container">
-  <div id="info">
-    <!-- <%= render :partial => 'partials/header' %>
-        Is this line supposed to be commented out?
-        Maps disappear if uncommented -->
-    <h2><%= t('.page_title') %></h2>
-    <% if current_user.nil? %>
-      <p><%=
-        t(
-          '.unauthenticated_instructions.sentence_html',
-          {
-            link: link_to(
-              t('.unauthenticated_instructions.new_user_session'),
-              new_user_session_path
-            )
-          }
-        )
-      %></p>
-    <% end %>
-    <p><%=
-      t(
-        '.authenticated_instructions.sentence_html',
-        {
-          link: link_to(
-            t('.authenticated_instructions.new_report'),
-            new_report_path
-          )
-        }
-      )
-    %></p>
-  </div>
   <div id="map"></div>
+  <div id="footer-wrapper">
+    <%= render "footer" %>
+  </div>
 </div>
 <script type="text/javascript">
 	var map = L.map("map", { zoomControl: false }).setView([<%= @latitude %>, <%= @longitude %>], 13);
