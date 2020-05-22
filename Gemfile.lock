@@ -128,7 +128,7 @@ GEM
     orm_adapter (0.5.0)
     pg (1.2.2)
     public_suffix (4.0.3)
-    puma (4.3.1)
+    puma (4.3.5)
       nio4r (~> 2.0)
     pundit (2.1.0)
       activesupport (>= 3.0.0)
@@ -248,7 +248,7 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   maxmind-db (~> 1.1)
   pg (>= 0.18, < 2.0)
-  puma (~> 4.1)
+  puma (~> 4.3)
   pundit (~> 2.1)
   rails (~> 6.0.2, >= 6.0.2.1)
   rails-i18n
