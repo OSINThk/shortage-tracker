@@ -44,7 +44,7 @@ rake maxmind
 rails s
 ```
 
-Sign up for a [maxmind account](https://www.maxmind.com) in order to get a license key.
+Sign up for a [maxmind account](https://www.maxmind.com/en/geolite2/signup) in order to get a license key.
 
 Sample request: `http://localhost:3000/maptest?lat=114.029&lon=22.344&dist=1500&since=2020-01-01`
 
@@ -57,6 +57,27 @@ Hints for setup (MacOS):
 5. You might need to manually create `/usr/local/var/postgres` and give it the right permissions, then restart PG using `brew services restart postgres`
 
 Anything that you find incomplete in the setup, please help us document!
+
+## Heroku Setup
+
+Here are steps for setting this up on Heroku:
+
+Prerequisites:
+
+1. Create a Heroku App and connect it to a Github repo (it will need to be in an organization you are part of, so you may have to Fork this repo). See [here](https://devcenter.heroku.com/articles/github-integration) for more info.
+2. Install the Heroku CLI as you will need it to interact with your App. See [here](https://devcenter.heroku.com/categories/command-line) for more info.
+3. Install PostgreSQL, which is the database used by this app. You will need this to interact with the db on Heroku through the Heroku CLI. See [here](https://www.postgresql.org/) for more info.
+4. Sign up for a Maxmind account. [This link](https://www.maxmind.com/en/geolite2/signup) should be the quickest way to sign up. Once you've done so, go to your account under Services | My License Key and generate a license key.
+
+Once you have the above, run these steps to install PostGIS (required for the geographic info)
+
+1. `heroku psql --app <app name from Heroku>` should open up the pqsl command line and connect you to your Heroku psql instance. You should see `--> Connecting to postgresql-encircled-91293` and you can verify that db name in the Heroku webpage.
+2. run `create extension postgis;` from that command line.
+3. once that is done, verify it is installed by running `SELECT postgis_version();` and ensuring it returns a valid version string, indicating it is installed.
+
+Lastly, set a Heroku config var for your Maxmind license key: `heroku config:set MAXMIND_LICENSE_KEY=<license key> --app <app name>`
+
+Once these are done your app should deploy successfully. If you have questions or issues, join the Telegram group chat below for help.
 
 ## Contributing
 
